@@ -1,7 +1,7 @@
 ---
 name: User Story
 about: User Story for Kanban board
-title: As a [USER ROLE], I can [ACTION], so that [GOAL]
+title: ''
 labels: new feature
 assignees: ''
 
