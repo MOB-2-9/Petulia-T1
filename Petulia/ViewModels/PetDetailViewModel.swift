@@ -26,7 +26,6 @@ struct PetDetailViewModel: Identifiable, Hashable, Codable {
   var status: String
   var distance: String
   var shelterId: String
-  var contact: Contact?
   var postedDate: String
   
   init(model: Animal) {
@@ -45,7 +44,6 @@ struct PetDetailViewModel: Identifiable, Hashable, Codable {
     self.status = model.status ?? "Unknown"
     self.distance = model.distance != nil ? "\(String(format: "%.1f", model.distance!)) miles" : ""
     self.shelterId = model.organizationID ?? ""
-    self.contact = model.contact
     let date = Date.date(dateString: model.publishedAt!)
     self.postedDate = date?.timeAgo() ?? "Some time ago"
   }
@@ -96,37 +94,6 @@ extension PetDetailViewModel {
     ]
   }
 
-  var postcode: String {
-    contact?.address?.postcode ?? ""
-  }
-
-  var city: String {
-    contact?.address?.city ?? ""
-  }
-  var address: String {
-    var address = ""
-    if let zipcode = contact?.address?.postcode {
-      address = "\(zipcode)"
-    }
-    if let city = contact?.address?.city {
-      address += " ‧ \(city)"
-    }
-    if let country = contact?.address?.country {
-      address += " ‧ \(country)"
-    }
-    if address.isEmpty {
-      address = "Not Available"
-    }
-    return address
-  }
-  
-  var shelterPhone: String {
-    if let phone = contact?.phone {
-      return phone
-    }
-    return "Not Available"
-  }
-  
 }
 
 

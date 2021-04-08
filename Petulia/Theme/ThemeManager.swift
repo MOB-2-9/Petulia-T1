@@ -56,9 +56,5 @@ final class ThemeManager: ObservableObject {
     let stringColor = Color.string(from: accentColor)
     prefferedAccentColor = stringColor
   }
-
-  func setToDarkMode(_ value: Bool) {
-    isDark = value
-  }
   
 }

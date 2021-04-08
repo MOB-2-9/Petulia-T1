@@ -24,12 +24,11 @@ struct Animal: Codable, Identifiable {
   let photos: [Photo]?
   let distance: Double?
   let breeds: Breed?
-  var contact: Contact?
   
   enum CodingKeys: String, CodingKey {
     case id
     case organizationID = "organization_id"
-    case url, type, age, tags, attributes, name, species, size, gender, animalDescription, description, photos, distance, breeds, contact
+    case url, type, age, tags, attributes, name, species, size, gender, animalDescription, description, photos, distance, breeds
     case status
     case publishedAt = "published_at"
   }
@@ -97,11 +96,6 @@ enum Size: String, Codable {
   case small, medium, large, full
 }
 
-// MARK: - Contact
-struct Contact: Codable {
-  let email, phone: String?
-  let address: Address?
-}
 
 // MARK: - Address
 struct Address: Codable {

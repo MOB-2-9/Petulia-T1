@@ -34,16 +34,7 @@ struct PetRow: View {
             .foregroundColor(Color.primary)
           Text("\(viewModel.age ) \(viewModel.breed )")
             .font(.callout)
-
-          VStack(alignment: .leading) {
-            HStack {
-              Text("\(viewModel.postcode) ")
-              +
-              Text("\(viewModel.city.capitalized)")
-            }
-          }
-          .font(.callout)
-          .lineLimit(1)
+     
         }
         .foregroundColor(Color.secondary)
 

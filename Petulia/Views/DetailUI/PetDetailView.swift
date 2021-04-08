@@ -20,8 +20,8 @@ struct PetDetailView: View {
   @State private var showAdoptionForm: Bool = false
   @State private var zoomingImage = false
   
-   @State var result: Result<MFMailComposeResult, Error>? = nil
-   @State private var showingMailView = false
+  @State var result: Result<MFMailComposeResult, Error>? = nil
+  @State private var showingMailView = false
   
   var body: some View {
     ScrollView(.vertical, showsIndicators: false) {
@@ -40,27 +40,12 @@ struct PetDetailView: View {
           characteristicScrollView()
           
           descriptionView()
-          .padding()
+            .padding()
           Spacer()
-          
-          contactView()
-          .padding()
         }
       }
     }
     .navigationBarTitle("", displayMode: .inline)
-    .toolbar {
-        ToolbarItem(placement: .navigationBarTrailing) {
-            // Sharing
-            #warning("TODO: Implement iPad sharing")
-            Button(action: {
-                sharePetInfo()
-            }) {
-              Image(systemName: "square.and.arrow.up")
-            }
-            .disabled(UIDevice.current.userInterfaceIdiom == .pad)
-        }
-    }
   }
 }
 
@@ -211,80 +196,14 @@ private extension PetDetailView {
     }
   }
   
-  func contactView() -> some View {
-    HStack {
-      VStack(alignment: .leading) {
-        Label(viewModel.address, systemImage: "map.fill")
-          .labelStyle(ColoredLabelStyle(textWeight: .light,
-                                        textScaleFactor: 0.5,
-                                        iconColor: .accentColor))
-        Label(viewModel.shelterPhone, systemImage: "phone.bubble.left.fill")
-          .labelStyle(ColoredLabelStyle(textWeight: .bold,
-                                        textScaleFactor: 0.5,
-                                        iconColor: .accentColor))
-      }
-      .font(.headline)
-      Spacer()
-      
-      if viewModel.contact?.email != nil {
-        Button(action: {showingMailView.toggle()}) {
-          Label("Send Email", systemImage: "envelope.circle")
-        }
-        .foregroundColor(.white)
-        .padding()
-        .background(Color.accentColor)
-        .cornerRadius(10)
-        .disabled(!MFMailComposeViewController.canSendMail())
-        .sheet(isPresented: $showingMailView) {
-          readyMailView()
-        }
-      }
-    }
-  }
-  
-  //MARK:- Emailing
-  //TODO: Use an html template from the bundle
-  func readyMailView() -> some View {
-    let email = viewModel.contact?.email ?? ""
-    let species = viewModel.species == "N/A" ? "pet" : viewModel.species.lowercased()
-    let message =
-      """
-      <p>Hello, I'm looking to adopt a \(species) and would like more information. Here are the details: </p>
-      <p>ID: \(viewModel.id)</p>
-      <p>Name: \(viewModel.name)</p>
-      <p>Species: \(viewModel.species)</p>
-      <p>Shelter ID: \(viewModel.shelterId)</p>
-      <p>City: \(viewModel.address)</p>
-      <p>I have questions about....</p>
-      </br>
-      <p>Thank you for all your work and hope to hear from you soon. Best regards,</p>
-      <p></p>
-      """
-    return MailView(result: self.$result, recipient: email, message: message)
-  }
-  
-  //MARK:- Share Sheet
-  func sharePetInfo() {
-    let name = viewModel.name
-    let breed = viewModel.breed
-    let location = viewModel.address
-    let shelterPhone = viewModel.shelterPhone
-    let cta = "Let's find a home to this beauty 🥰"
-    let message = "\(name) is a lovely \(breed) \nLocation: \(location) \nShelter Phone: \(shelterPhone) \n\(cta)"
-    let listingUrl = viewModel.url
-    
-    let shareViewController = UIActivityViewController(activityItems: [message, listingUrl], applicationActivities: nil)
-    UIApplication.shared.windows.first?.rootViewController?.present(shareViewController, animated: true, completion: nil)
-    
-  }
 }
 
 // MARK: - PREVIEWS
 struct PetDetailView_Previews: PreviewProvider {
-    
-    static var previews: some View {
-        PetDetailView(viewModel: PetDetailViewModel(model: Animal.getAnAnimal()))
-            .environmentObject(FavoriteController())
-            .environmentObject(ThemeManager())
-    }
+  
+  static var previews: some View {
+    PetDetailView(viewModel: PetDetailViewModel(model: Animal.getAnAnimal()))
+      .environmentObject(FavoriteController())
+      .environmentObject(ThemeManager())
+  }
 }

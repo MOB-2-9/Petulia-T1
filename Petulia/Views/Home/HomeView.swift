@@ -13,18 +13,13 @@ struct HomeView: View {
   @EnvironmentObject var favorites: FavoriteController
   @EnvironmentObject var theme: ThemeManager
   
-  
   @AppStorage(Keys.savedPostcode) var postcode = ""
   @AppStorage(Keys.isDark) var isDark = false
-  @AppStorage(Keys.showOnlyPostWithImages) var showOnlyWithImages = true
-
+  
   @State private var typing = false
   @State private var showSettingsSheet = false
   
   private var filteredPets: [PetDetailViewModel] {
-    if showOnlyWithImages {
-      return petDataController.allPets.filter { !$0.photos.isEmpty}
-    }
     return petDataController.allPets
   }
 
@@ -90,7 +85,7 @@ private extension HomeView {
       title: "Recent \(petDataController.petType.currentPetType.name)".capitalized,
       isLoading: petDataController.isLoading,
       primaryAction: { requestWebData() },
-      settingsAction: { showOnlyWithImages = false }
+      settingsAction: { }
     )
   }
   
