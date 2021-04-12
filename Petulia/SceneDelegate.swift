@@ -23,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     let petDataController = PetDataController()
     let favoriteController = FavoriteController()
     let themeManager = ThemeManager()
-    let contentView = HomeView()
+    let contentView = MainView()
       .environmentObject(petDataController)
       .environmentObject(favoriteController)
       .environmentObject(themeManager)
