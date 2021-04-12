@@ -21,32 +21,34 @@ class APIService: NetworkService {
     guard let filePath = Bundle.main.path(forResource: "Petfinder-Info", ofType: "plist") else {
       fatalError("Petfinder-Info file NOT found! Create it and add your API Key and Secret")
     }
-    
+
     let plist = NSDictionary(contentsOfFile: filePath)
     guard let loadedKey = plist?.object(forKey: "API_KEY") as? String else {
       fatalError("API_KEY NOT found in Petfinder-Info.plist")
     }
-    
+
     if(loadedKey.starts(with: "_")) {
       fatalError("Register and get your own Petfinder API Key at: https://www.petfinder.com/developers/v2/docs/")
     }
     return loadedKey
+//    return "f7hUfK2AAXwpDwENr1jADlDlgA2ZuK2Tih5gP5XRpsE8rddhCZ"
   }
   
   private var secret: String {
     guard let filePath = Bundle.main.path(forResource: "Petfinder-Info", ofType: "plist") else {
       fatalError("Petfinder-Info file NOT found!")
     }
-    
+
     let plist = NSDictionary(contentsOfFile: filePath)
     guard let loadedSecret = plist?.object(forKey: "API_SECRET") as? String else {
       fatalError("API_SECRET NOT found in Petfinder-Info.plist")
     }
-    
+
     if(loadedSecret.starts(with: "_")) {
       fatalError("Register and get your own Petfinder API Secret at: https://www.petfinder.com/developers/v2/docs/")
     }
     return loadedSecret
+//    return "KVFwDX2PvfoFk6cSz3QmcNZOgi3V3VcWjth6g2LH"
   }
 
   private var token: String {
