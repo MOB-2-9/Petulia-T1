@@ -18,11 +18,11 @@ struct MainView: View {
               icon: { Image(systemName: "house.fill") }
             )
           }
-        SettingsView()
+        OrganizationView()
           .tabItem {
             Label(
-              title: { Text("Settings") },
-              icon: { Image(systemName: "gear") }
+              title: { Text("Organizations") },
+              icon: { Image(systemName: "person.3.fill") }
             )
           }
       }

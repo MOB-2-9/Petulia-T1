@@ -65,6 +65,7 @@
 		79FF944C256A562D00149140 /* Collection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FF944B256A562D00149140 /* Collection+Extension.swift */; };
 		CF82E223261FC4DF00175173 /* Petfinder-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF82E222261FC4DF00175173 /* Petfinder-Info.plist */; };
 		CF82E2272624E24700175173 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF82E2262624E24700175173 /* MainView.swift */; };
+		CF82E22C2624E69600175173 /* OrganizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF82E22B2624E69600175173 /* OrganizationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -126,6 +127,7 @@
 		79FF944B256A562D00149140 /* Collection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extension.swift"; sourceTree = "<group>"; };
 		CF82E222261FC4DF00175173 /* Petfinder-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Petfinder-Info.plist"; sourceTree = "<group>"; };
 		CF82E2262624E24700175173 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		CF82E22B2624E69600175173 /* OrganizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,6 +267,7 @@
 		69E4432224E87DAE00B8B3F1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CF82E22A2624E67E00175173 /* Organizations */,
 				CF82E2252624E23700175173 /* TabBar */,
 				79FC94782584D48D001735C4 /* Home */,
 				79DD20B02595D7DA00B81ECB /* Settings */,
@@ -374,6 +377,14 @@
 				CF82E2262624E24700175173 /* MainView.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		CF82E22A2624E67E00175173 /* Organizations */ = {
+			isa = PBXGroup;
+			children = (
+				CF82E22B2624E69600175173 /* OrganizationView.swift */,
+			);
+			path = Organizations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -502,6 +513,7 @@
 				797A0ECD25ACA8B900E40F9E /* FilterBarView.swift in Sources */,
 				6983153D24E853B600E1566A /* HomeView.swift in Sources */,
 				7905B21B2577AC1F00A55F37 /* String+Extension.swift in Sources */,
+				CF82E22C2624E69600175173 /* OrganizationView.swift in Sources */,
 				7982A49A25711317005334DD /* FavoriteController.swift in Sources */,
 				794E2CD625AB14E200234FDA /* SectionView.swift in Sources */,
 				79792A6825ADD0CA00352FDD /* SettingsButton.swift in Sources */,
