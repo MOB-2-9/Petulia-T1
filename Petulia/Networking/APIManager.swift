@@ -31,7 +31,6 @@ class APIService: NetworkService {
       fatalError("Register and get your own Petfinder API Key at: https://www.petfinder.com/developers/v2/docs/")
     }
     return loadedKey
-//    return "f7hUfK2AAXwpDwENr1jADlDlgA2ZuK2Tih5gP5XRpsE8rddhCZ"
   }
   
   private var secret: String {
@@ -48,7 +47,6 @@ class APIService: NetworkService {
       fatalError("Register and get your own Petfinder API Secret at: https://www.petfinder.com/developers/v2/docs/")
     }
     return loadedSecret
-//    return "KVFwDX2PvfoFk6cSz3QmcNZOgi3V3VcWjth6g2LH"
   }
 
   private var token: String {
