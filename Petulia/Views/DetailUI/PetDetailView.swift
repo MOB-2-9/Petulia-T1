@@ -10,7 +10,7 @@ import SwiftUI
 import Foundation
 import MessageUI
 
-struct PetDetailView: View {
+struct PetDetailView: View{
   
   var viewModel: PetDetailViewModel
   @EnvironmentObject var favorites: FavoriteController
@@ -23,6 +23,12 @@ struct PetDetailView: View {
   @State var result: Result<MFMailComposeResult, Error>? = nil
   @State private var showingMailView = false
   
+  /// The delegate required by `MFMailComposeViewController`
+  private let mailComposeDelegate = MailDelegate()
+  
+  /// The delegate required by `MFMessageComposeViewController`
+  private let messageComposeDelegate = MessageDelegate()
+  
   var body: some View {
     ScrollView(.vertical, showsIndicators: false) {
       VStack {
@@ -34,6 +40,21 @@ struct PetDetailView: View {
               .font(.title2)
               .fontWeight(.light)
             Spacer()
+            Menu {
+              if let unwrappedPhone = viewModel.contact.phone {
+                Button(unwrappedPhone, action: callPhone)
+              } else {
+                Text("No Number")
+              }
+              
+              if let unwrappedEmail = viewModel.contact.email {
+                Button(unwrappedEmail, action: presentMailCompose)
+              } else {
+                Text("No Email")
+              }
+            } label: {
+              Label("Contact", systemImage: "paperplane")
+            }
           }
           .padding()
           
@@ -196,6 +217,76 @@ private extension PetDetailView {
     }
   }
   
+  
+  
+}
+
+extension PetDetailView{
+  //MARK: - Contact
+  
+  /// Delegate for view controller as `MFMailComposeViewControllerDelegate`
+  private class MailDelegate: NSObject, MFMailComposeViewControllerDelegate {
+    
+    func mailComposeController(_ controller: MFMailComposeViewController,
+                               didFinishWith result: MFMailComposeResult,
+                               error: Error?) {
+//      Customize Here
+      controller.dismiss(animated: true)
+    }
+    
+  }
+  
+  /// Present an mail compose view controller modally in UIKit environment
+  private func presentMailCompose() {
+    guard MFMailComposeViewController.canSendMail() else {
+      return
+    }
+    let vc = UIApplication.shared.keyWindow?.rootViewController
+    
+    let composeVC = MFMailComposeViewController()
+    composeVC.mailComposeDelegate = mailComposeDelegate
+    
+    composeVC.setToRecipients([viewModel.contact.email!])
+    
+    vc?.present(composeVC, animated: true)
+  }
+  
+  
+  /// Phone Call
+  func callPhone(){
+    let telephone = "tel://"
+    let formattedString = telephone + viewModel.contact.phone!
+    guard let url = URL(string: formattedString) else { return }
+    print(url)
+    UIApplication.shared.open(url)
+  }
+}
+
+extension PetDetailView {
+  
+  /// Delegate for view controller as `MFMessageComposeViewControllerDelegate`
+  private class MessageDelegate: NSObject, MFMessageComposeViewControllerDelegate {
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+      // Customize here
+      controller.dismiss(animated: true)
+    }
+    
+  }
+  
+  /// Present an message compose view controller modally in UIKit environment
+  private func presentMessageCompose() {
+    guard MFMessageComposeViewController.canSendText() else {
+      return
+    }
+    let vc = UIApplication.shared.keyWindow?.rootViewController
+    
+    let composeVC = MFMessageComposeViewController()
+    composeVC.messageComposeDelegate = messageComposeDelegate
+    
+//    Customize Here
+    
+    vc?.present(composeVC, animated: true)
+  }
 }
 
 // MARK: - PREVIEWS
