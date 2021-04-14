@@ -17,6 +17,7 @@ struct Animal: Codable, Identifiable {
   let type, species: String?
   let age, gender, size: String?
   let tags: [String]?
+  let contact: Contact?
   let attributes: Attributes?
   let name, animalDescription, description: String?
   let status: String?
@@ -28,7 +29,7 @@ struct Animal: Codable, Identifiable {
   enum CodingKeys: String, CodingKey {
     case id
     case organizationID = "organization_id"
-    case url, type, age, tags, attributes, name, species, size, gender, animalDescription, description, photos, distance, breeds
+    case url, type, age, tags, contact, attributes, name, species, size, gender, animalDescription, description, photos, distance, breeds
     case status
     case publishedAt = "published_at"
   }
@@ -89,6 +90,16 @@ struct Photo: Codable {
     case .full:
       return self.full ?? noUrlString
     }
+  }
+}
+
+struct Contact: Codable{
+  var email: String?
+  var phone: String?
+  
+  enum CodingKeys: String, CodingKey {
+    case email = "email"
+    case phone = "phone"
   }
 }
 

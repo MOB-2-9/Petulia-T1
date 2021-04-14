@@ -21,6 +21,7 @@ struct PetDetailViewModel: Identifiable, Hashable, Codable {
   var tags: [String]
   var attributes: [String: Bool]
   var description: String
+  var contact: Contact
   var photos: [Photo]
   var gender: String
   var status: String
@@ -39,6 +40,7 @@ struct PetDetailViewModel: Identifiable, Hashable, Codable {
     self.tags = model.tags ?? []
     self.attributes = model.attributes?.list ?? [String: Bool]()
     self.description = model.description ?? "Your next beautiful, loving pet"
+    self.contact = model.contact ?? Contact(email: "No Mail", phone: "No Phone")
     self.photos = model.photos ?? []
     self.gender = model.gender ?? "Unknown"
     self.status = model.status ?? "Unknown"
