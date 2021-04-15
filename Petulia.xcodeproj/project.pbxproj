@@ -66,6 +66,7 @@
 		CF82E223261FC4DF00175173 /* Petfinder-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF82E222261FC4DF00175173 /* Petfinder-Info.plist */; };
 		CF82E2272624E24700175173 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF82E2262624E24700175173 /* MainView.swift */; };
 		CF82E22C2624E69600175173 /* OrganizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF82E22B2624E69600175173 /* OrganizationView.swift */; };
+		CF82E2312628F56E00175173 /* Petfinder-Info-Template.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF82E2302628F56E00175173 /* Petfinder-Info-Template.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -128,6 +129,7 @@
 		CF82E222261FC4DF00175173 /* Petfinder-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Petfinder-Info.plist"; sourceTree = "<group>"; };
 		CF82E2262624E24700175173 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		CF82E22B2624E69600175173 /* OrganizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationView.swift; sourceTree = "<group>"; };
+		CF82E2302628F56E00175173 /* Petfinder-Info-Template.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Petfinder-Info-Template.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -327,6 +329,7 @@
 				695B34F324D6CA1500A15D26 /* SceneDelegate.swift */,
 				695B34FF24D6CA2000A15D26 /* Info.plist */,
 				CF82E222261FC4DF00175173 /* Petfinder-Info.plist */,
+				CF82E2302628F56E00175173 /* Petfinder-Info-Template.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -453,6 +456,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF82E2312628F56E00175173 /* Petfinder-Info-Template.plist in Resources */,
 				CF82E223261FC4DF00175173 /* Petfinder-Info.plist in Resources */,
 				697E7D6C24E9528C0039EBF2 /* confetti.json in Resources */,
 				695B34FE24D6CA2000A15D26 /* LaunchScreen.storyboard in Resources */,
