@@ -10,6 +10,8 @@ import SwiftUI
 import Foundation
 
 struct OrganizationDetailView: View {
+  var viewModel: PetDetailViewModel
+  
   @EnvironmentObject var petDataController: PetDataController
   @EnvironmentObject var theme: ThemeManager
   
@@ -18,6 +20,7 @@ struct OrganizationDetailView: View {
   
   @State private var typing = false
   @State private var showSettingsSheet = false
+  @State private var zoomingImage = false
   
   private var filteredPets: [PetDetailViewModel] {
     return petDataController.allPets
@@ -89,6 +92,24 @@ private extension OrganizationDetailView {
   func settingsControlView() -> some View {
     SettingsButton(presentation: $showSettingsSheet) {
       requestWebData()
+    }
+  }
+  
+  func heroExpandableImage() -> some View {
+    AsyncImageView(
+      urlString: viewModel.defaultImagePath(for: .medium),
+      placeholder: "no-image",
+      maxWidth: .infinity
+    )
+    .scaledToFit()
+    .clipShape(Circle())
+    .onTapGesture {
+      zoomingImage.toggle()
+    }
+    .sheet(isPresented: $zoomingImage) {
+      AsyncGalleryView(title: viewModel.name, imagePaths: viewModel.imagePaths, accentColor: theme.accentColor, showing: $zoomingImage)
+        .foregroundColor(.primary)
+        .preferredColorScheme(isDark ? .dark : .light)
     }
   }
 }
