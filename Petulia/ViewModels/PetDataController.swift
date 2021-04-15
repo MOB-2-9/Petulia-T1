@@ -65,6 +65,22 @@ final class PetDataController: ObservableObject {
     }
   }
   
+  func requestOrganizations() {
+//    allPets = []
+//
+//    let type = petType.currentPetType.endPoint
+//    let filters = ["type": type, "location": postcode]
+//    let filtered = filters.compactMapValues { $0 }
+//    print("filtered: \(filtered)")
+//
+//    let queryItems = filtered.map { URLQueryItem(name: $0.key, value: $0.value) }
+//    let endPoint2 = EndPoint.animals(queryItems: queryItems)
+//
+//    print("url: \(String(describing: endPoint2.url))")
+//    fetchResult(at: endPoint2)
+    fetchOrganizations()
+  }
+  
   
   //MARK: - Private Methods
 
@@ -73,7 +89,10 @@ final class PetDataController: ObservableObject {
     apiService.fetch(at: endPoint) { [weak self]  (result: Result<AllAnimals, Error>) in
       switch result {
       case .success(let petData):
-        let rawPets = petData.animals ?? []
+        var rawPets = petData.animals ?? []
+        
+        rawPets = rawPets.filter { $0.photos?.count != 0 }
+        
         self?.allPets = rawPets.map { PetDetailViewModel(model: $0)}
         self?.pagination = petData.pagination
       case .failure( let error):
@@ -111,6 +130,18 @@ final class PetDataController: ObservableObject {
       case .success(let types):
         // We are just printing them, but you can produce PetTypes with them
         print("Available types from server: \(types.types.map {$0.name})")
+      }
+    }
+  }
+  
+  private func fetchOrganizations() {
+//    apiService.fetchTEST(at: EndPoint.organizationsPath)
+    apiService.fetch(at: EndPoint.organizationsPath) { (result: Result<OrganizationList, Error>) in
+      switch result {
+      case .failure(let error):
+        print(error.localizedDescription)
+      case .success(let organizations):
+        print(organizations)
       }
     }
   }

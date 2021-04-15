@@ -46,4 +46,8 @@ extension EndPoint {
     EndPoint(path: Keys.allTypesPath)
   }
   
+  static var organizationsPath: Self {
+    EndPoint(path: Keys.organizations)
+  }
+  
 }

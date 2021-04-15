@@ -21,6 +21,7 @@ enum Keys {
   static var tokenPath = "/v2/oauth2/token"
   static var allAnimalsPath = "/v2/animals"
   static var allTypesPath = "/v2/types"
+  static var organizations = "/v2/organizations"
   
   // Search
   static var showOnlyPostWithImages = "showOnlyWithImages"
