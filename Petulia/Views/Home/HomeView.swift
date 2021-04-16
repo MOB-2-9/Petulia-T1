@@ -58,6 +58,7 @@ private extension HomeView {
   //MARK: - Methods
     func requestWebData() {
     self.petDataController.requestPets(around: postcode.isEmpty ? nil : postcode)
+      OrganizationDataController().fetchOrganizations()
   }
   
   //MARK: - Components

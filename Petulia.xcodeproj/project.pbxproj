@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		2C02EE0E262906E600614B4F /* OrganizationDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C02EE0D262906E600614B4F /* OrganizationDataController.swift */; };
 		2C02EE12262907F600614B4F /* OrganizationDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C02EE11262907F600614B4F /* OrganizationDetailViewModel.swift */; };
-		2C5862DE2628032600725D5E /* OrganizationReponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5862DD2628032600725D5E /* OrganizationReponse.swift */; };
+		2C5862DE2628032600725D5E /* OrganizationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5862DD2628032600725D5E /* OrganizationResponse.swift */; };
 		2C8474132627E8E80034AB84 /* Petfinder-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C8474122627E8E80034AB84 /* Petfinder-Info.plist */; };
 		3F7D0A8D261FC04D003A946F /* Petfinder-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F7D0A8C261FC04D003A946F /* Petfinder-Info.plist */; };
 		69263DE424E58B8B00EABF0E /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69263DE324E58B8B00EABF0E /* RoundedCorner.swift */; };
@@ -74,7 +74,7 @@
 		293B0C6E25DA5F5900A4DECB /* Petfinder-Info-Template.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Petfinder-Info-Template.plist"; sourceTree = "<group>"; };
 		2C02EE0D262906E600614B4F /* OrganizationDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationDataController.swift; sourceTree = "<group>"; };
 		2C02EE11262907F600614B4F /* OrganizationDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationDetailViewModel.swift; sourceTree = "<group>"; };
-		2C5862DD2628032600725D5E /* OrganizationReponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationReponse.swift; sourceTree = "<group>"; };
+		2C5862DD2628032600725D5E /* OrganizationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationResponse.swift; sourceTree = "<group>"; };
 		2C8474122627E8E80034AB84 /* Petfinder-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Petfinder-Info.plist"; sourceTree = "<group>"; };
 		3F7D0A8C261FC04D003A946F /* Petfinder-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Petfinder-Info.plist"; sourceTree = "<group>"; };
 		69263DE324E58B8B00EABF0E /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
@@ -188,7 +188,7 @@
 				7982A4932570FF28005334DD /* PetTypeController.swift */,
 				79CA6E172594808D001E2FCF /* ServerPetTypes.swift */,
 				695B350724D7022E00A15D26 /* PetResponse.swift */,
-				2C5862DD2628032600725D5E /* OrganizationReponse.swift */,
+				2C5862DD2628032600725D5E /* OrganizationResponse.swift */,
 				7982A49925711317005334DD /* FavoriteController.swift */,
 			);
 			path = Models;
@@ -484,7 +484,7 @@
 				695B350624D6CA5A00A15D26 /* APIManager.swift in Sources */,
 				2C02EE12262907F600614B4F /* OrganizationDetailViewModel.swift in Sources */,
 				695B350824D7022E00A15D26 /* PetResponse.swift in Sources */,
-				2C5862DE2628032600725D5E /* OrganizationReponse.swift in Sources */,
+				2C5862DE2628032600725D5E /* OrganizationResponse.swift in Sources */,
 				797A0EC925ACA2FB00E40F9E /* PetTypeScrollView.swift in Sources */,
 				697E7D7224E954950039EBF2 /* LottieView.swift in Sources */,
 				79B037A825837DE600E2046D /* Animal+Extension.swift in Sources */,

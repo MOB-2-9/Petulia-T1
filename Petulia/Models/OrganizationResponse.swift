@@ -40,7 +40,17 @@ struct SocialMedia: Codable {
 }
 
 struct OrganizationLinks: Codable {
+  let linkToSelf: LinkToSelf
   let animals: LinkToAnimals
+  
+  enum CodingKeys: String, CodingKey {
+    case linkToSelf = "self"
+    case animals
+  }
+}
+
+struct LinkToSelf: Codable {
+  let href: String
 }
 
 struct LinkToAnimals: Codable {

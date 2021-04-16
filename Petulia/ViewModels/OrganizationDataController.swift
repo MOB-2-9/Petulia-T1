@@ -27,6 +27,7 @@ final class OrganizationDataController: ObservableObject {
       case .success(let organizations):
         let rawOrganizations = organizations.organizations
         self.allOrganizations = rawOrganizations.map { OrganizationDetailViewModel(model: $0)}
+        print(self.allOrganizations)
       }
     }
   }
