@@ -10,7 +10,7 @@ import SwiftUI
 import Foundation
 
 struct OrganizationDetailView: View {
-  var viewModel: PetDetailViewModel
+//  var viewModel: PetDetailViewModel
   
   @EnvironmentObject var petDataController: PetDataController
   @EnvironmentObject var theme: ThemeManager
@@ -26,29 +26,37 @@ struct OrganizationDetailView: View {
     return petDataController.allPets
   }
   
+  //MARK: View Body
   var body: some View {
-    VStack{
-      Text("Organization Name")
-      Text("City, State")
-      Button("Go to website", action: {print("Website")})
-    }
-    ZStack (alignment: .bottom) {
-      VStack {
-        ScrollView(.vertical, showsIndicators: false) {
-          VStack {
-            filterView().padding(.top)
-            petTypeScrollView()
-            recentPetSectionView()
+    NavigationView {
+      ZStack (alignment: .bottom) {
+        VStack {
+          ScrollView(.vertical, showsIndicators: false) {
+            VStack{
+              //      heroExpandableImage()
+              tempExpandableImage()
+              Text("Organization Name")
+              Text("City, State")
+              Button("Go to website", action: {print("Website")})
+            }
+            .padding(.bottom)
+            VStack {
+              petTypeScrollView()
+              recentPetSectionView()
+            }
+            .padding(.bottom)
           }
-          .padding(.bottom)
+        }
+        if typing {
+          KeyboardToolBarView() {
+            requestWebData()
+          }
         }
       }
-      if typing {
-        KeyboardToolBarView() {
-          requestWebData()
-        }
-      }
+      .navigationBarTitle("Organization Detail")
     }
+    .accentColor(theme.accentColor)
+    .preferredColorScheme(isDark ? .dark : .light)
   }
 }
 
@@ -57,16 +65,10 @@ private extension OrganizationDetailView {
   //MARK: - Methods
   func requestWebData() {
     print("Making Request")
-//    self.petDataController.requestPets(around: postcode.isEmpty ? nil : postcode)
+    self.petDataController.requestPets(around: postcode.isEmpty ? nil : postcode)
   }
   
   //MARK: - Components
-  
-  func filterView() -> some View {
-    FilterBarView(postcode: $postcode, typing: $typing) {
-      requestWebData()
-    }
-  }
   
   func petTypeScrollView() -> some View {
     PetTypeScrollView(
@@ -95,21 +97,34 @@ private extension OrganizationDetailView {
     }
   }
   
-  func heroExpandableImage() -> some View {
-    AsyncImageView(
-      urlString: viewModel.defaultImagePath(for: .medium),
-      placeholder: "no-image",
-      maxWidth: .infinity
-    )
-    .scaledToFit()
-    .clipShape(Circle())
-    .onTapGesture {
-      zoomingImage.toggle()
-    }
-    .sheet(isPresented: $zoomingImage) {
-      AsyncGalleryView(title: viewModel.name, imagePaths: viewModel.imagePaths, accentColor: theme.accentColor, showing: $zoomingImage)
-        .foregroundColor(.primary)
-        .preferredColorScheme(isDark ? .dark : .light)
-    }
+  func tempExpandableImage() -> some View {
+    Image("no-image")
+      .resizable()
+      .aspectRatio(contentMode: .fill)
+      .edgesIgnoringSafeArea(.all)
+      .scaledToFit()
+      .clipShape(Circle())
+      .onTapGesture {
+        zoomingImage.toggle()
+      }
+      .frame(maxWidth: UIScreen.main.bounds.width/3)
   }
+  
+//  func heroExpandableImage() -> some View {
+//    AsyncImageView(
+//      urlString: viewModel.defaultImagePath(for: .medium),
+//      placeholder: "no-image",
+//      maxWidth: .infinity
+//    )
+//    .scaledToFit()
+//    .clipShape(Circle())
+//    .onTapGesture {
+//      zoomingImage.toggle()
+//    }
+//    .sheet(isPresented: $zoomingImage) {
+//      AsyncGalleryView(title: viewModel.name, imagePaths: viewModel.imagePaths, accentColor: theme.accentColor, showing: $zoomingImage)
+//        .foregroundColor(.primary)
+//        .preferredColorScheme(isDark ? .dark : .light)
+//    }
+//  }
 }
