@@ -1,0 +1,64 @@
+//
+//  OrganizationDetailViewModel.swift
+//  Petulia
+//
+//  Created by Cao Mai on 4/15/21.
+//  Copyright © 2021 Johandre Delgado . All rights reserved.
+//
+
+import Foundation
+
+
+struct OrganizationDetailViewModel: Identifiable, Hashable, Codable {
+ 
+  var id: String
+  var name: String
+  var email: String
+  var phone: String
+  var linkToAnimals: String
+  var addressStreet: String
+  var addressCity: String
+  var addressState: String
+  var facebook: String
+  var youtube: String
+  var photos: [Photo]
+  
+  
+  init(model: Organization) {
+    self.id = model.id
+    self.name = model.name
+    self.email = model.email
+    self.phone = model.phone ?? "Does not exist"
+    self.linkToAnimals = model.links.animals.href
+    self.addressStreet = model.address.address1 ?? "Does not exist"
+    self.addressCity = model.address.city ?? "Does not exist"
+    self.addressState = model.address.state ?? "Does not exist"
+    self.facebook = model.socialMedia?.facebook ?? "Does not exist"
+    self.youtube  = model.socialMedia?.youtube ?? "Does not exist"
+    self.photos = model.photos
+  
+  }
+  
+}
+
+extension OrganizationDetailViewModel {
+  
+  func hash(into hasher: inout Hasher) {
+    hasher.combine(id)
+  }
+  
+  static func == (lhs: OrganizationDetailViewModel, rhs: OrganizationDetailViewModel) -> Bool {
+    lhs.id == rhs.id
+  }
+  
+  func defaultImagePath(for size: Size) -> String {
+    if let first = photos.first {
+      return first.imagePath(for: size)
+    }
+    return ""
+  }
+  
+  var imagePaths: [String] {
+    return photos.map { $0.imagePath(for: .medium)}
+  }
+}

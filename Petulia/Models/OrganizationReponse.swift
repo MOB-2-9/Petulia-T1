@@ -17,6 +17,7 @@ struct Organization: Codable, Identifiable {
   let links: OrganizationLinks
   let address: Address
   let socialMedia: SocialMedia?
+  let photos: [Photo]
 
   
   enum CodingKeys: String, CodingKey {
@@ -25,6 +26,7 @@ struct Organization: Codable, Identifiable {
     case address
 //    case missionStatement = "mission_statement"
     case socialMedia = "social_media"
+    case photos
 
   }
 }

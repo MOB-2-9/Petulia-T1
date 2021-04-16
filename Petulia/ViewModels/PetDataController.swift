@@ -78,7 +78,18 @@ final class PetDataController: ObservableObject {
 //
 //    print("url: \(String(describing: endPoint2.url))")
 //    fetchResult(at: endPoint2)
-    fetchOrganizations()
+//    fetchOrganizations()
+    
+      //    apiService.fetchTEST(at: EndPoint.organizationsPath)
+      apiService.fetch(at: EndPoint.organizationsPath) { (result: Result<OrganizationList, Error>) in
+        switch result {
+        case .failure(let error):
+          print(error.localizedDescription)
+        case .success(let organizations):
+          print(organizations)
+        }
+      }
+    
   }
   
   
@@ -134,16 +145,5 @@ final class PetDataController: ObservableObject {
     }
   }
   
-  private func fetchOrganizations() {
-//    apiService.fetchTEST(at: EndPoint.organizationsPath)
-    apiService.fetch(at: EndPoint.organizationsPath) { (result: Result<OrganizationList, Error>) in
-      switch result {
-      case .failure(let error):
-        print(error.localizedDescription)
-      case .success(let organizations):
-        print(organizations)
-      }
-    }
-  }
   
 }
