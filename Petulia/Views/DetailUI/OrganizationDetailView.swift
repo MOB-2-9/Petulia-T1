@@ -35,8 +35,9 @@ struct OrganizationDetailView: View {
             VStack{
               //      heroExpandableImage()
               tempExpandableImage()
-              Text("Organization Name")
               Text("City, State")
+                .font(.title3)
+                .fontWeight(.light)
               Button("Go to website", action: {print("Website")})
             }
             .padding(.bottom)
@@ -53,7 +54,7 @@ struct OrganizationDetailView: View {
           }
         }
       }
-      .navigationBarTitle("Organization Detail")
+      .navigationBarTitle("Organization Name")
     }
     .accentColor(theme.accentColor)
     .preferredColorScheme(isDark ? .dark : .light)
