@@ -10,7 +10,7 @@ import Foundation
 
 final class OrganizationDataController: ObservableObject {
   
-  @Published private(set) var allPets: [PetDetailViewModel] = []
+  @Published private(set) var allOrganizations: [OrganizationDetailViewModel] = []
   private let apiService: NetworkService
 
   init(
@@ -19,14 +19,14 @@ final class OrganizationDataController: ObservableObject {
     self.apiService = apiService
   }
   
-  private func fetchOrganizations() {
-    //    apiService.fetchTEST(at: EndPoint.organizationsPath)
+  func fetchOrganizations() {
     apiService.fetch(at: EndPoint.organizationsPath) { (result: Result<OrganizationList, Error>) in
       switch result {
       case .failure(let error):
         print(error.localizedDescription)
       case .success(let organizations):
-        print(organizations)
+        let rawOrganizations = organizations.organizations
+        self.allOrganizations = rawOrganizations.map { OrganizationDetailViewModel(model: $0)}
       }
     }
   }
