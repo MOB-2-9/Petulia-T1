@@ -20,9 +20,11 @@ struct OrganizationDetailViewModel: Identifiable, Hashable, Codable {
   var addressCity: String
   var addressState: String
   var facebook: String
+  var twitter: String
   var youtube: String
+  var instagram: String
+  var pinterest: String
   var photos: [Photo]
-  
   
   init(model: Organization) {
     self.id = model.id
@@ -35,6 +37,9 @@ struct OrganizationDetailViewModel: Identifiable, Hashable, Codable {
     self.addressState = model.address.state ?? "Does not exist"
     self.facebook = model.socialMedia?.facebook ?? "Does not exist"
     self.youtube  = model.socialMedia?.youtube ?? "Does not exist"
+    self.twitter = model.socialMedia?.twitter ?? "Does not exist"
+    self.instagram  = model.socialMedia?.instagram ?? "Does not exist"
+    self.pinterest  = model.socialMedia?.pinterest ?? "Does not exist"
     self.photos = model.photos
   
   }
@@ -51,6 +56,8 @@ extension OrganizationDetailViewModel {
     lhs.id == rhs.id
   }
   
+  
+
   func defaultImagePath(for size: Size) -> String {
     if let first = photos.first {
       return first.imagePath(for: size)

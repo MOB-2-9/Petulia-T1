@@ -25,9 +25,11 @@ final class OrganizationDataController: ObservableObject {
       case .failure(let error):
         print(error.localizedDescription)
       case .success(let organizations):
-        let rawOrganizations = organizations.organizations
-        self.allOrganizations = rawOrganizations.map { OrganizationDetailViewModel(model: $0)}
-        print(self.allOrganizations)
+        let first = organizations.organizations.first?.links.linkToSelf
+        self.apiService.fetchTEST(at: EndPoint.organization(from: first!))
+//        let rawOrganizations = organizations.organizations
+//        self.allOrganizations = rawOrganizations.map { OrganizationDetailViewModel(model: $0)}
+//        print(self.allOrganizations)
       }
     }
   }
