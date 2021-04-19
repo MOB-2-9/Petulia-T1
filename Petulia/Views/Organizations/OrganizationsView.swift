@@ -12,7 +12,9 @@ struct OrganizationsView: View {
     var body: some View {
       NavigationView {
         VStack {
-          Image("cat2")
+          OrganizationScrollView()
+          OrganizationInfoView()
+          Spacer()
         }
         .navigationBarTitle("Organizations")
       }
