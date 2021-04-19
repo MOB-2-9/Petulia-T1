@@ -10,7 +10,12 @@ import SwiftUI
 
 struct OrganizationsView: View {
     var body: some View {
-        Text("Organizations")
+      NavigationView {
+        VStack {
+          Image("cat2")
+        }
+        .navigationBarTitle("Organizations")
+      }
     }
 }
 
