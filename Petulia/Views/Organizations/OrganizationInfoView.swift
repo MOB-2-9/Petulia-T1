@@ -10,7 +10,13 @@ import SwiftUI
 
 struct OrganizationInfoView: View {
     var body: some View {
-      VStack(alignment: .leading) {
+      VStack {
+        Text("Organization Name")
+          .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+        Text("City, State")
+          .font(.title2)
+        Text("Go to website")
+          .padding()
         HStack {
           Expandable(
             label: { Text("Address") },
@@ -36,7 +42,6 @@ struct OrganizationInfoView: View {
         }
         .padding()
       }
-      .padding()
     }
 }
 

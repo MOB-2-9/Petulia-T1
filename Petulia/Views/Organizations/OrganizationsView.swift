@@ -13,6 +13,8 @@ struct OrganizationsView: View {
       NavigationView {
         VStack {
           OrganizationScrollView()
+            .padding(.top, 15)
+            .padding(.bottom)
           OrganizationInfoView()
           Spacer()
         }
