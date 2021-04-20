@@ -60,3 +60,7 @@ struct LinkToAnimals: Codable {
 struct OrganizationList: Codable {
   let organizations: [Organization]
 }
+
+struct ResponseOrangization: Codable {
+  let organization: Organization
+}

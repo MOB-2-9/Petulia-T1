@@ -11,6 +11,9 @@ import Foundation
 final class OrganizationDataController: ObservableObject {
   
   @Published private(set) var allOrganizations: [OrganizationDetailViewModel] = []
+  
+  @Published private(set) var singleOrganization: OrganizationDetailViewModel? = nil
+  
   private let apiService: NetworkService
 
   init(
@@ -25,13 +28,29 @@ final class OrganizationDataController: ObservableObject {
       case .failure(let error):
         print(error.localizedDescription)
       case .success(let organizations):
-        let first = organizations.organizations.first?.links.linkToSelf
-        self.apiService.fetchTEST(at: EndPoint.organization(from: first!))
-//        let rawOrganizations = organizations.organizations
-//        self.allOrganizations = rawOrganizations.map { OrganizationDetailViewModel(model: $0)}
-//        print(self.allOrganizations)
+//        let first = organizations.organizations.first?.links.linkToSelf
+//
+//        self.fetchOrganization(link: first!)
+        
+        let rawOrganizations = organizations.organizations
+        self.allOrganizations = rawOrganizations.map { OrganizationDetailViewModel(model: $0)}
+        print(self.allOrganizations)
       }
     }
   }
   
+  func fetchOrganization(link: LinkToSelf) {
+    apiService.fetch(at: EndPoint.organization(from: link)) { (result: Result<ResponseOrangization, Error>) in
+      switch result {
+      case .failure(let error):
+        print(error.localizedDescription)
+      case .success(let organization):
+
+        let rawOrganization = organization.organization
+        self.singleOrganization = OrganizationDetailViewModel(model: rawOrganization)
+       
+    }
+  }
+  
+}
 }
