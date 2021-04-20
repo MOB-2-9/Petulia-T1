@@ -18,8 +18,8 @@ struct MainView: View {
                 icon: { Image(systemName: "house.fill") }
               )
             }
-//          OrganizationsView()
-        OrganizationDetailView()
+          OrganizationsView()
+//        OrganizationDetailView()
             .tabItem {
               Label(
                 title: { Text("Organizations") },

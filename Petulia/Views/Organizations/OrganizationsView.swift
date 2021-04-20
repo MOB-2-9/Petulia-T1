@@ -10,6 +10,8 @@ import SwiftUI
 
 struct OrganizationsView: View {
   var UIState: UIStateModel = UIStateModel()
+  @EnvironmentObject var organizationDataController: OrganizationDataController
+  
     var body: some View {
       NavigationView {
         VStack {
@@ -21,8 +23,15 @@ struct OrganizationsView: View {
         }
         .navigationBarTitle("Organizations")
       }
-      
+      .onAppear { requestWebData() }
     }
+}
+
+extension OrganizationsView {
+  func requestWebData() {
+    organizationDataController.fetchOrganizations()
+    
+  }
 }
 
 struct OrganizationsView_Previews: PreviewProvider {

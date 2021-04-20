@@ -23,10 +23,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     let petDataController = PetDataController()
     let favoriteController = FavoriteController()
     let themeManager = ThemeManager()
+    let organizationDataController = OrganizationDataController()
     let contentView = MainView()
       .environmentObject(petDataController)
       .environmentObject(favoriteController)
       .environmentObject(themeManager)
+      .environmentObject(organizationDataController)
 
     // Use a UIHostingController as window root view controller.
     if let windowScene = scene as? UIWindowScene {
