@@ -69,6 +69,7 @@
 		CF929FD9262E2D4D00AE886C /* OrganizationScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF929FD8262E2D4D00AE886C /* OrganizationScrollView.swift */; };
 		CF929FDC262E2D5E00AE886C /* OrganizationInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF929FDB262E2D5E00AE886C /* OrganizationInfoView.swift */; };
 		CF929FDF262E316300AE886C /* Expandable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF929FDE262E316300AE886C /* Expandable.swift */; };
+		CF929FE2262E3EA100AE886C /* SnapCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF929FE1262E3EA100AE886C /* SnapCarousel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -135,6 +136,7 @@
 		CF929FD8262E2D4D00AE886C /* OrganizationScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationScrollView.swift; sourceTree = "<group>"; };
 		CF929FDB262E2D5E00AE886C /* OrganizationInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationInfoView.swift; sourceTree = "<group>"; };
 		CF929FDE262E316300AE886C /* Expandable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expandable.swift; sourceTree = "<group>"; };
+		CF929FE1262E3EA100AE886C /* SnapCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapCarousel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +168,7 @@
 				794FEAD2259C87F50010B381 /* KeyboardToolBarView.swift */,
 				794E2CD925AB444600234FDA /* RetryCard.swift */,
 				CF929FDE262E316300AE886C /* Expandable.swift */,
+				CF929FE1262E3EA100AE886C /* SnapCarousel.swift */,
 			);
 			path = "Reusable Views";
 			sourceTree = "<group>";
@@ -520,6 +523,7 @@
 				7982A4942570FF28005334DD /* PetTypeController.swift in Sources */,
 				695B34F424D6CA1500A15D26 /* SceneDelegate.swift in Sources */,
 				69263DE424E58B8B00EABF0E /* RoundedCorner.swift in Sources */,
+				CF929FE2262E3EA100AE886C /* SnapCarousel.swift in Sources */,
 				69263DE724E58BF300EABF0E /* View+Extension.swift in Sources */,
 				7926ABDE256CE48800AD8D68 /* AsyncImageView.swift in Sources */,
 				797A0ECD25ACA8B900E40F9E /* FilterBarView.swift in Sources */,

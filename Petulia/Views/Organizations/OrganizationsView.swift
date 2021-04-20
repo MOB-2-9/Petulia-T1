@@ -9,17 +9,19 @@
 import SwiftUI
 
 struct OrganizationsView: View {
+  var UIState: UIStateModel = UIStateModel()
     var body: some View {
       NavigationView {
         VStack {
-          OrganizationScrollView()
+          SnapCarousel()
+            .environmentObject(UIState)
             .padding(.top, 15)
             .padding(.bottom)
           OrganizationInfoView()
-          Spacer()
         }
         .navigationBarTitle("Organizations")
       }
+      
     }
 }
 
