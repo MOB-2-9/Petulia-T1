@@ -68,6 +68,9 @@
 		79F93581258B75BF00C9CDCD /* ColoredLabeStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F93580258B75BF00C9CDCD /* ColoredLabeStyle.swift */; };
 		79FC94762584D2ED001735C4 /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FC94752584D2ED001735C4 /* TileView.swift */; };
 		79FF944C256A562D00149140 /* Collection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FF944B256A562D00149140 /* Collection+Extension.swift */; };
+		CF929FCB2628FE7A00AE886C /* Petfinder-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF929FCA2628FE7A00AE886C /* Petfinder-Info.plist */; };
+		CF929FCF2629009300AE886C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF929FCE2629009200AE886C /* MainView.swift */; };
+		CF929FD4262900D400AE886C /* OrganizationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF929FD3262900D400AE886C /* OrganizationsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -132,6 +135,9 @@
 		79F93580258B75BF00C9CDCD /* ColoredLabeStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColoredLabeStyle.swift; sourceTree = "<group>"; };
 		79FC94752584D2ED001735C4 /* TileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileView.swift; sourceTree = "<group>"; };
 		79FF944B256A562D00149140 /* Collection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extension.swift"; sourceTree = "<group>"; };
+		CF929FCA2628FE7A00AE886C /* Petfinder-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Petfinder-Info.plist"; sourceTree = "<group>"; };
+		CF929FCE2629009200AE886C /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		CF929FD3262900D400AE886C /* OrganizationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -274,6 +280,8 @@
 		69E4432224E87DAE00B8B3F1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CF929FD2262900BE00AE886C /* Organizations */,
+				CF929FCD2629007B00AE886C /* TabBar */,
 				79FC94782584D48D001735C4 /* Home */,
 				79DD20B02595D7DA00B81ECB /* Settings */,
 				79FC94792584D4D4001735C4 /* List */,
@@ -331,8 +339,6 @@
 				695B34F124D6CA1500A15D26 /* AppDelegate.swift */,
 				695B34F324D6CA1500A15D26 /* SceneDelegate.swift */,
 				695B34FF24D6CA2000A15D26 /* Info.plist */,
-				775D0BA6262E67360002D88D /* Petfinder-Info-Template.plist */,
-				775D0BA9262E67610002D88D /* Petfinder-Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -375,6 +381,22 @@
 				79B037AA258380E600E2046D /* PetRow.swift */,
 			);
 			path = List;
+			sourceTree = "<group>";
+		};
+		CF929FCD2629007B00AE886C /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				CF929FCE2629009200AE886C /* MainView.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		CF929FD2262900BE00AE886C /* Organizations */ = {
+			isa = PBXGroup;
+			children = (
+				CF929FD3262900D400AE886C /* OrganizationsView.swift */,
+			);
+			path = Organizations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -485,6 +507,7 @@
 				2C5862DE2628032600725D5E /* OrganizationResponse.swift in Sources */,
 				797A0EC925ACA2FB00E40F9E /* PetTypeScrollView.swift in Sources */,
 				697E7D7224E954950039EBF2 /* LottieView.swift in Sources */,
+				CF929FCF2629009300AE886C /* MainView.swift in Sources */,
 				79B037A825837DE600E2046D /* Animal+Extension.swift in Sources */,
 				79316A52258C8F0E003A40F7 /* Constants.swift in Sources */,
 				798BB158258CE2CA000AF760 /* LimitedColorPicker.swift in Sources */,
@@ -511,6 +534,7 @@
 				7905B2182577A27700A55F37 /* HTMLText.swift in Sources */,
 				2C02EE0E262906E600614B4F /* OrganizationDataController.swift in Sources */,
 				7982A49E25712CA4005334DD /* StorageService.swift in Sources */,
+				CF929FD4262900D400AE886C /* OrganizationsView.swift in Sources */,
 				79AA05BB258DF37F00A126B0 /* UIApplication+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
