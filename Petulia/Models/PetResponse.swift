@@ -35,8 +35,6 @@ struct Animal: Codable, Identifiable {
   }
 }
 
-
-
 // MARK: - Component DTOs
 
 struct AllAnimals: Codable {

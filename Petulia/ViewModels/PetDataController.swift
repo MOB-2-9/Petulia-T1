@@ -65,7 +65,6 @@ final class PetDataController: ObservableObject {
     }
   }
   
-  
   //MARK: - Private Methods
 
   func fetchResult(at endPoint: EndPoint) {
@@ -73,7 +72,11 @@ final class PetDataController: ObservableObject {
     apiService.fetch(at: endPoint) { [weak self]  (result: Result<AllAnimals, Error>) in
       switch result {
       case .success(let petData):
-        let rawPets = petData.animals ?? []
+        var rawPets = petData.animals ?? []
+        
+        // Enable this to show only pets with photos
+//        rawPets = rawPets.filter { $0.photos?.count != 0 }
+        
         self?.allPets = rawPets.map { PetDetailViewModel(model: $0)}
         self?.pagination = petData.pagination
       case .failure( let error):
@@ -114,5 +117,6 @@ final class PetDataController: ObservableObject {
       }
     }
   }
+  
   
 }

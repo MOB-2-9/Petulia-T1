@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C02EE0E262906E600614B4F /* OrganizationDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C02EE0D262906E600614B4F /* OrganizationDataController.swift */; };
+		2C02EE12262907F600614B4F /* OrganizationDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C02EE11262907F600614B4F /* OrganizationDetailViewModel.swift */; };
+		2C5862DE2628032600725D5E /* OrganizationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5862DD2628032600725D5E /* OrganizationResponse.swift */; };
+		2CE28716262EA5A0002D888A /* Petfinder-Info-Template.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE28715262EA5A0002D888A /* Petfinder-Info-Template.plist */; };
+		3F91B3792629043E00DAD14B /* OrganizationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91B3782629043E00DAD14B /* OrganizationDetailView.swift */; };
 		69263DE424E58B8B00EABF0E /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69263DE324E58B8B00EABF0E /* RoundedCorner.swift */; };
 		69263DE724E58BF300EABF0E /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69263DE624E58BF300EABF0E /* View+Extension.swift */; };
 		695B34F224D6CA1500A15D26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695B34F124D6CA1500A15D26 /* AppDelegate.swift */; };
@@ -63,7 +68,6 @@
 		79F93581258B75BF00C9CDCD /* ColoredLabeStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F93580258B75BF00C9CDCD /* ColoredLabeStyle.swift */; };
 		79FC94762584D2ED001735C4 /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FC94752584D2ED001735C4 /* TileView.swift */; };
 		79FF944C256A562D00149140 /* Collection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FF944B256A562D00149140 /* Collection+Extension.swift */; };
-		CF929FCB2628FE7A00AE886C /* Petfinder-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF929FCA2628FE7A00AE886C /* Petfinder-Info.plist */; };
 		CF929FCF2629009300AE886C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF929FCE2629009200AE886C /* MainView.swift */; };
 		CF929FD4262900D400AE886C /* OrganizationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF929FD3262900D400AE886C /* OrganizationsView.swift */; };
 		CF929FD9262E2D4D00AE886C /* OrganizationScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF929FD8262E2D4D00AE886C /* OrganizationScrollView.swift */; };
@@ -74,6 +78,11 @@
 
 /* Begin PBXFileReference section */
 		293B0C6E25DA5F5900A4DECB /* Petfinder-Info-Template.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Petfinder-Info-Template.plist"; sourceTree = "<group>"; };
+		2C02EE0D262906E600614B4F /* OrganizationDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationDataController.swift; sourceTree = "<group>"; };
+		2C02EE11262907F600614B4F /* OrganizationDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationDetailViewModel.swift; sourceTree = "<group>"; };
+		2C5862DD2628032600725D5E /* OrganizationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationResponse.swift; sourceTree = "<group>"; };
+		2CE28715262EA5A0002D888A /* Petfinder-Info-Template.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Petfinder-Info-Template.plist"; path = "Petulia/Petfinder-Info-Template.plist"; sourceTree = "<group>"; };
+		3F91B3782629043E00DAD14B /* OrganizationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationDetailView.swift; sourceTree = "<group>"; };
 		69263DE324E58B8B00EABF0E /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		69263DE624E58BF300EABF0E /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		695B34EE24D6CA1500A15D26 /* Petulia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Petulia.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,7 +139,6 @@
 		79F93580258B75BF00C9CDCD /* ColoredLabeStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColoredLabeStyle.swift; sourceTree = "<group>"; };
 		79FC94752584D2ED001735C4 /* TileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileView.swift; sourceTree = "<group>"; };
 		79FF944B256A562D00149140 /* Collection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extension.swift"; sourceTree = "<group>"; };
-		CF929FCA2628FE7A00AE886C /* Petfinder-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Petfinder-Info.plist"; sourceTree = "<group>"; };
 		CF929FCE2629009200AE886C /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		CF929FD3262900D400AE886C /* OrganizationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationsView.swift; sourceTree = "<group>"; };
 		CF929FD8262E2D4D00AE886C /* OrganizationScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationScrollView.swift; sourceTree = "<group>"; };
@@ -152,6 +160,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2CE28712262EA576002D888A /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				2CE28715262EA5A0002D888A /* Petfinder-Info-Template.plist */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		69263DE224E58B5A00EABF0E /* Reusable Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +210,7 @@
 				7982A4932570FF28005334DD /* PetTypeController.swift */,
 				79CA6E172594808D001E2FCF /* ServerPetTypes.swift */,
 				695B350724D7022E00A15D26 /* PetResponse.swift */,
+				2C5862DD2628032600725D5E /* OrganizationResponse.swift */,
 				7982A49925711317005334DD /* FavoriteController.swift */,
 			);
 			path = Models;
@@ -204,6 +221,7 @@
 			children = (
 				695B34F024D6CA1500A15D26 /* Petulia */,
 				695B34EF24D6CA1500A15D26 /* Products */,
+				2CE28712262EA576002D888A /* Recovered References */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -271,6 +289,8 @@
 			children = (
 				695B350924D70A0100A15D26 /* PetDataController.swift */,
 				69E4432424E8820C00B8B3F1 /* PetDetailViewModel.swift */,
+				2C02EE0D262906E600614B4F /* OrganizationDataController.swift */,
+				2C02EE11262907F600614B4F /* OrganizationDetailViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -303,6 +323,7 @@
 			isa = PBXGroup;
 			children = (
 				7930A4B82567F7A200746ADE /* PetDetailView.swift */,
+				3F91B3782629043E00DAD14B /* OrganizationDetailView.swift */,
 			);
 			path = DetailUI;
 			sourceTree = "<group>";
@@ -338,7 +359,6 @@
 				695B34F324D6CA1500A15D26 /* SceneDelegate.swift */,
 				695B34FF24D6CA2000A15D26 /* Info.plist */,
 				293B0C6E25DA5F5900A4DECB /* Petfinder-Info-Template.plist */,
-				CF929FCA2628FE7A00AE886C /* Petfinder-Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -467,7 +487,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF929FCB2628FE7A00AE886C /* Petfinder-Info.plist in Resources */,
+				2CE28716262EA5A0002D888A /* Petfinder-Info-Template.plist in Resources */,
 				697E7D6C24E9528C0039EBF2 /* confetti.json in Resources */,
 				695B34FE24D6CA2000A15D26 /* LaunchScreen.storyboard in Resources */,
 				697E7D6D24E9528C0039EBF2 /* thanks.json in Resources */,
@@ -498,13 +518,16 @@
 				CF929FDC262E2D5E00AE886C /* OrganizationInfoView.swift in Sources */,
 				7923467725761564005E2644 /* ClearButtonStyle.swift in Sources */,
 				7962EBFF258C97F400322283 /* ThemeManager.swift in Sources */,
+				3F91B3792629043E00DAD14B /* OrganizationDetailView.swift in Sources */,
 				79F93581258B75BF00C9CDCD /* ColoredLabeStyle.swift in Sources */,
 				791F4E46258217CC00C5F457 /* Color+Extension.swift in Sources */,
 				7930A4B92567F7A200746ADE /* PetDetailView.swift in Sources */,
 				69E4432124E87AC300B8B3F1 /* ListView.swift in Sources */,
 				7926ABE1256D430900AD8D68 /* PetType.swift in Sources */,
 				695B350624D6CA5A00A15D26 /* APIManager.swift in Sources */,
+				2C02EE12262907F600614B4F /* OrganizationDetailViewModel.swift in Sources */,
 				695B350824D7022E00A15D26 /* PetResponse.swift in Sources */,
+				2C5862DE2628032600725D5E /* OrganizationResponse.swift in Sources */,
 				797A0EC925ACA2FB00E40F9E /* PetTypeScrollView.swift in Sources */,
 				697E7D7224E954950039EBF2 /* LottieView.swift in Sources */,
 				CF929FCF2629009300AE886C /* MainView.swift in Sources */,
@@ -535,6 +558,7 @@
 				79792A6825ADD0CA00352FDD /* SettingsButton.swift in Sources */,
 				CF929FDF262E316300AE886C /* Expandable.swift in Sources */,
 				7905B2182577A27700A55F37 /* HTMLText.swift in Sources */,
+				2C02EE0E262906E600614B4F /* OrganizationDataController.swift in Sources */,
 				7982A49E25712CA4005334DD /* StorageService.swift in Sources */,
 				CF929FD4262900D400AE886C /* OrganizationsView.swift in Sources */,
 				79AA05BB258DF37F00A126B0 /* UIApplication+Extension.swift in Sources */,

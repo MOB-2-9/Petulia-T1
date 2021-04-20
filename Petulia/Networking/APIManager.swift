@@ -13,6 +13,8 @@ protocol NetworkService {
   func isTokenValid() -> Bool
   func refreshAccessToken(completion: @escaping (() -> Void))
   func fetch<T: Decodable>( at endPoint: EndPoint, completion: @escaping (Result<T, Error>) -> Void)
+  
+  func fetchTEST( at endPoint: EndPoint)
 }
 
 class APIService: NetworkService {
@@ -114,6 +116,7 @@ class APIService: NetworkService {
   }
 
   func fetch<T: Decodable>( at endPoint: EndPoint, completion: @escaping (Result<T, Error>) -> Void) {
+    print(token)
     if isTokenValid() {
       guard let url = endPoint.url else {
         print("❌ \(#function) - Error: Cannot create URL using - \(endPoint.urlString)")
@@ -148,6 +151,40 @@ class APIService: NetworkService {
         self?.fetch(at: endPoint, completion: completion)
       }
     }
+  }
+  
+  func fetchTEST(at endPoint: EndPoint) {
+    if isTokenValid() {
+      guard let url = endPoint.url else {
+        print("❌ \(#function) - Error: Cannot create URL using - \(endPoint.urlString)")
+        return
+      }
+      let method = "GET"
+      var request = URLRequest(url: url)
+      request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+      request.httpMethod = method
+      request.cachePolicy = .reloadRevalidatingCacheData
+
+      let session = URLSession.shared
+      let task = session.dataTask(with: request) { data, response, error in
+        if let error = error {
+          print(error)
+        }
+        if let data = data {
+          do {
+            let json = try? JSONSerialization.jsonObject(with: data, options: [])
+            print(json)
+            
+          } catch let error {
+            print(error)
+          }
+        }
+      }
+      task.resume()
+    } else {
+      print("else")
+    
+  }
   }
 
 }

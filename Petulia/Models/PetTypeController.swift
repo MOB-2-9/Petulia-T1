@@ -18,6 +18,7 @@ class PetTypeController {
   init() {
     types = createPetTypes()
     let savedPetTypeID = UserDefaults.standard.integer(forKey: Keys.savedPetTypeID)
+    print("animal starting key id", savedPetTypeID)
     currentPetType = getPetType(by: savedPetTypeID) ?? .dog
   }
   
