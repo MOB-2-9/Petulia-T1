@@ -111,6 +111,7 @@ private extension OrganizationDetailView {
       .frame(maxWidth: UIScreen.main.bounds.width/3)
   }
   
+  //MARK: TO be added later
 //  func heroExpandableImage() -> some View {
 //    AsyncImageView(
 //      urlString: viewModel.defaultImagePath(for: .medium),
