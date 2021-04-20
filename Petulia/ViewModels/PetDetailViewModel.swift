@@ -85,7 +85,7 @@ extension PetDetailViewModel {
     let truers = attributes.filter { $0.value == true }
     return truers.map { $0.key }
   }
-  
+  // QUESTION: what's the advantage of setting this using a closure instead of using =
   var characteristics: [Characteristic] {
     [
       Characteristic(id: 5, title: status, label: "status"),

@@ -46,4 +46,12 @@ extension EndPoint {
     EndPoint(path: Keys.allTypesPath)
   }
   
+  static var organizationsPath: Self {
+    EndPoint(path: Keys.organizations)
+  }
+  
+  static func organization(from link: LinkToSelf)  -> Self {
+    EndPoint(path: link.href)
+  }
+  
 }
