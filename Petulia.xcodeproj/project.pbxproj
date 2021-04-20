@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3F91B3792629043E00DAD14B /* OrganizationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91B3782629043E00DAD14B /* OrganizationDetailView.swift */; };
-		3FE770FC262E983A00F2B53D /* Petfinder-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3FE770FB262E983A00F2B53D /* Petfinder-Info.plist */; };
 		69263DE424E58B8B00EABF0E /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69263DE324E58B8B00EABF0E /* RoundedCorner.swift */; };
 		69263DE724E58BF300EABF0E /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69263DE624E58BF300EABF0E /* View+Extension.swift */; };
 		695B34F224D6CA1500A15D26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695B34F124D6CA1500A15D26 /* AppDelegate.swift */; };
@@ -72,7 +71,6 @@
 /* Begin PBXFileReference section */
 		293B0C6E25DA5F5900A4DECB /* Petfinder-Info-Template.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Petfinder-Info-Template.plist"; sourceTree = "<group>"; };
 		3F91B3782629043E00DAD14B /* OrganizationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationDetailView.swift; sourceTree = "<group>"; };
-		3FE770FB262E983A00F2B53D /* Petfinder-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Petfinder-Info.plist"; sourceTree = "<group>"; };
 		69263DE324E58B8B00EABF0E /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		69263DE624E58BF300EABF0E /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		695B34EE24D6CA1500A15D26 /* Petulia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Petulia.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -330,7 +328,6 @@
 				695B34F124D6CA1500A15D26 /* AppDelegate.swift */,
 				695B34F324D6CA1500A15D26 /* SceneDelegate.swift */,
 				695B34FF24D6CA2000A15D26 /* Info.plist */,
-				3FE770FB262E983A00F2B53D /* Petfinder-Info.plist */,
 				293B0C6E25DA5F5900A4DECB /* Petfinder-Info-Template.plist */,
 			);
 			name = "Supporting Files";
@@ -458,7 +455,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FE770FC262E983A00F2B53D /* Petfinder-Info.plist in Resources */,
 				697E7D6C24E9528C0039EBF2 /* confetti.json in Resources */,
 				695B34FE24D6CA2000A15D26 /* LaunchScreen.storyboard in Resources */,
 				697E7D6D24E9528C0039EBF2 /* thanks.json in Resources */,
