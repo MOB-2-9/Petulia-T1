@@ -65,34 +65,6 @@ final class PetDataController: ObservableObject {
     }
   }
   
-  func requestOrganizations() {
-//    allPets = []
-//
-//    let type = petType.currentPetType.endPoint
-//    let filters = ["type": type, "location": postcode]
-//    let filtered = filters.compactMapValues { $0 }
-//    print("filtered: \(filtered)")
-//
-//    let queryItems = filtered.map { URLQueryItem(name: $0.key, value: $0.value) }
-//    let endPoint2 = EndPoint.animals(queryItems: queryItems)
-//
-//    print("url: \(String(describing: endPoint2.url))")
-//    fetchResult(at: endPoint2)
-//    fetchOrganizations()
-    
-      //    apiService.fetchTEST(at: EndPoint.organizationsPath)
-      apiService.fetch(at: EndPoint.organizationsPath) { (result: Result<OrganizationList, Error>) in
-        switch result {
-        case .failure(let error):
-          print(error.localizedDescription)
-        case .success(let organizations):
-          print(organizations)
-        }
-      }
-    
-  }
-  
-  
   //MARK: - Private Methods
 
   func fetchResult(at endPoint: EndPoint) {

@@ -24,7 +24,6 @@ struct Organization: Codable, Identifiable {
     case id, name, email, phone
     case links = "_links"
     case address
-//    case missionStatement = "mission_statement"
     case socialMedia = "social_media"
     case photos
 

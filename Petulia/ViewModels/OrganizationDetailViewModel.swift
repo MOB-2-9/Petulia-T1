@@ -16,6 +16,7 @@ struct OrganizationDetailViewModel: Identifiable, Hashable, Codable {
   var email: String
   var phone: String
   var linkToAnimals: String
+  var linkToSelf: LinkToSelf
   var addressStreet: String
   var addressCity: String
   var addressState: String
@@ -32,6 +33,7 @@ struct OrganizationDetailViewModel: Identifiable, Hashable, Codable {
     self.email = model.email
     self.phone = model.phone ?? "Does not exist"
     self.linkToAnimals = model.links.animals.href
+    self.linkToSelf = model.links.linkToSelf
     self.addressStreet = model.address.address1 ?? "Does not exist"
     self.addressCity = model.address.city ?? "Does not exist"
     self.addressState = model.address.state ?? "Does not exist"

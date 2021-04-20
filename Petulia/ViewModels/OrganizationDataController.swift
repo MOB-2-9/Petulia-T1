@@ -11,8 +11,7 @@ import Foundation
 final class OrganizationDataController: ObservableObject {
   
   @Published private(set) var allOrganizations: [OrganizationDetailViewModel] = []
-  
-  @Published private(set) var singleOrganization: OrganizationDetailViewModel? = nil
+  @Published private(set) var singleOrganization: OrganizationDetailViewModel!
   
   private let apiService: NetworkService
 
@@ -28,12 +27,9 @@ final class OrganizationDataController: ObservableObject {
       case .failure(let error):
         print(error.localizedDescription)
       case .success(let organizations):
-//        let first = organizations.organizations.first?.links.linkToSelf
-//
-//        self.fetchOrganization(link: first!)
-        
         let rawOrganizations = organizations.organizations
         self.allOrganizations = rawOrganizations.map { OrganizationDetailViewModel(model: $0)}
+        // Print out all organizations
         print(self.allOrganizations)
       }
     }
@@ -45,10 +41,8 @@ final class OrganizationDataController: ObservableObject {
       case .failure(let error):
         print(error.localizedDescription)
       case .success(let organization):
-
         let rawOrganization = organization.organization
         self.singleOrganization = OrganizationDetailViewModel(model: rawOrganization)
-       
     }
   }
   
