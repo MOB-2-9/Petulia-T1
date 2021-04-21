@@ -22,7 +22,7 @@ struct HomeView: View {
   @State private var showSettingsSheet = false
   
   private var filteredPets: [PetDetailViewModel] {
-    if photoOnly == true{
+    if photoOnly == true {
       return petDataController.allPets.filter { $0.photos.count != 0 }
     }
     return petDataController.allPets

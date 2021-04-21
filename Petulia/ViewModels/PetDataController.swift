@@ -68,20 +68,11 @@ final class PetDataController: ObservableObject {
   //MARK: - Private Methods
 
   func fetchResult(at endPoint: EndPoint) {
-    let defaults = UserDefaults.standard
-    let photo = defaults.bool(forKey:"photoOnly")
-    print("This is photos: \(photo)")
     isLoading = true
     apiService.fetch(at: endPoint) { [weak self]  (result: Result<AllAnimals, Error>) in
       switch result {
       case .success(let petData):
-        var rawPets = petData.animals ?? []
-        
-        // Enable this to show only pets with photos
-//        if photo == true{
-//          rawPets = rawPets.filter { $0.photos?.count != 0 }
-//        }
-        
+        let rawPets = petData.animals ?? []
         self?.allPets = rawPets.map { PetDetailViewModel(model: $0)}
         self?.pagination = petData.pagination
       case .failure( let error):
