@@ -20,8 +20,9 @@ struct SettingsView: View {
   @State private var typing = false
   
   @State private var accent = Color.pink
-  @AppStorage(Keys.photoOnly) var photoOnly = false
   @State private var showColorPicker = false
+  
+  @AppStorage(Keys.photoOnly) var photoOnly = false
   
   var body: some View {
     ZStack (alignment: .bottom) {
@@ -103,7 +104,7 @@ private extension SettingsView {
       Text("Show Photo Only")
       Spacer()
       ZStack {
-        Toggle("Show welcome message", isOn: $photoOnly)
+        Toggle("Show Photos", isOn: $photoOnly)
       }
       .frame(maxWidth: 30,maxHeight: 35)
       

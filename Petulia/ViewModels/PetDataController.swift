@@ -78,9 +78,9 @@ final class PetDataController: ObservableObject {
         var rawPets = petData.animals ?? []
         
         // Enable this to show only pets with photos
-        if photo == true{
-          rawPets = rawPets.filter { $0.photos?.count != 0 }
-        }
+//        if photo == true{
+//          rawPets = rawPets.filter { $0.photos?.count != 0 }
+//        }
         
         self?.allPets = rawPets.map { PetDetailViewModel(model: $0)}
         self?.pagination = petData.pagination
