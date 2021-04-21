@@ -10,18 +10,17 @@ import SwiftUI
 
 struct SnapCarousel: View {
     @EnvironmentObject var UIState: UIStateModel
-    
+    let items = [
+        Card(id: 0, name: "Hey"),
+        Card(id: 1, name: "Ho"),
+        Card(id: 2, name: "Lets"),
+        Card(id: 3, name: "Go")
+    ]
+  
     var body: some View {
         let spacing: CGFloat = 16
         let widthOfHiddenCards: CGFloat = 32 /// UIScreen.main.bounds.width - 10
         let cardHeight: CGFloat = 200
-        
-        let items = [
-            Card(id: 0, name: "Hey"),
-            Card(id: 1, name: "Ho"),
-            Card(id: 2, name: "Lets"),
-            Card(id: 3, name: "Go")
-        ]
         
         return Canvas {
             /// TODO: find a way to avoid passing same arguments to Carousel and Item

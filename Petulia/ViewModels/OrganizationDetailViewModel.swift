@@ -9,7 +9,7 @@
 import Foundation
 
 
-struct OrganizationDetailViewModel: Identifiable, Hashable, Codable {
+class OrganizationDetailViewModel: Identifiable, Hashable, Codable {
  
   var id: String
   var name: String

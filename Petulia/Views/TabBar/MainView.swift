@@ -19,7 +19,6 @@ struct MainView: View {
               )
             }
           OrganizationsView()
-//        OrganizationDetailView()
             .tabItem {
               Label(
                 title: { Text("Organizations") },

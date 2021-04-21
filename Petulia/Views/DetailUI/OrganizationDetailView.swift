@@ -13,7 +13,7 @@ struct OrganizationDetailView: View {
 //  var viewModel: PetDetailViewModel
   
   @EnvironmentObject var petDataController: PetDataController
-  @EnvironmentObject var theme: ThemeManager
+//  @EnvironmentObject var theme: ThemeManager
   
   @AppStorage(Keys.savedPostcode) var postcode = ""
   @AppStorage(Keys.isDark) var isDark = false
@@ -56,7 +56,7 @@ struct OrganizationDetailView: View {
       }
       .navigationBarTitle("Organization Name")
     }
-    .accentColor(theme.accentColor)
+//    .accentColor(theme.accentColor)
     .preferredColorScheme(isDark ? .dark : .light)
   }
 }
