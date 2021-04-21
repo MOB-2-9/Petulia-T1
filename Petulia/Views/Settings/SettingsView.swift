@@ -22,6 +22,8 @@ struct SettingsView: View {
   @State private var accent = Color.pink
   @State private var showColorPicker = false
   
+  @AppStorage(Keys.photoOnly) var photoOnly = false
+  
   var body: some View {
     ZStack (alignment: .bottom) {
       VStack {
@@ -31,6 +33,7 @@ struct SettingsView: View {
         VStack {
           Form {
             resultSessionView()
+            filterSessionView()
             themeSessionView()
             aboutSessionView()
           }
@@ -94,6 +97,19 @@ private extension SettingsView {
       .disableAutocorrection(true)
       
     }
+  }
+  
+  func filterSessionView() -> some View {
+    HStack {
+      Text("Show Photo Only")
+      Spacer()
+      ZStack {
+        Toggle("Show Photos", isOn: $photoOnly)
+      }
+      .frame(maxWidth: 30,maxHeight: 35)
+      
+    }
+    .contentShape(Rectangle())
   }
   
   func themeSessionView() -> some View {

@@ -30,7 +30,7 @@ final class OrganizationDataController: ObservableObject {
         let rawOrganizations = organizations.organizations
         self.allOrganizations = rawOrganizations.map { OrganizationDetailViewModel(model: $0)}
         // Print out all organizations
-        print(self.allOrganizations)
+//        print(self.allOrganizations)
       }
     }
   }
