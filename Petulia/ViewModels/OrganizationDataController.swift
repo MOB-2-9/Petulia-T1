@@ -12,6 +12,7 @@ final class OrganizationDataController: ObservableObject {
   
   @Published private(set) var allOrganizations: [OrganizationDetailViewModel] = []
   @Published private(set) var singleOrganization: OrganizationDetailViewModel!
+  @Published private(set) var orgAllPets: [PetDetailViewModel] = []
   
   private let apiService: NetworkService
   
@@ -33,8 +34,6 @@ final class OrganizationDataController: ObservableObject {
         /// TESTING OUT FETCHING TO GET ANIMALS FROM ORG
         let linkToAnimal = self.allOrganizations.first?.linkToAnimals
         self.fetchOrgAnimals(link: linkToAnimal!)
-      // Print out all organizations
-      //        print(self.allOrganizations)
       }
     }
   }
@@ -58,8 +57,7 @@ final class OrganizationDataController: ObservableObject {
         print(error.localizedDescription)
       case.success(let petResponse):
         let rawPets = petResponse.animals ?? []
-        // Still need to store this in variable
-        let allPets = rawPets.map { PetDetailViewModel(model: $0)}
+        self.orgAllPets = rawPets.map { PetDetailViewModel(model: $0)}
       }
     }
 
