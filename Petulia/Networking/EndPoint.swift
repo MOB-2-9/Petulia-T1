@@ -54,4 +54,8 @@ extension EndPoint {
     EndPoint(path: link.href)
   }
   
+  static func animalsFromOrg(from link: LinkToAnimals) -> Self {
+    EndPoint(path: link.href)
+  }
+  
 }

@@ -12,9 +12,10 @@ final class OrganizationDataController: ObservableObject {
   
   @Published private(set) var allOrganizations: [OrganizationDetailViewModel] = []
   @Published private(set) var singleOrganization: OrganizationDetailViewModel!
+  @Published private(set) var orgAllPets: [PetDetailViewModel] = []
   
   private let apiService: NetworkService
-
+  
   init(
     apiService: NetworkService = APIService()
   ) {
@@ -29,8 +30,10 @@ final class OrganizationDataController: ObservableObject {
       case .success(let organizations):
         let rawOrganizations = organizations.organizations
         self.allOrganizations = rawOrganizations.map { OrganizationDetailViewModel(model: $0)}
-        // Print out all organizations
-//        print(self.allOrganizations)
+        
+        /// TESTING OUT FETCHING TO GET ANIMALS FROM ORG
+        let linkToAnimal = self.allOrganizations.first?.linkToAnimals
+        self.fetchOrgAnimals(link: linkToAnimal!)
       }
     }
   }
@@ -43,8 +46,20 @@ final class OrganizationDataController: ObservableObject {
       case .success(let organization):
         let rawOrganization = organization.organization
         self.singleOrganization = OrganizationDetailViewModel(model: rawOrganization)
+      }
     }
   }
   
-}
+  func fetchOrgAnimals(link: LinkToAnimals) {
+    apiService.fetch(at: EndPoint.animalsFromOrg(from: link)) { (result: Result<AllAnimals, Error>) in
+      switch result {
+      case.failure(let error):
+        print(error.localizedDescription)
+      case.success(let petResponse):
+        let rawPets = petResponse.animals ?? []
+        self.orgAllPets = rawPets.map { PetDetailViewModel(model: $0)}
+      }
+    }
+
+  }
 }
