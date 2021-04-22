@@ -105,7 +105,8 @@ private extension OrganizationDetailView {
     SectionView(
       kind: .recent,
       petViewModel: filteredPets,
-      totalPetCount: petDataController.allPets.count,
+//      totalPetCount: petDataController.allPets.count,
+      totalPetCount: orgDataController.orgAllPets.count,
       title: "Recent \(petDataController.petType.currentPetType.name)".capitalized,
       isLoading: petDataController.isLoading,
       primaryAction: { requestWebData() },
