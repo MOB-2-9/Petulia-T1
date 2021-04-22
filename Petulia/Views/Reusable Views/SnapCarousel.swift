@@ -32,10 +32,12 @@ struct SnapCarousel: View {
                         widthOfHiddenCards: widthOfHiddenCards,
                         cardHeight: cardHeight
                     ) {
-                        Text("\(item.name)")
+//                        Text("\(item.imageURL)")
+                      AsyncOrgImageView(urlString: "\(item.imageURL)")
                     }
-                    .foregroundColor(Color.white)
-                    .background(Color.blue)
+//                    .foregroundColor(Color.white)
+//                    .background(
+//                    )
                     .cornerRadius(8)
                     .shadow(color: Color.blueNight, radius: 4, x: 0, y: 4)
                     .transition(AnyTransition.slide)
@@ -48,7 +50,7 @@ struct SnapCarousel: View {
 
 struct Card: Decodable, Hashable, Identifiable {
     var id: Int
-    var name: String = ""
+    var imageURL: String = ""
 }
 
 public class UIStateModel: ObservableObject {

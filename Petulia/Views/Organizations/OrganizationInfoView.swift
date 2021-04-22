@@ -30,6 +30,8 @@ struct OrganizationInfoView: View {
         .font(.title)
         .multilineTextAlignment(.center)
         .padding(.bottom, 2)
+        .padding(.leading, 4)
+        .padding(.trailing, 4)
       if organization.addressStreet != "Does not exist" {
         Text("\(organization.addressStreet)")
       }

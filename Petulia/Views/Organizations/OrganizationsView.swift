@@ -20,7 +20,7 @@ struct OrganizationsView: View {
   private var orgsAsCards: [Card] {
     var cards: [Card] = []
     for (i, org) in filteredOrgs.enumerated() {
-      let card = Card(id: i, name: org.defaultImagePath(for: .medium))
+      let card = Card(id: i, imageURL: org.defaultImagePath(for: .medium))
       cards.append(card)
     }
     return cards
@@ -36,7 +36,7 @@ struct OrganizationsView: View {
             .padding(.bottom)
           organizationInfoView()
         } else {
-          SnapCarousel(items: [Card(id: 0, name: "loading")])
+          SnapCarousel(items: [Card(id: 0, imageURL: "loading")])
             .environmentObject(UIState)
             .padding(.top, 15)
             .padding(.bottom)
