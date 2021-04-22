@@ -38,7 +38,7 @@ final class ThemeManager: ObservableObject {
   init() {
     loadAccentColor()
   }
-  
+
   func loadAccentColor() {
     if let loadedAccent = Color.color(from: prefferedAccentColor) {
       accentColor = loadedAccent
