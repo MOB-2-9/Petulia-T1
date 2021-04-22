@@ -10,6 +10,7 @@ import SwiftUI
 
 struct SnapCarousel: View {
     @EnvironmentObject var UIState: UIStateModel
+  
     let items = [
         Card(id: 0, name: "Hey"),
         Card(id: 1, name: "Ho"),
@@ -19,8 +20,8 @@ struct SnapCarousel: View {
   
     var body: some View {
         let spacing: CGFloat = 16
-        let widthOfHiddenCards: CGFloat = 32 /// UIScreen.main.bounds.width - 10
-        let cardHeight: CGFloat = 200
+        let widthOfHiddenCards: CGFloat = 75 /// UIScreen.main.bounds.width - 10 orignally 32
+        let cardHeight: CGFloat = 200 /// originally 279
         
         return Canvas {
             /// TODO: find a way to avoid passing same arguments to Carousel and Item
@@ -137,7 +138,7 @@ struct Canvas<Content : View> : View {
     
     var body: some View {
         content
-            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
+            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 250, alignment: .center)
             .background(Color.white.edgesIgnoringSafeArea(.all))
     }
 }
@@ -171,7 +172,7 @@ struct Item<Content: View>: View {
 
 struct SnapCarousel_Previews: PreviewProvider {
     static var previews: some View {
-      var UIState: UIStateModel = UIStateModel()
+      let UIState: UIStateModel = UIStateModel()
       SnapCarousel()
         .environmentObject(UIState)
     }

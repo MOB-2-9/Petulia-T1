@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import MessageUI
 
 struct OrganizationInfoView: View {
   @EnvironmentObject var petDataController: PetDataController
@@ -14,64 +15,36 @@ struct OrganizationInfoView: View {
   @State private var collapsedContact: Bool = true
   var organization: OrganizationDetailViewModel
   
+  @State var result: Result<MFMailComposeResult, Error>? = nil
+  @State private var showingMailView = false
+  
+  /// The delegate required by `MFMailComposeViewController`
+  private let mailComposeDelegate = MailDelegate()
+  
+  /// The delegate required by `MFMessageComposeViewController`
+  private let messageComposeDelegate = MessageDelegate()
+  
   var body: some View {
     VStack {
       Text("\(organization.name)")
         .font(.title)
-      Text("\(organization.addressCity), \(organization.addressState)")
-        .font(.title2)
-      HStack {
-        VStack {
-          Button(
-            action: { self.collapsedAddress.toggle() },
-            label: {
-              HStack {
-                Text("Address")
-                Spacer()
-                Image(systemName: self.collapsedAddress ? "chevron.right" : "chevron.up")
-              }
-              .padding(.bottom, 1)
-              .background(Color.white.opacity(0.01))
-            }
-          )
-          .buttonStyle(PlainButtonStyle())
-          VStack {
-            Text("\(organization.addressStreet)")
-            Text("\(organization.addressCity), \(organization.addressState)")
-          }
-          .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: collapsedAddress ? 0 : .none)
-          .clipped()
-          .animation(.easeOut)
-          .transition(.slide)
-        }
-        Spacer()
+        .multilineTextAlignment(.center)
+        .padding(.bottom, 2)
+      if organization.addressStreet != "Does not exist" {
+        Text("\(organization.addressStreet)")
       }
-      .padding()
+      Text("\(organization.addressCity), \(organization.addressState)")
+//        .font(.title2)
       HStack {
-        VStack {
-          Button(
-            action: { self.collapsedContact.toggle() },
-            label: {
-              HStack {
-                Text("Contact Info")
-                Spacer()
-                Image(systemName: self.collapsedContact ? "chevron.right" : "chevron.up")
-              }
-              .padding(.bottom, 1)
-              .background(Color.white.opacity(0.01))
-            }
-          )
-          .buttonStyle(PlainButtonStyle())
-          VStack {
-            Text("Email: \(organization.email)")
-            Text("Phone: \(organization.phone)")
-          }
-          .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: collapsedContact ? 0 : .none)
-          .clipped()
-          .animation(.easeOut)
-          .transition(.slide)
+        if let unwrappedPhone = organization.phone {
+          Button(unwrappedPhone, action: callPhone)
+        } else {
+          Text("No Number")
         }
         Spacer()
+        if let unwrappedEmail = organization.email {
+          Button(unwrappedEmail, action: presentMailCompose)
+        }
       }
       .padding()
       NavigationLink(destination: OrganizationDetailView(petDataController: _petDataController)) {
@@ -93,8 +66,65 @@ struct OrganizationInfoLoadingView: View {
   }
 }
 
-//struct OrganizationInfoView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        OrganizationInfoView()
-//    }
-//}
+extension OrganizationInfoView {
+  
+  /// Delegate for view controller as `MFMailComposeViewControllerDelegate`
+  private class MailDelegate: NSObject, MFMailComposeViewControllerDelegate {
+    
+    func mailComposeController(_ controller: MFMailComposeViewController,
+                               didFinishWith result: MFMailComposeResult,
+                               error: Error?) {
+//      Customize Here
+      controller.dismiss(animated: true)
+    }
+    
+  }
+  
+  /// Present an mail compose view controller modally in UIKit environment
+  private func presentMailCompose() {
+    guard MFMailComposeViewController.canSendMail() else {
+      return
+    }
+    let vc = UIApplication.shared.keyWindow?.rootViewController
+    
+    let composeVC = MFMailComposeViewController()
+    composeVC.mailComposeDelegate = mailComposeDelegate
+    
+    composeVC.setToRecipients([organization.email])
+    
+    vc?.present(composeVC, animated: true)
+  }
+  
+  
+  /// Phone Call
+  func callPhone(){
+    let telephone = "tel://"
+    let formattedString = telephone + organization.phone
+    guard let url = URL(string: formattedString) else { return }
+    print(url)
+    UIApplication.shared.open(url)
+  }
+  /// Delegate for view controller as `MFMessageComposeViewControllerDelegate`
+  private class MessageDelegate: NSObject, MFMessageComposeViewControllerDelegate {
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+      // Customize here
+      controller.dismiss(animated: true)
+    }
+    
+  }
+  
+  /// Present an message compose view controller modally in UIKit environment
+  private func presentMessageCompose() {
+    guard MFMessageComposeViewController.canSendText() else {
+      return
+    }
+    let vc = UIApplication.shared.keyWindow?.rootViewController
+    
+    let composeVC = MFMessageComposeViewController()
+    composeVC.messageComposeDelegate = messageComposeDelegate
+    
+//    Customize Here
+    
+    vc?.present(composeVC, animated: true)
+  }
+}
