@@ -19,7 +19,6 @@ struct Organization: Codable, Identifiable {
   let address: Address
   let socialMedia: SocialMedia?
   let photos: [Photo]
-
   
   enum CodingKeys: String, CodingKey {
     case id, name, email, phone, url
@@ -59,8 +58,10 @@ struct LinkToAnimals: Codable {
 
 struct OrganizationList: Codable {
   let organizations: [Organization]
+  let pagination: PaginationDTO
 }
 
+// Each single organization response
 struct ResponseOrangization: Codable {
   let organization: Organization
 }

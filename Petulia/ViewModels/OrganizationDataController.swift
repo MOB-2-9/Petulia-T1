@@ -15,11 +15,13 @@ final class OrganizationDataController: ObservableObject {
   @Published private(set) var orgAllPets: [PetDetailViewModel] = []
   
   private let apiService: NetworkService
-  
+  private(set) var pagination: PaginationDTO
   init(
-    apiService: NetworkService = APIService()
+    apiService: NetworkService = APIService(),
+    pagination: PaginationDTO = PaginationDTO.new
   ) {
     self.apiService = apiService
+    self.pagination = pagination
   }
   
   func fetchOrganizations() {
@@ -29,7 +31,8 @@ final class OrganizationDataController: ObservableObject {
         print(error.localizedDescription)
       case .success(let organizations):
         let rawOrganizations = organizations.organizations
-        self.allOrganizations = rawOrganizations.map { OrganizationDetailViewModel(model: $0)}
+        self.pagination = organizations.pagination
+        self.allOrganizations = rawOrganizations.map { OrganizationDetailViewModel(model: $0)}    
         
         /// TESTING OUT FETCHING TO GET ANIMALS FROM ORG
         let linkToAnimal = self.allOrganizations.first?.linkToAnimals
@@ -60,6 +63,5 @@ final class OrganizationDataController: ObservableObject {
         self.orgAllPets = rawPets.map { PetDetailViewModel(model: $0)}
       }
     }
-
   }
 }
