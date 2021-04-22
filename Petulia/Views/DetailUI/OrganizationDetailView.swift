@@ -26,6 +26,8 @@ struct OrganizationDetailView: View {
     return petDataController.allPets
   }
   
+  var organization: OrganizationDetailViewModel
+  
   //MARK: View Body
   var body: some View {
     NavigationView {
@@ -35,7 +37,7 @@ struct OrganizationDetailView: View {
             VStack{
               //      heroExpandableImage()
               tempExpandableImage()
-              Text("City, State")
+              Text("\(organization.addressCity), \(organization.addressState)")
                 .font(.title3)
                 .fontWeight(.light)
               Button("Go to website", action: {print("Website")})

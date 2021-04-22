@@ -76,7 +76,7 @@ struct OrganizationInfoView: View {
         }
       }
       .padding()
-      NavigationLink(destination: OrganizationDetailView(petDataController: _petDataController)) {
+      NavigationLink(destination: OrganizationDetailView(petDataController: _petDataController, organization: organization)) {
         Text("View available animals")
       }
       .padding()

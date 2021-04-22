@@ -20,7 +20,6 @@ struct MainView: View {
                 }
               )
             }
-//            .accentColor(theme.accentColor)
           OrganizationsView()
             .tabItem {
               Label(
