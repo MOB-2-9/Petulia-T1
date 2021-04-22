@@ -15,7 +15,7 @@ class OrganizationDetailViewModel: Identifiable, Hashable, Codable {
   var name: String
   var email: String
   var phone: String
-  var linkToAnimals: String
+  var linkToAnimals: LinkToAnimals
   var linkToSelf: LinkToSelf
   var addressStreet: String
   var addressCity: String
@@ -32,7 +32,7 @@ class OrganizationDetailViewModel: Identifiable, Hashable, Codable {
     self.name = model.name
     self.email = model.email
     self.phone = model.phone ?? "Does not exist"
-    self.linkToAnimals = model.links.animals.href
+    self.linkToAnimals = model.links.animals
     self.linkToSelf = model.links.linkToSelf
     self.addressStreet = model.address.address1 ?? "Does not exist"
     self.addressCity = model.address.city ?? "Does not exist"

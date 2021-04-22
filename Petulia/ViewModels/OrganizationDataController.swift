@@ -29,6 +29,10 @@ final class OrganizationDataController: ObservableObject {
       case .success(let organizations):
         let rawOrganizations = organizations.organizations
         self.allOrganizations = rawOrganizations.map { OrganizationDetailViewModel(model: $0)}
+        
+        /// TESTING OUT FETCHING TO GET ANIMALS FROM ORG
+        let linkToAnimal = self.allOrganizations.first?.linkToAnimals
+        self.fetchOrgAnimals(link: linkToAnimal!)
       // Print out all organizations
       //        print(self.allOrganizations)
       }
@@ -53,8 +57,9 @@ final class OrganizationDataController: ObservableObject {
       case.failure(let error):
         print(error.localizedDescription)
       case.success(let petResponse):
-        let rawPets = petResponse.animals
-        print(rawPets)
+        let rawPets = petResponse.animals ?? []
+        // Still need to store this in variable
+        let allPets = rawPets.map { PetDetailViewModel(model: $0)}
       }
     }
 
