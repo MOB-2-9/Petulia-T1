@@ -11,6 +11,7 @@ import MessageUI
 
 struct OrganizationInfoView: View {
   @EnvironmentObject var petDataController: PetDataController
+  @EnvironmentObject var theme: ThemeManager
   @State private var collapsedAddress: Bool = true
   @State private var collapsedContact: Bool = true
   var organization: OrganizationDetailViewModel
@@ -38,14 +39,40 @@ struct OrganizationInfoView: View {
       Text("\(organization.addressCity), \(organization.addressState)")
 //        .font(.title2)
       HStack {
-        if let unwrappedPhone = organization.phone {
-          Button(unwrappedPhone, action: callPhone)
-        } else {
-          Text("No Number")
+        if organization.phone != "Does not exist" {
+          Button(action: {
+            callPhone()
+          }) {
+            HStack(spacing: 10) {
+              Text("Call")
+                .font(.title2)
+                .fontWeight(.semibold)
+                .foregroundColor(.white)
+              Image(systemName: "phone.fill")
+                .foregroundColor(.white)
+            }
+            .padding()
+            .background(theme.accentColor)
+            .cornerRadius(6.0)
+          }
         }
         Spacer()
-        if let unwrappedEmail = organization.email {
-          Button(unwrappedEmail, action: presentMailCompose)
+        if organization.email != "Does not exist" {
+          Button(action: {
+            presentMailCompose()
+          }) {
+            HStack(spacing: 10) {
+              Text("Email")
+                .font(.title2)
+                .fontWeight(.semibold)
+                .foregroundColor(.white)
+              Image(systemName: "paperplane.fill")
+                .foregroundColor(.white)
+            }
+            .padding()
+            .background(theme.accentColor)
+            .cornerRadius(6.0)
+          }
         }
       }
       .padding()
