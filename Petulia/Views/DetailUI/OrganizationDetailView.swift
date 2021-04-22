@@ -13,7 +13,7 @@ struct OrganizationDetailView: View {
 //  var viewModel: PetDetailViewModel
   
   @EnvironmentObject var petDataController: PetDataController
-  @EnvironmentObject var theme: ThemeManager
+//  @EnvironmentObject var theme: ThemeManager
   
   @AppStorage(Keys.savedPostcode) var postcode = ""
   @AppStorage(Keys.isDark) var isDark = false
@@ -26,6 +26,8 @@ struct OrganizationDetailView: View {
     return petDataController.allPets
   }
   
+  var organization: OrganizationDetailViewModel
+  
   //MARK: View Body
   var body: some View {
     NavigationView {
@@ -35,7 +37,7 @@ struct OrganizationDetailView: View {
             VStack{
               //      heroExpandableImage()
               tempExpandableImage()
-              Text("City, State")
+              Text("\(organization.addressCity), \(organization.addressState)")
                 .font(.title3)
                 .fontWeight(.light)
               Button("Go to website", action: {print("Website")})
@@ -56,7 +58,7 @@ struct OrganizationDetailView: View {
       }
       .navigationBarTitle("Organization Name")
     }
-    .accentColor(theme.accentColor)
+//    .accentColor(theme.accentColor)
     .preferredColorScheme(isDark ? .dark : .light)
   }
 }

@@ -9,17 +9,18 @@
 import SwiftUI
 
 struct MainView: View {
+  @EnvironmentObject var theme: ThemeManager
     var body: some View {
       TabView {
           HomeView()
             .tabItem {
               Label(
                 title: { Text("Home") },
-                icon: { Image(systemName: "house.fill") }
+                icon: { Image(systemName: "house.fill")
+                }
               )
             }
-//          OrganizationsView()
-        OrganizationDetailView()
+          OrganizationsView()
             .tabItem {
               Label(
                 title: { Text("Organizations") },
@@ -27,6 +28,7 @@ struct MainView: View {
               )
             }
         }
+      .accentColor(theme.accentColor)
     }
 }
 
