@@ -13,6 +13,7 @@ struct OrganizationDetailView: View {
 //  var viewModel: PetDetailViewModel
   
   @EnvironmentObject var petDataController: PetDataController
+  @EnvironmentObject var orgDataController: OrganizationDataController
   @EnvironmentObject var theme: ThemeManager
   
   @AppStorage(Keys.savedPostcode) var postcode = ""
@@ -64,7 +65,7 @@ struct OrganizationDetailView: View {
           }
           .padding(.bottom)
           VStack {
-            petTypeScrollView()
+//            petTypeScrollView()
             recentPetSectionView()
           }
           .padding(.bottom)
@@ -86,9 +87,7 @@ private extension OrganizationDetailView {
   //MARK: - Methods
   func requestWebData() {
     print("Making Request")
-//    self.petDataController.requestPets(around: postcode.isEmpty ? nil : postcode)
-//    self.petDataController.fetchResult(at: organization.linkToAnimals)
-    self.petDataController.requestOrgPets(url: organization.linkToAnimals)
+    self.orgDataController.fetchOrgAnimals(link: organization.linkToAnimals)
   }
   
   //MARK: - Components
