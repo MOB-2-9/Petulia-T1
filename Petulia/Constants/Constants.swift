@@ -14,6 +14,7 @@ enum Keys {
   // Theme
   static var prefferedAccentColor = "prefferedAccentColor"
   static var isDark = "isDark"
+  static var photoOnly = "photoOnly"
   
   // URLs
   static var baseURLPath = "api.petfinder.com"
