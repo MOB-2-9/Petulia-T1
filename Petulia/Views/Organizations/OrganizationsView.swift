@@ -11,6 +11,7 @@ import SwiftUI
 struct OrganizationsView: View {
   @EnvironmentObject var organizationDataController: OrganizationDataController
   @EnvironmentObject var petDataController: PetDataController
+  @EnvironmentObject var theme: ThemeManager
   @ObservedObject var UIState: UIStateModel = UIStateModel()
 
   private var filteredOrgs: [OrganizationDetailViewModel] {
@@ -47,6 +48,7 @@ struct OrganizationsView: View {
       .navigationBarTitle("Organizations")
     }
     .onAppear { requestWebData() }
+    .accentColor(theme.accentColor)
   }
 }
 
