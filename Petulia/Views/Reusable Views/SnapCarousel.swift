@@ -11,12 +11,7 @@ import SwiftUI
 struct SnapCarousel: View {
     @EnvironmentObject var UIState: UIStateModel
   
-    let items = [
-        Card(id: 0, name: "Hey"),
-        Card(id: 1, name: "Ho"),
-        Card(id: 2, name: "Lets"),
-        Card(id: 3, name: "Go")
-    ]
+    let items: [Card]
   
     var body: some View {
         let spacing: CGFloat = 16
@@ -170,10 +165,10 @@ struct Item<Content: View>: View {
     }
 }
 
-struct SnapCarousel_Previews: PreviewProvider {
-    static var previews: some View {
-      let UIState: UIStateModel = UIStateModel()
-      SnapCarousel()
-        .environmentObject(UIState)
-    }
-}
+//struct SnapCarousel_Previews: PreviewProvider {
+//    static var previews: some View {
+//      let UIState: UIStateModel = UIStateModel()
+//      SnapCarousel()
+//        .environmentObject(UIState)
+//    }
+//}

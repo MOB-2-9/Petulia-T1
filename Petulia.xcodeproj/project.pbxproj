@@ -707,7 +707,7 @@
 				CURRENT_PROJECT_VERSION = 2;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Petulia/Preview Content\"";
-				DEVELOPMENT_TEAM = 6VH946FT2M;
+				DEVELOPMENT_TEAM = HXYM5H2DXG;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Petulia/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -715,7 +715,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.42.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.esmoscu.Petulia;
+				PRODUCT_BUNDLE_IDENTIFIER = com.anikamorris.Petulia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -730,7 +730,7 @@
 				CURRENT_PROJECT_VERSION = 2;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Petulia/Preview Content\"";
-				DEVELOPMENT_TEAM = 6VH946FT2M;
+				DEVELOPMENT_TEAM = HXYM5H2DXG;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Petulia/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -738,7 +738,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.42.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.esmoscu.Petulia;
+				PRODUCT_BUNDLE_IDENTIFIER = com.anikamorris.Petulia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

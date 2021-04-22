@@ -17,16 +17,29 @@ struct OrganizationsView: View {
     return organizationDataController.allOrganizations
   }
   
+  private var orgsAsCards: [Card] {
+    var cards: [Card] = []
+    for (i, org) in filteredOrgs.enumerated() {
+      let card = Card(id: i, name: org.defaultImagePath(for: .medium))
+      cards.append(card)
+    }
+    return cards
+  }
+  
   var body: some View {
     NavigationView {
       VStack {
-        SnapCarousel()
-          .environmentObject(UIState)
-          .padding(.top, 15)
-          .padding(.bottom)
         if filteredOrgs.count > 0 {
+          SnapCarousel(items: orgsAsCards)
+            .environmentObject(UIState)
+            .padding(.top, 15)
+            .padding(.bottom)
           organizationInfoView()
         } else {
+          SnapCarousel(items: [Card(id: 0, name: "loading")])
+            .environmentObject(UIState)
+            .padding(.top, 15)
+            .padding(.bottom)
           organizationInfoLoadingView()
         }
         Spacer()
