@@ -14,7 +14,7 @@ final class OrganizationDataController: ObservableObject {
   @Published private(set) var singleOrganization: OrganizationDetailViewModel!
   
   private let apiService: NetworkService
-
+  
   init(
     apiService: NetworkService = APIService()
   ) {
@@ -29,8 +29,8 @@ final class OrganizationDataController: ObservableObject {
       case .success(let organizations):
         let rawOrganizations = organizations.organizations
         self.allOrganizations = rawOrganizations.map { OrganizationDetailViewModel(model: $0)}
-        // Print out all organizations
-//        print(self.allOrganizations)
+      // Print out all organizations
+      //        print(self.allOrganizations)
       }
     }
   }
@@ -43,8 +43,20 @@ final class OrganizationDataController: ObservableObject {
       case .success(let organization):
         let rawOrganization = organization.organization
         self.singleOrganization = OrganizationDetailViewModel(model: rawOrganization)
+      }
     }
   }
   
-}
+  func fetchOrgAnimals(link: LinkToAnimals) {
+    apiService.fetch(at: EndPoint.animalsFromOrg(from: link)) { (result: Result<AllAnimals, Error>) in
+      switch result {
+      case.failure(let error):
+        print(error.localizedDescription)
+      case.success(let petResponse):
+        let rawPets = petResponse.animals
+        print(rawPets)
+      }
+    }
+
+  }
 }
