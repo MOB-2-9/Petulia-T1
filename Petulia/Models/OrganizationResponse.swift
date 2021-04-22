@@ -14,6 +14,7 @@ struct Organization: Codable, Identifiable {
   let name: String
   let email: String
   let phone: String?
+  let url: String
   let links: OrganizationLinks
   let address: Address
   let socialMedia: SocialMedia?
@@ -21,7 +22,7 @@ struct Organization: Codable, Identifiable {
 
   
   enum CodingKeys: String, CodingKey {
-    case id, name, email, phone
+    case id, name, email, phone, url
     case links = "_links"
     case address
     case socialMedia = "social_media"

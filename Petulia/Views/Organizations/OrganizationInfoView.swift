@@ -38,40 +38,39 @@ struct OrganizationInfoView: View {
       }
       Text("\(organization.addressCity), \(organization.addressState)")
 //        .font(.title2)
+//      Spacer()
       HStack {
-        if organization.phone != "Does not exist" {
+        if organization.url != "Does not exist" {
           Button(action: {
-            callPhone()
+            UIApplication.shared.open(URL(string: organization.url)!)
           }) {
-            HStack(spacing: 10) {
-              Text("Call")
-                .font(.title2)
-                .fontWeight(.semibold)
-                .foregroundColor(.white)
-              Image(systemName: "phone.fill")
-                .foregroundColor(.white)
-            }
-            .padding()
-            .background(theme.accentColor)
-            .cornerRadius(6.0)
+            ContactHStack(
+              label: "Website",
+              systemIcon: "link",
+              backgroundColor: theme.accentColor
+            )
           }
         }
-        Spacer()
         if organization.email != "Does not exist" {
           Button(action: {
             presentMailCompose()
           }) {
-            HStack(spacing: 10) {
-              Text("Email")
-                .font(.title2)
-                .fontWeight(.semibold)
-                .foregroundColor(.white)
-              Image(systemName: "paperplane.fill")
-                .foregroundColor(.white)
-            }
-            .padding()
-            .background(theme.accentColor)
-            .cornerRadius(6.0)
+            ContactHStack(
+              label: "Email",
+              systemIcon: "paperplane.fill",
+              backgroundColor: theme.accentColor
+            )
+          }
+        }
+        if organization.phone != "Does not exist" {
+          Button(action: {
+            callPhone()
+          }) {
+            ContactHStack(
+              label: "Call",
+              systemIcon: "phone.fill",
+              backgroundColor: theme.accentColor
+            )
           }
         }
       }
@@ -92,6 +91,26 @@ struct OrganizationInfoLoadingView: View {
         .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
         .padding()
     }
+  }
+}
+
+struct ContactHStack: View {
+  let label: String
+  let systemIcon: String
+  let backgroundColor: Color
+  
+  var body: some View {
+    HStack {
+      Text("\(label)")
+        .font(.title3)
+        .fontWeight(.semibold)
+        .foregroundColor(.white)
+      Image(systemName: "\(systemIcon)")
+        .foregroundColor(.white)
+    }
+    .padding()
+    .background(backgroundColor)
+    .cornerRadius(6.0)
   }
 }
 
