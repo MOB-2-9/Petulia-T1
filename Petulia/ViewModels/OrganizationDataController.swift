@@ -14,11 +14,14 @@ final class OrganizationDataController: ObservableObject {
   @Published private(set) var singleOrganization: OrganizationDetailViewModel!
   
   private let apiService: NetworkService
-
+  private(set) var pagination: PaginationDTO
+  
   init(
-    apiService: NetworkService = APIService()
+    apiService: NetworkService = APIService(),
+    pagination: PaginationDTO = PaginationDTO.new
   ) {
     self.apiService = apiService
+    self.pagination = pagination
   }
   
   func fetchOrganizations() {
@@ -28,9 +31,10 @@ final class OrganizationDataController: ObservableObject {
         print(error.localizedDescription)
       case .success(let organizations):
         let rawOrganizations = organizations.organizations
+        self.pagination = organizations.pagination
         self.allOrganizations = rawOrganizations.map { OrganizationDetailViewModel(model: $0)}
-        // Print out all organizations
-//        print(self.allOrganizations)
+      // Print out all organizations
+      //        print(self.allOrganizations)
       }
     }
   }
@@ -43,8 +47,7 @@ final class OrganizationDataController: ObservableObject {
       case .success(let organization):
         let rawOrganization = organization.organization
         self.singleOrganization = OrganizationDetailViewModel(model: rawOrganization)
+      }
     }
   }
-  
-}
 }
