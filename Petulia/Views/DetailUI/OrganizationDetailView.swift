@@ -30,41 +30,52 @@ struct OrganizationDetailView: View {
   
   //MARK: View Body
   var body: some View {
-      ZStack (alignment: .bottom) {
-        VStack {
-          ScrollView(.vertical, showsIndicators: false) {
-            Text(organization.name)
-              .font(.largeTitle)
-              .bold()
-              .frame(idealWidth: .infinity)
-              .multilineTextAlignment(.center)
-            VStack{
-              if organization.photos.count != 0{
-                heroExpandableImage()
-              }
+    ZStack (alignment: .bottom) {
+      VStack {
+        ScrollView(.vertical, showsIndicators: false) {
+          Text(organization.name)
+            .font(.largeTitle)
+            .bold()
+            .frame(idealWidth: .infinity)
+            .multilineTextAlignment(.center)
+          VStack{
+            if organization.photos.count != 0{
+              heroExpandableImage()
               Text("\(organization.addressCity), \(organization.addressState)")
                 .font(.title3)
                 .fontWeight(.light)
               Button("Go to website", action: {
                 UIApplication.shared.open(URL(string: organization.url)!)
               })
+            }else{
+              Text("\(organization.addressCity), \(organization.addressState)")
+                .font(.title2)
+              Button(action: {
+                UIApplication.shared.open(URL(string: organization.url)!)
+              }){
+                ContactHStack(
+                  label: "Website",
+                  systemIcon: "link",
+                  backgroundColor: theme.accentColor
+                )
+                .frame(maxWidth: .infinity)
+              }
             }
-            .padding(.bottom)
-            VStack {
-              petTypeScrollView()
-              recentPetSectionView()
-            }
-            .padding(.bottom)
           }
-        }
-        if typing {
-          KeyboardToolBarView() {
-            requestWebData()
+          .padding(.bottom)
+          VStack {
+            petTypeScrollView()
+            recentPetSectionView()
           }
+          .padding(.bottom)
         }
       }
-//      .navigationBarTitle(organization.name, displayMode: .automatic)
-    
+      if typing {
+        KeyboardToolBarView() {
+          requestWebData()
+        }
+      }
+    }
     .accentColor(theme.accentColor)
     .preferredColorScheme(isDark ? .dark : .light)
   }
@@ -75,7 +86,9 @@ private extension OrganizationDetailView {
   //MARK: - Methods
   func requestWebData() {
     print("Making Request")
-    self.petDataController.requestPets(around: postcode.isEmpty ? nil : postcode)
+//    self.petDataController.requestPets(around: postcode.isEmpty ? nil : postcode)
+//    self.petDataController.fetchResult(at: organization.linkToAnimals)
+    self.petDataController.requestOrgPets(url: organization.linkToAnimals)
   }
   
   //MARK: - Components

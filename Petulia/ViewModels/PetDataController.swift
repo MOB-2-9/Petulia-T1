@@ -47,6 +47,22 @@ final class PetDataController: ObservableObject {
     print("url: \(String(describing: endPoint2.url))")
     fetchResult(at: endPoint2)
   }
+  
+  //MARK: Trying to get Pets from specific Orgs
+  func requestOrgPets(url orgUrl: String? = nil) {
+    allPets = []
+
+    let type = petType.currentPetType.endPoint
+    let filters = ["type": type]
+    let filtered = filters.compactMapValues { $0 }
+    print("filtered: \(filtered)")
+
+    let queryItems = filtered.map { URLQueryItem(name: $0.key, value: orgUrl) }
+    let endPoint2 = EndPoint.animals(queryItems: queryItems)
+
+    print("url: \(String(describing: endPoint2.url))")
+    fetchResult(at: endPoint2)
+  }
 
   func requestPage(direction: PageDirection) {
     switch direction {
