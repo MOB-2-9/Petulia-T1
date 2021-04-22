@@ -97,7 +97,7 @@ private extension SectionView {
   
   func standardPetTiles() -> some View {
     ForEach(petViewModel.prefix(9)) { pet in
-      NavigationLink(destination: PetDetailView(viewModel:pet)) {
+      NavigationLink(destination: PetDetailView(viewModel: pet)) {
         TileView(title: pet.name, imagePath: pet.defaultImagePath(for: .medium))
           .frame(width: 150)
           .cornerRadius(10)
