@@ -71,6 +71,11 @@
 		79FF944C256A562D00149140 /* Collection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FF944B256A562D00149140 /* Collection+Extension.swift */; };
 		CF929FCF2629009300AE886C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF929FCE2629009200AE886C /* MainView.swift */; };
 		CF929FD4262900D400AE886C /* OrganizationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF929FD3262900D400AE886C /* OrganizationsView.swift */; };
+		CF929FD9262E2D4D00AE886C /* OrganizationScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF929FD8262E2D4D00AE886C /* OrganizationScrollView.swift */; };
+		CF929FDC262E2D5E00AE886C /* OrganizationInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF929FDB262E2D5E00AE886C /* OrganizationInfoView.swift */; };
+		CF929FDF262E316300AE886C /* Expandable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF929FDE262E316300AE886C /* Expandable.swift */; };
+		CF929FE2262E3EA100AE886C /* SnapCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF929FE1262E3EA100AE886C /* SnapCarousel.swift */; };
+		CF929FE6262F893400AE886C /* Petfinder-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF929FE5262F893400AE886C /* Petfinder-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -139,6 +144,11 @@
 		79FF944B256A562D00149140 /* Collection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extension.swift"; sourceTree = "<group>"; };
 		CF929FCE2629009200AE886C /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		CF929FD3262900D400AE886C /* OrganizationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationsView.swift; sourceTree = "<group>"; };
+		CF929FD8262E2D4D00AE886C /* OrganizationScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationScrollView.swift; sourceTree = "<group>"; };
+		CF929FDB262E2D5E00AE886C /* OrganizationInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationInfoView.swift; sourceTree = "<group>"; };
+		CF929FDE262E316300AE886C /* Expandable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expandable.swift; sourceTree = "<group>"; };
+		CF929FE1262E3EA100AE886C /* SnapCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapCarousel.swift; sourceTree = "<group>"; };
+		CF929FE5262F893400AE886C /* Petfinder-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Petfinder-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +187,8 @@
 				6962D29F24E2CB3B00772A61 /* ActivityIndicator.swift */,
 				794FEAD2259C87F50010B381 /* KeyboardToolBarView.swift */,
 				794E2CD925AB444600234FDA /* RetryCard.swift */,
+				CF929FDE262E316300AE886C /* Expandable.swift */,
+				CF929FE1262E3EA100AE886C /* SnapCarousel.swift */,
 			);
 			path = "Reusable Views";
 			sourceTree = "<group>";
@@ -351,7 +363,6 @@
 				695B34F324D6CA1500A15D26 /* SceneDelegate.swift */,
 				695B34FF24D6CA2000A15D26 /* Info.plist */,
 				293B0C6E25DA5F5900A4DECB /* Petfinder-Info-Template.plist */,
-				3FA4573E262F8F7400C789E9 /* Petfinder-Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -408,6 +419,8 @@
 			isa = PBXGroup;
 			children = (
 				CF929FD3262900D400AE886C /* OrganizationsView.swift */,
+				CF929FD8262E2D4D00AE886C /* OrganizationScrollView.swift */,
+				CF929FDB262E2D5E00AE886C /* OrganizationInfoView.swift */,
 			);
 			path = Organizations;
 			sourceTree = "<group>";
@@ -484,7 +497,6 @@
 				697E7D6D24E9528C0039EBF2 /* thanks.json in Resources */,
 				794E2CCA25AAF8CB00234FDA /* paws-preloader.json in Resources */,
 				695B34FB24D6CA2000A15D26 /* Preview Assets.xcassets in Resources */,
-				3FA4573F262F8F7400C789E9 /* Petfinder-Info.plist in Resources */,
 				794E2CCB25AAF8CB00234FDA /* cat-preloader.json in Resources */,
 				794E2CD125AAFE4100234FDA /* dots-preloader.json in Resources */,
 				695B34F824D6CA2000A15D26 /* Assets.xcassets in Resources */,
@@ -507,6 +519,7 @@
 				69E4432524E8820C00B8B3F1 /* PetDetailViewModel.swift in Sources */,
 				79CA6E182594808D001E2FCF /* ServerPetTypes.swift in Sources */,
 				791F4E432581F9A000C5F457 /* SettingsView.swift in Sources */,
+				CF929FDC262E2D5E00AE886C /* OrganizationInfoView.swift in Sources */,
 				7923467725761564005E2644 /* ClearButtonStyle.swift in Sources */,
 				7962EBFF258C97F400322283 /* ThemeManager.swift in Sources */,
 				3F91B3792629043E00DAD14B /* OrganizationDetailView.swift in Sources */,
@@ -537,14 +550,17 @@
 				7982A4942570FF28005334DD /* PetTypeController.swift in Sources */,
 				695B34F424D6CA1500A15D26 /* SceneDelegate.swift in Sources */,
 				69263DE424E58B8B00EABF0E /* RoundedCorner.swift in Sources */,
+				CF929FE2262E3EA100AE886C /* SnapCarousel.swift in Sources */,
 				69263DE724E58BF300EABF0E /* View+Extension.swift in Sources */,
 				7926ABDE256CE48800AD8D68 /* AsyncImageView.swift in Sources */,
 				797A0ECD25ACA8B900E40F9E /* FilterBarView.swift in Sources */,
+				CF929FD9262E2D4D00AE886C /* OrganizationScrollView.swift in Sources */,
 				6983153D24E853B600E1566A /* HomeView.swift in Sources */,
 				7905B21B2577AC1F00A55F37 /* String+Extension.swift in Sources */,
 				7982A49A25711317005334DD /* FavoriteController.swift in Sources */,
 				794E2CD625AB14E200234FDA /* SectionView.swift in Sources */,
 				79792A6825ADD0CA00352FDD /* SettingsButton.swift in Sources */,
+				CF929FDF262E316300AE886C /* Expandable.swift in Sources */,
 				7905B2182577A27700A55F37 /* HTMLText.swift in Sources */,
 				2C02EE0E262906E600614B4F /* OrganizationDataController.swift in Sources */,
 				7982A49E25712CA4005334DD /* StorageService.swift in Sources */,
@@ -691,7 +707,7 @@
 				CURRENT_PROJECT_VERSION = 2;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Petulia/Preview Content\"";
-				DEVELOPMENT_TEAM = 6VH946FT2M;
+				DEVELOPMENT_TEAM = HXYM5H2DXG;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Petulia/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -699,7 +715,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.42.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.esmoscu.Petulia;
+				PRODUCT_BUNDLE_IDENTIFIER = com.anikamorris.Petulia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -714,7 +730,7 @@
 				CURRENT_PROJECT_VERSION = 2;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Petulia/Preview Content\"";
-				DEVELOPMENT_TEAM = 6VH946FT2M;
+				DEVELOPMENT_TEAM = HXYM5H2DXG;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Petulia/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -722,7 +738,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.42.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.esmoscu.Petulia;
+				PRODUCT_BUNDLE_IDENTIFIER = com.anikamorris.Petulia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

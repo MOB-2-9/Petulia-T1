@@ -32,3 +32,26 @@ struct AsyncImageView: View {
   }
 }
 
+struct AsyncOrgImageView: View {
+  var urlString: String
+  var placeholder: String = "paw"
+  var maxWidth: CGFloat = 200
+  
+  var body: some View {
+    WebImage(url: URL(string: urlString))
+      .onSuccess { image, data, cacheType in
+//        print("Got webImage")
+      }
+      .resizable()
+      .placeholder {
+        Image(placeholder)
+          .resizable()
+          .scaledToFit()
+//          .frame(maxWidth: maxWidth)
+      }
+      .indicator(.activity)
+      .transition(.fade(duration: 0.5))
+    
+  }
+}
+
