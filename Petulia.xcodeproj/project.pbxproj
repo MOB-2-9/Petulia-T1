@@ -74,6 +74,7 @@
 		CF929FDC262E2D5E00AE886C /* OrganizationInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF929FDB262E2D5E00AE886C /* OrganizationInfoView.swift */; };
 		CF929FDF262E316300AE886C /* Expandable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF929FDE262E316300AE886C /* Expandable.swift */; };
 		CF929FE2262E3EA100AE886C /* SnapCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF929FE1262E3EA100AE886C /* SnapCarousel.swift */; };
+		CF929FF026360C6100AE886C /* Petfinder-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF929FEF26360C6100AE886C /* Petfinder-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -145,6 +146,7 @@
 		CF929FDB262E2D5E00AE886C /* OrganizationInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationInfoView.swift; sourceTree = "<group>"; };
 		CF929FDE262E316300AE886C /* Expandable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expandable.swift; sourceTree = "<group>"; };
 		CF929FE1262E3EA100AE886C /* SnapCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapCarousel.swift; sourceTree = "<group>"; };
+		CF929FEF26360C6100AE886C /* Petfinder-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Petfinder-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -358,9 +360,8 @@
 				695B34F124D6CA1500A15D26 /* AppDelegate.swift */,
 				695B34F324D6CA1500A15D26 /* SceneDelegate.swift */,
 				695B34FF24D6CA2000A15D26 /* Info.plist */,
-				2C07138E26313289004168A2 /* Petfinder-Info.plist */,
 				293B0C6E25DA5F5900A4DECB /* Petfinder-Info-Template.plist */,
-				2C03308E2631E00C00961998 /* Petfinder-Info.plist */,
+				CF929FEF26360C6100AE886C /* Petfinder-Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -495,6 +496,7 @@
 				697E7D6D24E9528C0039EBF2 /* thanks.json in Resources */,
 				794E2CCA25AAF8CB00234FDA /* paws-preloader.json in Resources */,
 				695B34FB24D6CA2000A15D26 /* Preview Assets.xcassets in Resources */,
+				CF929FF026360C6100AE886C /* Petfinder-Info.plist in Resources */,
 				794E2CCB25AAF8CB00234FDA /* cat-preloader.json in Resources */,
 				794E2CD125AAFE4100234FDA /* dots-preloader.json in Resources */,
 				695B34F824D6CA2000A15D26 /* Assets.xcassets in Resources */,

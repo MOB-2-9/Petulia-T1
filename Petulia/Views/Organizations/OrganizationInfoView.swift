@@ -12,8 +12,7 @@ import MessageUI
 struct OrganizationInfoView: View {
   @EnvironmentObject var petDataController: PetDataController
   @EnvironmentObject var theme: ThemeManager
-  @State private var collapsedAddress: Bool = true
-  @State private var collapsedContact: Bool = true
+  @State private var collapsed: Bool = true
   var organization: OrganizationDetailViewModel
   
   @State var result: Result<MFMailComposeResult, Error>? = nil
@@ -39,38 +38,66 @@ struct OrganizationInfoView: View {
       Text("\(organization.addressCity), \(organization.addressState)")
 //        .font(.title2)
 //      Spacer()
-      HStack {
-        if organization.url != "Does not exist" {
-          Button(action: {
-            UIApplication.shared.open(URL(string: organization.url)!)
-          }) {
-            ContactHStack(
-              label: "Website",
-              systemIcon: "link",
-              backgroundColor: theme.accentColor
-            )
+      VStack {
+        HStack {
+          if organization.url != "Does not exist" {
+            Button(action: {
+              UIApplication.shared.open(URL(string: organization.url)!)
+            }) {
+              ContactHStack(
+                label: "Website",
+                systemIcon: "link",
+                backgroundColor: theme.accentColor
+              )
+            }
+          }
+          if organization.email != "Does not exist" {
+            Button(action: {
+              presentMailCompose()
+            }) {
+              ContactHStack(
+                label: "Email",
+                systemIcon: "paperplane.fill",
+                backgroundColor: theme.accentColor
+              )
+            }
+          }
+          if organization.phone != "Does not exist" {
+            Button(action: {
+              callPhone()
+            }) {
+              ContactHStack(
+                label: "Call",
+                systemIcon: "phone.fill",
+                backgroundColor: theme.accentColor
+              )
+            }
           }
         }
-        if organization.email != "Does not exist" {
-          Button(action: {
-            presentMailCompose()
-          }) {
-            ContactHStack(
-              label: "Email",
-              systemIcon: "paperplane.fill",
-              backgroundColor: theme.accentColor
-            )
-          }
-        }
-        if organization.phone != "Does not exist" {
-          Button(action: {
-            callPhone()
-          }) {
-            ContactHStack(
-              label: "Call",
-              systemIcon: "phone.fill",
-              backgroundColor: theme.accentColor
-            )
+        if organization.facebook != "Does not exist" || organization.instagram != "Does not exist" {
+          HStack {
+            if organization.facebook != "Does not exist" {
+              Button(action: {
+                UIApplication.shared.open(URL(string: organization.facebook)!)
+              }) {
+                ContactHStack(
+                  label: "Facebook",
+                  systemIcon: "link",
+                  backgroundColor: theme.accentColor
+                )
+              }
+            }
+            if organization.instagram != "Does not exist" {
+              Button(action: {
+                UIApplication.shared.open(URL(string: organization.instagram)!)
+              }) {
+                ContactHStack(
+                  label: "Instagram",
+                  systemIcon: "link",
+                  backgroundColor: theme.accentColor
+                )
+              }
+            }
           }
         }
       }
@@ -111,6 +138,23 @@ struct ContactHStack: View {
     .padding()
     .background(backgroundColor)
     .cornerRadius(6.0)
+  }
+}
+
+struct SocialMediaHStack: View {
+  let label: String
+  let systemIcon: String
+  let color: Color
+  
+  var body: some View {
+    HStack {
+      Text("\(label)")
+        .font(.subheadline)
+        .fontWeight(.semibold)
+        .foregroundColor(color)
+      Image(systemName: "\(systemIcon)")
+        .foregroundColor(color)
+    }
   }
 }
 
