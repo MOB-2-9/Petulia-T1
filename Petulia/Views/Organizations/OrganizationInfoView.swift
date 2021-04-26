@@ -46,7 +46,7 @@ struct OrganizationInfoView: View {
             }) {
               ContactHStack(
                 label: "Website",
-                systemIcon: "link",
+                systemIcon: "arrow.up.right.square.fill",
                 backgroundColor: theme.accentColor
               )
             }
@@ -135,26 +135,11 @@ struct ContactHStack: View {
       Image(systemName: "\(systemIcon)")
         .foregroundColor(.white)
     }
-    .padding()
+    .padding(.all, 8)
+    .padding(.leading, 5)
+    .padding(.trailing, 5)
     .background(backgroundColor)
     .cornerRadius(6.0)
-  }
-}
-
-struct SocialMediaHStack: View {
-  let label: String
-  let systemIcon: String
-  let color: Color
-  
-  var body: some View {
-    HStack {
-      Text("\(label)")
-        .font(.subheadline)
-        .fontWeight(.semibold)
-        .foregroundColor(color)
-      Image(systemName: "\(systemIcon)")
-        .foregroundColor(color)
-    }
   }
 }
 

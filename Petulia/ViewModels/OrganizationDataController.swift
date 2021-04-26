@@ -24,8 +24,22 @@ final class OrganizationDataController: ObservableObject {
     self.pagination = pagination
   }
   
-  func fetchOrganizations() {
-    apiService.fetch(at: EndPoint.organizationsPath) { (result: Result<OrganizationList, Error>) in
+  func requestOrgs(around postcode: String? = nil) {
+    allOrganizations = []
+
+    let filters = ["location": postcode]
+    let filtered = filters.compactMapValues { $0 }
+    print("filtered: \(filtered)")
+
+    let queryItems = filtered.map { URLQueryItem(name: $0.key, value: $0.value) }
+    let endPoint2 = EndPoint.organizations(queryItems: queryItems)
+
+    print("url: \(String(describing: endPoint2.url))")
+    fetchOrganizations(at: endPoint2)
+  }
+  
+  func fetchOrganizations(at endpoint: EndPoint = EndPoint.organizationsPath) {
+    apiService.fetch(at: endpoint) { (result: Result<OrganizationList, Error>) in
       switch result {
       case .failure(let error):
         print(error.localizedDescription)

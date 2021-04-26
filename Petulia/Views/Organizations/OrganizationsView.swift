@@ -12,7 +12,12 @@ struct OrganizationsView: View {
   @EnvironmentObject var organizationDataController: OrganizationDataController
   @EnvironmentObject var petDataController: PetDataController
   @EnvironmentObject var theme: ThemeManager
+  
   @ObservedObject var UIState: UIStateModel = UIStateModel()
+  
+  @AppStorage(Keys.savedPostcode) var postcode = ""
+  
+  @State private var typing = false
 
   private var filteredOrgs: [OrganizationDetailViewModel] {
     return organizationDataController.allOrganizations
@@ -30,6 +35,7 @@ struct OrganizationsView: View {
   var body: some View {
     NavigationView {
       VStack {
+        filterView()
         if filteredOrgs.count > 0 {
           SnapCarousel(items: orgsAsCards)
             .environmentObject(UIState)
@@ -44,10 +50,15 @@ struct OrganizationsView: View {
           organizationInfoLoadingView()
         }
         Spacer()
+        if typing {
+          KeyboardToolBarView() {
+            requestOrgs(around: postcode)
+          }
+        }
       }
       .navigationBarTitle("Organizations")
     }
-    .onAppear { requestWebData() }
+    .onAppear { requestWebData() } 
     .accentColor(theme.accentColor)
   }
 }
@@ -55,6 +66,12 @@ struct OrganizationsView: View {
 extension OrganizationsView {
   func requestWebData() {
     organizationDataController.fetchOrganizations()
+  }
+  
+  func filterView() -> some View {
+    FilterBarView(postcode: $postcode, typing: $typing) {
+      requestOrgs(around: postcode)
+    }
   }
   
   func organizationInfoView() -> some View {
@@ -68,6 +85,10 @@ extension OrganizationsView {
   
   func organizationInfoLoadingView() -> some View {
     return OrganizationInfoLoadingView()
+  }
+  
+  func requestOrgs(around postcode: String? = nil) {
+    organizationDataController.requestOrgs(around: postcode)
   }
 }
 

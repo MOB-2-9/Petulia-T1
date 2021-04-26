@@ -50,6 +50,10 @@ extension EndPoint {
     EndPoint(path: Keys.organizations)
   }
   
+  static func organizations(queryItems : [URLQueryItem]) -> Self {
+    EndPoint(path: Keys.organizations, queryItems: queryItems)
+  }
+  
   static func organization(from link: LinkToSelf)  -> Self {
     EndPoint(path: link.href)
   }
