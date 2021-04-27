@@ -11,6 +11,7 @@
 		2C02EE12262907F600614B4F /* OrganizationDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C02EE11262907F600614B4F /* OrganizationDetailViewModel.swift */; };
 		2C5862DE2628032600725D5E /* OrganizationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5862DD2628032600725D5E /* OrganizationResponse.swift */; };
 		2CE28716262EA5A0002D888A /* Petfinder-Info-Template.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE28715262EA5A0002D888A /* Petfinder-Info-Template.plist */; };
+		3F0A05EE2638C46C000A55A1 /* Petfinder-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F0A05ED2638C46C000A55A1 /* Petfinder-Info.plist */; };
 		3F91B3792629043E00DAD14B /* OrganizationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91B3782629043E00DAD14B /* OrganizationDetailView.swift */; };
 		69263DE424E58B8B00EABF0E /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69263DE324E58B8B00EABF0E /* RoundedCorner.swift */; };
 		69263DE724E58BF300EABF0E /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69263DE624E58BF300EABF0E /* View+Extension.swift */; };
@@ -82,6 +83,7 @@
 		2C02EE11262907F600614B4F /* OrganizationDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationDetailViewModel.swift; sourceTree = "<group>"; };
 		2C5862DD2628032600725D5E /* OrganizationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationResponse.swift; sourceTree = "<group>"; };
 		2CE28715262EA5A0002D888A /* Petfinder-Info-Template.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Petfinder-Info-Template.plist"; path = "Petulia/Petfinder-Info-Template.plist"; sourceTree = "<group>"; };
+		3F0A05ED2638C46C000A55A1 /* Petfinder-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Petfinder-Info.plist"; sourceTree = "<group>"; };
 		3F91B3782629043E00DAD14B /* OrganizationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationDetailView.swift; sourceTree = "<group>"; };
 		69263DE324E58B8B00EABF0E /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		69263DE624E58BF300EABF0E /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
@@ -358,9 +360,8 @@
 				695B34F124D6CA1500A15D26 /* AppDelegate.swift */,
 				695B34F324D6CA1500A15D26 /* SceneDelegate.swift */,
 				695B34FF24D6CA2000A15D26 /* Info.plist */,
-				2C07138E26313289004168A2 /* Petfinder-Info.plist */,
 				293B0C6E25DA5F5900A4DECB /* Petfinder-Info-Template.plist */,
-				2C03308E2631E00C00961998 /* Petfinder-Info.plist */,
+				3F0A05ED2638C46C000A55A1 /* Petfinder-Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -495,6 +496,7 @@
 				697E7D6D24E9528C0039EBF2 /* thanks.json in Resources */,
 				794E2CCA25AAF8CB00234FDA /* paws-preloader.json in Resources */,
 				695B34FB24D6CA2000A15D26 /* Preview Assets.xcassets in Resources */,
+				3F0A05EE2638C46C000A55A1 /* Petfinder-Info.plist in Resources */,
 				794E2CCB25AAF8CB00234FDA /* cat-preloader.json in Resources */,
 				794E2CD125AAFE4100234FDA /* dots-preloader.json in Resources */,
 				695B34F824D6CA2000A15D26 /* Assets.xcassets in Resources */,

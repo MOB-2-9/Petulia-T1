@@ -24,7 +24,7 @@ struct OrganizationDetailView: View {
   @State private var zoomingImage = false
   
   private var filteredPets: [PetDetailViewModel] {
-    return petDataController.allPets
+    return orgDataController.orgAllPets
   }
   
   var organization: OrganizationDetailViewModel
@@ -67,6 +67,7 @@ struct OrganizationDetailView: View {
           VStack {
 //            petTypeScrollView()
             recentPetSectionView()
+              .onAppear(perform: requestWebData)
           }
           .padding(.bottom)
         }
@@ -108,7 +109,7 @@ private extension OrganizationDetailView {
 //      totalPetCount: petDataController.allPets.count,
       totalPetCount: orgDataController.orgAllPets.count,
       title: "Recent \(petDataController.petType.currentPetType.name)".capitalized,
-      isLoading: petDataController.isLoading,
+      isLoading: orgDataController.isLoading,
       primaryAction: { requestWebData() },
       settingsAction: { }
     )
