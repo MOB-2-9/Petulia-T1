@@ -108,7 +108,8 @@ private extension OrganizationDetailView {
       petViewModel: filteredPets,
 //      totalPetCount: petDataController.allPets.count,
       totalPetCount: orgDataController.orgAllPets.count,
-      title: "Recent \(petDataController.petType.currentPetType.name)".capitalized,
+//      title: "Recent \(petDataController.petType.currentPetType.name)".capitalized,
+      title: "Recent Animals".capitalized,
       isLoading: orgDataController.isLoading,
       primaryAction: { requestWebData() },
       settingsAction: { }
