@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct OrgPetListView: View {
-  @EnvironmentObject var petDataController: PetDataController
+  @EnvironmentObject var orgDataController: OrganizationDataController
   
   var petViewModel: [PetDetailViewModel]  = []
   var title = "All Animals"
@@ -38,7 +38,7 @@ struct OrgPetListView: View {
         }
       }
     }
-    .navigationBarTitle(showPagination ? title + " \(petDataController.pagination.currentPage)" : title)
+    .navigationBarTitle(showPagination ? title + " \(orgDataController.pagination.currentPage)" : title)
   }
 }
 
@@ -49,7 +49,7 @@ extension OrgPetListView {
       Spacer()
 
       Button(action: {
-        petDataController.requestPage(direction: PageDirection.previous)
+        orgDataController.requestPage(direction: PageDirection.previous)
       }) {
         HStack {
           Image(systemName: "chevron.left.circle")
@@ -57,13 +57,13 @@ extension OrgPetListView {
         }
         .frame(width: 100, height: 44)
         .padding(.horizontal)
-        .foregroundColor(petDataController.pagination.links?.previous != nil ? .accentColor : .gray)
+        .foregroundColor(orgDataController.pagination.links?.previous != nil ? .accentColor : .gray)
         .background(Color(UIColor.systemGray6))
         .cornerRadius(10)
       }
-      .disabled(petDataController.pagination.links?.previous == nil)
+      .disabled(orgDataController.pagination.links?.previous == nil)
 
-      Text("\(petDataController.pagination.currentPage) / \(petDataController.pagination.totalPages)")
+      Text("\(orgDataController.pagination.currentPage) / \(orgDataController.pagination.totalPages)")
         .frame(width: 60, height: 44)
         .foregroundColor(.white)
         .lineLimit(1)
@@ -74,7 +74,7 @@ extension OrgPetListView {
         .layoutPriority(1)
       
       Button(action: {
-        petDataController.requestPage(direction: PageDirection.next)
+        orgDataController.requestPage(direction: PageDirection.next)
       }) {
         HStack {
           Text("Next")
@@ -82,11 +82,11 @@ extension OrgPetListView {
         }
         .frame(width: 100, height: 44)
         .padding(.horizontal)
-        .foregroundColor(petDataController.pagination.links?.next != nil ? .accentColor : .gray)
+        .foregroundColor(orgDataController.pagination.links?.next != nil ? .accentColor : .gray)
         .background(Color(UIColor.systemGray6))
         .cornerRadius(10)
       }
-      .disabled(petDataController.pagination.links?.next == nil)
+      .disabled(orgDataController.pagination.links?.next == nil)
       Spacer()
     }
   }

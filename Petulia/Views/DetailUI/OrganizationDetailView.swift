@@ -103,7 +103,7 @@ private extension OrganizationDetailView {
   }
   
   func recentPetSectionView() -> some View {
-    SectionView(
+    OrgSectionView(
       kind: .recent,
       petViewModel: filteredPets,
 //      totalPetCount: petDataController.allPets.count,
