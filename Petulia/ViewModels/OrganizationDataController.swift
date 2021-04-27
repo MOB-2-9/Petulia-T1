@@ -13,6 +13,7 @@ final class OrganizationDataController: ObservableObject {
   @Published private(set) var allOrganizations: [OrganizationDetailViewModel] = []
   @Published private(set) var singleOrganization: OrganizationDetailViewModel!
   @Published private(set) var orgAllPets: [PetDetailViewModel] = []
+  @Published private(set) var isLoading: Bool = false
   
   private let apiService: NetworkService
   private(set) var pagination: PaginationDTO
@@ -54,6 +55,7 @@ final class OrganizationDataController: ObservableObject {
   }
   
   func fetchOrgAnimals(link: LinkToAnimals) {
+    isLoading = true
     apiService.fetch(at: EndPoint.animalsFromOrg(from: link)) { (result: Result<AllAnimals, Error>) in
       switch result {
       case.failure(let error):
