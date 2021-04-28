@@ -9,6 +9,7 @@
 import SwiftUI
 import Foundation
 import MessageUI
+import MapKit
 
 struct PetDetailView: View{
   
@@ -102,6 +103,16 @@ private extension PetDetailView {
       }
     }
     .frame(height: 320)
+  }
+  
+  func makeUIView(context: Context) -> MKMapView {
+      MKMapView(frame: .zero)
+  }
+  func updateUIView(_ view: MKMapView, context: Context) {
+      let coordinate = CLLocationCoordinate2D(latitude: 37.4852, longitude: -122.2364)
+      let span = MKCoordinateSpan(latitudeDelta: 2.0, longitudeDelta: 2.0)
+      let region = MKCoordinateRegion(center: coordinate, span: span)
+      view.setRegion(region, animated: true)
   }
   
   func favoriteBar() -> some View {
