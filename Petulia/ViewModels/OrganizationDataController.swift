@@ -17,12 +17,15 @@ final class OrganizationDataController: ObservableObject {
   
   private let apiService: NetworkService
   private(set) var pagination: PaginationDTO
+  private(set) var orgPagination: PaginationDTO
   init(
     apiService: NetworkService = APIService(),
-    pagination: PaginationDTO = PaginationDTO.new
+    pagination: PaginationDTO = PaginationDTO.new,
+    orgPagination: PaginationDTO = PaginationDTO.new
   ) {
     self.apiService = apiService
     self.pagination = pagination
+    self.orgPagination = pagination
   }
   
   func fetchOrganizations() {
@@ -32,12 +35,9 @@ final class OrganizationDataController: ObservableObject {
         print(error.localizedDescription)
       case .success(let organizations):
         let rawOrganizations = organizations.organizations
-        self.pagination = organizations.pagination
+        self.orgPagination = organizations.pagination
         self.allOrganizations = rawOrganizations.map { OrganizationDetailViewModel(model: $0)}    
         
-        /// TESTING OUT FETCHING TO GET ANIMALS FROM ORG
-        let linkToAnimal = self.allOrganizations.first?.linkToAnimals
-        self.fetchOrgAnimals(link: linkToAnimal!)
       }
     }
   }
@@ -62,8 +62,43 @@ final class OrganizationDataController: ObservableObject {
         print(error.localizedDescription)
       case.success(let petResponse):
         let rawPets = petResponse.animals ?? []
+        self.pagination = petResponse.pagination
         self.orgAllPets = rawPets.map { PetDetailViewModel(model: $0)}
       }
+    }
+  }
+  
+  func requestPage(direction: PageDirection) {
+    switch direction {
+    case .previous:
+      print("\n\(#function) - previous")
+      if let previousPage = pagination.links?.previous {
+        let endpoint = EndPoint.animals(from: previousPage)
+        requestPetsInPage(at: endpoint)
+      }
+    case .next:
+      print("\n\(#function) - next")
+      if let nextPage = pagination.links?.next {
+        let endpoint = EndPoint.animals(from: nextPage)
+        requestPetsInPage(at: endpoint)
+      }
+    }
+  }
+  
+  private func requestPetsInPage(at endPoint: EndPoint) {
+    print("url: \(String(describing: endPoint.url))")
+    isLoading = true
+    apiService.fetch(at: endPoint) { [weak self] (result: Result<AllAnimals, Error>) in
+      switch result {
+      case .failure(let error):
+        print(error.localizedDescription)
+      case .success(let petResponse):
+        let rawPets = petResponse.animals ?? []
+        self?.orgAllPets = rawPets.map { PetDetailViewModel(model: $0)}
+        self?.pagination = petResponse.pagination
+        print("✅ \(#function) - Got Page. Current Page: \(String(describing: self?.pagination.currentPage))")
+      }
+      self?.isLoading = false
     }
   }
 }
