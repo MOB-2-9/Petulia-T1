@@ -80,13 +80,15 @@ private extension PetDetailView {
   func stretchingHeroView() -> some View {
     StretchingHeader {
       ZStack(alignment: .bottom) {
-//        LinearGradient(
-//          gradient: Gradient(colors: [Color.accentColor, Color.accentColor.opacity(0.8)]),
-//          startPoint: .bottom,
-//          endPoint: .top
-//        )
-        
-        MapView(address: "New York City")
+        if let city = viewModel.contact.address?.city{
+          MapView(address: city)
+        }else{
+          LinearGradient(
+            gradient: Gradient(colors: [Color.accentColor, Color.accentColor.opacity(0.8)]),
+            startPoint: .bottom,
+            endPoint: .top
+          )
+        }
         
         favoriteBar()
           .offset(y: 40)
