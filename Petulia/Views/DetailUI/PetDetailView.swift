@@ -33,7 +33,10 @@ struct PetDetailView: View{
   var body: some View {
     ScrollView(.vertical, showsIndicators: false) {
       VStack {
+        
+        
         stretchingHeroView()
+        
         
         VStack(alignment: .leading) {
           HStack {
@@ -77,11 +80,13 @@ private extension PetDetailView {
   func stretchingHeroView() -> some View {
     StretchingHeader {
       ZStack(alignment: .bottom) {
-        LinearGradient(
-          gradient: Gradient(colors: [Color.accentColor, Color.accentColor.opacity(0.8)]),
-          startPoint: .bottom,
-          endPoint: .top
-        )
+//        LinearGradient(
+//          gradient: Gradient(colors: [Color.accentColor, Color.accentColor.opacity(0.8)]),
+//          startPoint: .bottom,
+//          endPoint: .top
+//        )
+        
+        MapView(address: "Redwood City")
         
         favoriteBar()
           .offset(y: 40)
@@ -103,16 +108,6 @@ private extension PetDetailView {
       }
     }
     .frame(height: 320)
-  }
-  
-  func makeUIView(context: Context) -> MKMapView {
-      MKMapView(frame: .zero)
-  }
-  func updateUIView(_ view: MKMapView, context: Context) {
-      let coordinate = CLLocationCoordinate2D(latitude: 37.4852, longitude: -122.2364)
-      let span = MKCoordinateSpan(latitudeDelta: 2.0, longitudeDelta: 2.0)
-      let region = MKCoordinateRegion(center: coordinate, span: span)
-      view.setRegion(region, animated: true)
   }
   
   func favoriteBar() -> some View {
@@ -298,6 +293,7 @@ extension PetDetailView {
     
     vc?.present(composeVC, animated: true)
   }
+  
 }
 
 // MARK: - PREVIEWS
