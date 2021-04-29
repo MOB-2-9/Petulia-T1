@@ -86,7 +86,7 @@ private extension PetDetailView {
 //          endPoint: .top
 //        )
         
-        MapView(address: "Redwood City")
+        MapView(address: "New York City")
         
         favoriteBar()
           .offset(y: 40)
