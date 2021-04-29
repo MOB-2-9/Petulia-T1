@@ -26,10 +26,8 @@ struct MapView: UIViewRepresentable {
       }
       coordinate = location
     }
-    
-    let span = MKCoordinateSpan(latitudeDelta: 2.0, longitudeDelta: 2.0)
+    let span = MKCoordinateSpan(latitudeDelta: 1.0, longitudeDelta: 1.0)
     let region = MKCoordinateRegion(center: coordinate, span: span)
-    //      let setRegion =
     view.setRegion(region, animated: true)
   }
 }

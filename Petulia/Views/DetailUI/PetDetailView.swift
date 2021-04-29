@@ -80,8 +80,8 @@ private extension PetDetailView {
   func stretchingHeroView() -> some View {
     StretchingHeader {
       ZStack(alignment: .bottom) {
-        if let city = viewModel.contact.address?.city{
-          MapView(address: city)
+        if let code = viewModel.contact.address?.postcode{
+          MapView(address: code)
         }else{
           LinearGradient(
             gradient: Gradient(colors: [Color.accentColor, Color.accentColor.opacity(0.8)]),
