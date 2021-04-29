@@ -9,6 +9,7 @@
 import SwiftUI
 import Foundation
 import MessageUI
+import MapKit
 
 struct PetDetailView: View{
   
@@ -32,7 +33,10 @@ struct PetDetailView: View{
   var body: some View {
     ScrollView(.vertical, showsIndicators: false) {
       VStack {
+        
+        
         stretchingHeroView()
+        
         
         VStack(alignment: .leading) {
           HStack {
@@ -76,11 +80,13 @@ private extension PetDetailView {
   func stretchingHeroView() -> some View {
     StretchingHeader {
       ZStack(alignment: .bottom) {
-        LinearGradient(
-          gradient: Gradient(colors: [Color.accentColor, Color.accentColor.opacity(0.8)]),
-          startPoint: .bottom,
-          endPoint: .top
-        )
+//        LinearGradient(
+//          gradient: Gradient(colors: [Color.accentColor, Color.accentColor.opacity(0.8)]),
+//          startPoint: .bottom,
+//          endPoint: .top
+//        )
+        
+        MapView(address: "New York City")
         
         favoriteBar()
           .offset(y: 40)
@@ -287,6 +293,7 @@ extension PetDetailView {
     
     vc?.present(composeVC, animated: true)
   }
+  
 }
 
 // MARK: - PREVIEWS
