@@ -29,6 +29,8 @@ struct PetDetailViewModel: Identifiable, Hashable, Codable {
   var shelterId: String
   var postedDate: String
   
+  
+  
   init(model: Animal) {
     self.id = model.id
     self.name = model.name ?? "Pet Name"
@@ -40,7 +42,9 @@ struct PetDetailViewModel: Identifiable, Hashable, Codable {
     self.tags = model.tags ?? []
     self.attributes = model.attributes?.list ?? [String: Bool]()
     self.description = model.description ?? "Your next beautiful, loving pet"
-    self.contact = model.contact ?? Contact(email: "No Mail", phone: "No Phone")
+    let addressHere = model.contact?.address ?? Address(address1: "Test", address2: "test", city: "test", state: "test", postcode: "test", country: "sdf")
+    
+    self.contact = model.contact ?? Contact(email: "No Mail", phone: "No Phone", address: addressHere)
     self.photos = model.photos ?? []
     self.gender = model.gender ?? "Unknown"
     self.status = model.status ?? "Unknown"
