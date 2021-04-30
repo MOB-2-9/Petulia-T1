@@ -38,6 +38,7 @@ final class ThemeManager: ObservableObject {
   
   init() {
     loadAccentColor()
+    loadDark()
   }
 
   func loadAccentColor() {
