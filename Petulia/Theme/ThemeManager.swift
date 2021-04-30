@@ -11,6 +11,7 @@ import SwiftUI
 
 final class ThemeManager: ObservableObject {
   @Published private(set) var accentColor = Color.pink
+  @Published private(set) var setDark = false
   
   @AppStorage(Keys.prefferedAccentColor) private var prefferedAccentColor = ""
   @AppStorage(Keys.isDark) private(set) var isDark = false
@@ -55,6 +56,24 @@ final class ThemeManager: ObservableObject {
   func saveAccentColor() {
     let stringColor = Color.string(from: accentColor)
     prefferedAccentColor = stringColor
+  }
+  
+  func loadDark() {
+    if isDark {
+      setDark = isDark
+    } else {
+      print("\n\(#function) - Unable to get darkness from: \(isDark)")
+    }
+  }
+  
+  func setDark(to settDark: Bool) {
+    setDark = settDark
+    saveDark()
+  }
+  
+  func saveDark() {
+    let darkValue = setDark
+    isDark = darkValue
   }
   
 }

@@ -24,6 +24,8 @@ struct SettingsView: View {
   
   @AppStorage(Keys.photoOnly) var photoOnly = false
   
+  @State private var isDark = false
+  
   var body: some View {
     ZStack (alignment: .bottom) {
       VStack {
@@ -35,6 +37,7 @@ struct SettingsView: View {
             resultSessionView()
             filterSessionView()
             themeSessionView()
+            DarkModeView()
             aboutSessionView()
           }
           if !typing {
@@ -111,6 +114,23 @@ private extension SettingsView {
     }
     .contentShape(Rectangle())
   }
+  
+  func DarkModeView() -> some View {
+    HStack {
+      Text("Dark Mode")
+      Spacer()
+      ZStack {
+        Toggle("Dark Mode", isOn: $isDark)
+          .onChange(of: isDark) { dark in
+            theme.setDark(to: dark)
+          }
+      }
+      .frame(maxWidth: 30,maxHeight: 35)
+      
+    }
+    .contentShape(Rectangle())
+  }
+
   
   func themeSessionView() -> some View {
     HStack {
