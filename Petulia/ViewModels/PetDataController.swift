@@ -75,15 +75,6 @@ final class PetDataController: ObservableObject {
         let rawPets = petData.animals ?? []
         self?.allPets = rawPets.map { PetDetailViewModel(model: $0)}
         self?.pagination = petData.pagination
-        let addressVar = self!.allPets.first?.contact
-        let petLocationAddress = addressVar?.address?.address1
-        // pet location address variable ✅
-        /// Pass address to detailView 
-        guard let petAddy = petLocationAddress else {
-          print("Pet location is nil @ fetch ")
-          return
-        }
-        print("Pet Location Address: \(petAddy)")
       case .failure( let error):
         print(error.localizedDescription)
       }
