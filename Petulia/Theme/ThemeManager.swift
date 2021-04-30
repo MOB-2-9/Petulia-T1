@@ -59,7 +59,7 @@ final class ThemeManager: ObservableObject {
   }
   
   func loadDark() {
-    if isDark {
+    if isDark != nil {
       setDark = isDark
     } else {
       print("\n\(#function) - Unable to get darkness from: \(isDark)")

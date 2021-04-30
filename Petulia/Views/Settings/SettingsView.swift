@@ -57,6 +57,7 @@ struct SettingsView: View {
     }
     .onAppear {
       accent = theme.accentColor
+      isDark = theme.setDark
     }
     .onDisappear {
       action?(isDirty)
@@ -116,6 +117,7 @@ private extension SettingsView {
   }
   
   func DarkModeView() -> some View {
+    // Allows for change between dark mode being on or off
     HStack {
       Text("Dark Mode")
       Spacer()
