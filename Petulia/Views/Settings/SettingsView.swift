@@ -35,9 +35,9 @@ struct SettingsView: View {
         VStack {
           Form {
             resultSessionView()
-            filterSessionView()
             themeSessionView()
             DarkModeView()
+            filterSessionView()
             aboutSessionView()
           }
           if !typing {
@@ -50,6 +50,7 @@ struct SettingsView: View {
         .background(Color(UIColor.systemGroupedBackground))
         Spacer()
       }
+      .preferredColorScheme(isDark ? .dark : .light)
       
       if typing {
         KeyboardToolBarView()
