@@ -24,6 +24,8 @@ struct SettingsView: View {
   
   @AppStorage(Keys.photoOnly) var photoOnly = false
   
+  @State private var isDark = false
+  
   var body: some View {
     ZStack (alignment: .bottom) {
       VStack {
@@ -33,8 +35,9 @@ struct SettingsView: View {
         VStack {
           Form {
             resultSessionView()
-            filterSessionView()
             themeSessionView()
+            DarkModeView()
+            filterSessionView()
             aboutSessionView()
           }
           if !typing {
@@ -47,6 +50,7 @@ struct SettingsView: View {
         .background(Color(UIColor.systemGroupedBackground))
         Spacer()
       }
+      .preferredColorScheme(isDark ? .dark : .light)
       
       if typing {
         KeyboardToolBarView()
@@ -54,6 +58,7 @@ struct SettingsView: View {
     }
     .onAppear {
       accent = theme.accentColor
+      isDark = theme.setDark
     }
     .onDisappear {
       action?(isDirty)
@@ -111,6 +116,24 @@ private extension SettingsView {
     }
     .contentShape(Rectangle())
   }
+  
+  func DarkModeView() -> some View {
+    // Allows for change between dark mode being on or off
+    HStack {
+      Text("Dark Mode")
+      Spacer()
+      ZStack {
+        Toggle("Dark Mode", isOn: $isDark)
+          .onChange(of: isDark) { dark in
+            theme.setDark(to: dark)
+          }
+      }
+      .frame(maxWidth: 30,maxHeight: 35)
+      
+    }
+    .contentShape(Rectangle())
+  }
+
   
   func themeSessionView() -> some View {
     HStack {

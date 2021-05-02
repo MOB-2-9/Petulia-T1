@@ -94,12 +94,15 @@ struct Photo: Codable {
 struct Contact: Codable{
   var email: String?
   var phone: String?
+  var address: Address?
   
   enum CodingKeys: String, CodingKey {
     case email = "email"
     case phone = "phone"
+    case address
   }
 }
+
 
 enum Size: String, Codable {
   case small, medium, large, full

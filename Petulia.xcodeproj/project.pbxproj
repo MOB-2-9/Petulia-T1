@@ -15,6 +15,7 @@
 		3F0A05F22638CCB1000A55A1 /* OrgSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0A05F12638CCB1000A55A1 /* OrgSectionView.swift */; };
 		3F0A05F62638CD20000A55A1 /* OrgPetListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0A05F52638CD20000A55A1 /* OrgPetListView.swift */; };
 		3F91B3792629043E00DAD14B /* OrganizationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91B3782629043E00DAD14B /* OrganizationDetailView.swift */; };
+		3F96BA58263B6612008FC8C7 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F96BA57263B6612008FC8C7 /* MapView.swift */; };
 		69263DE424E58B8B00EABF0E /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69263DE324E58B8B00EABF0E /* RoundedCorner.swift */; };
 		69263DE724E58BF300EABF0E /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69263DE624E58BF300EABF0E /* View+Extension.swift */; };
 		695B34F224D6CA1500A15D26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695B34F124D6CA1500A15D26 /* AppDelegate.swift */; };
@@ -34,6 +35,7 @@
 		6983153D24E853B600E1566A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6983153C24E853B600E1566A /* HomeView.swift */; };
 		69E4432124E87AC300B8B3F1 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E4432024E87AC300B8B3F1 /* ListView.swift */; };
 		69E4432524E8820C00B8B3F1 /* PetDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E4432424E8820C00B8B3F1 /* PetDetailViewModel.swift */; };
+		7752F6AB2638C5EA005D1C96 /* Petfinder-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7752F6AA2638C5E9005D1C96 /* Petfinder-Info.plist */; };
 		7905B2182577A27700A55F37 /* HTMLText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7905B2172577A27700A55F37 /* HTMLText.swift */; };
 		7905B21B2577AC1F00A55F37 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7905B21A2577AC1F00A55F37 /* String+Extension.swift */; };
 		791F4E432581F9A000C5F457 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791F4E422581F9A000C5F457 /* SettingsView.swift */; };
@@ -90,6 +92,7 @@
 		3F0A05F12638CCB1000A55A1 /* OrgSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgSectionView.swift; sourceTree = "<group>"; };
 		3F0A05F52638CD20000A55A1 /* OrgPetListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgPetListView.swift; sourceTree = "<group>"; };
 		3F91B3782629043E00DAD14B /* OrganizationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationDetailView.swift; sourceTree = "<group>"; };
+		3F96BA57263B6612008FC8C7 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		69263DE324E58B8B00EABF0E /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		69263DE624E58BF300EABF0E /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		695B34EE24D6CA1500A15D26 /* Petulia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Petulia.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +113,7 @@
 		6983153C24E853B600E1566A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		69E4432024E87AC300B8B3F1 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		69E4432424E8820C00B8B3F1 /* PetDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailViewModel.swift; sourceTree = "<group>"; };
+		7752F6AA2638C5E9005D1C96 /* Petfinder-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Petfinder-Info.plist"; sourceTree = "<group>"; };
 		7905B2172577A27700A55F37 /* HTMLText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLText.swift; sourceTree = "<group>"; };
 		7905B21A2577AC1F00A55F37 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		791F4E422581F9A000C5F457 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -181,6 +185,7 @@
 			children = (
 				3F0A05F12638CCB1000A55A1 /* OrgSectionView.swift */,
 				3F0A05F52638CD20000A55A1 /* OrgPetListView.swift */,
+				3F96BA57263B6612008FC8C7 /* MapView.swift */,
 			);
 			path = Extras;
 			sourceTree = "<group>";
@@ -377,7 +382,10 @@
 				695B34F324D6CA1500A15D26 /* SceneDelegate.swift */,
 				695B34FF24D6CA2000A15D26 /* Info.plist */,
 				293B0C6E25DA5F5900A4DECB /* Petfinder-Info-Template.plist */,
+<<<<<<< HEAD
 				CF929FEF26360C6100AE886C /* Petfinder-Info.plist */,
+=======
+>>>>>>> dd8204601d7f765bf62513cec29267a09782f362
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -570,6 +578,7 @@
 				CF929FE2262E3EA100AE886C /* SnapCarousel.swift in Sources */,
 				69263DE724E58BF300EABF0E /* View+Extension.swift in Sources */,
 				7926ABDE256CE48800AD8D68 /* AsyncImageView.swift in Sources */,
+				3F96BA58263B6612008FC8C7 /* MapView.swift in Sources */,
 				797A0ECD25ACA8B900E40F9E /* FilterBarView.swift in Sources */,
 				CF929FD9262E2D4D00AE886C /* OrganizationScrollView.swift in Sources */,
 				6983153D24E853B600E1566A /* HomeView.swift in Sources */,
@@ -725,7 +734,7 @@
 				CURRENT_PROJECT_VERSION = 2;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Petulia/Preview Content\"";
-				DEVELOPMENT_TEAM = HXYM5H2DXG;
+				DEVELOPMENT_TEAM = 6VH946FT2M;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Petulia/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -748,7 +757,7 @@
 				CURRENT_PROJECT_VERSION = 2;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Petulia/Preview Content\"";
-				DEVELOPMENT_TEAM = HXYM5H2DXG;
+				DEVELOPMENT_TEAM = 6VH946FT2M;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Petulia/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

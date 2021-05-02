@@ -29,6 +29,7 @@ struct PetDetailViewModel: Identifiable, Hashable, Codable {
   var shelterId: String
   var postedDate: String
   
+  
   init(model: Animal) {
     self.id = model.id
     self.name = model.name ?? "Pet Name"
