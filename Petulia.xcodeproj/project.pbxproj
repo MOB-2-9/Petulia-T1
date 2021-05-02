@@ -382,10 +382,7 @@
 				695B34F324D6CA1500A15D26 /* SceneDelegate.swift */,
 				695B34FF24D6CA2000A15D26 /* Info.plist */,
 				293B0C6E25DA5F5900A4DECB /* Petfinder-Info-Template.plist */,
-<<<<<<< HEAD
 				CF929FEF26360C6100AE886C /* Petfinder-Info.plist */,
-=======
->>>>>>> dd8204601d7f765bf62513cec29267a09782f362
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
