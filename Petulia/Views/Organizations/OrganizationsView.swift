@@ -23,6 +23,7 @@ struct OrganizationsView: View {
     return organizationDataController.allOrganizations
   }
   
+  /// used to display organization images in SnapCarousel
   private var orgsAsCards: [Card] {
     var cards: [Card] = []
     for (i, org) in filteredOrgs.enumerated() {
@@ -66,6 +67,7 @@ struct OrganizationsView: View {
 extension OrganizationsView {
   func requestWebData() {
     organizationDataController.fetchOrganizations()
+    requestNextOrgs()
   }
   
   func filterView() -> some View {
@@ -90,10 +92,10 @@ extension OrganizationsView {
   func requestOrgs(around postcode: String? = nil) {
     organizationDataController.requestOrgs(around: postcode)
   }
+  
+  func requestNextOrgs() {
+    if UIState.activeCard == filteredOrgs.count - 1 {
+      organizationDataController.requestPage(direction: .next)
+    }
+  }
 }
-
-//struct OrganizationsView_Previews: PreviewProvider {
-//    static var previews: some View {
-////        OrganizationsView()
-//    }
-//}

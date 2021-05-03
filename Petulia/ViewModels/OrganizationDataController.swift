@@ -109,6 +109,8 @@ final class OrganizationDataController: ObservableObject {
       case .success(let petResponse):
         let rawPets = petResponse.animals ?? []
         self?.orgAllPets = rawPets.map { PetDetailViewModel(model: $0)}
+        /// testing appending instead of resetting
+//        self?.orgAllPets.append(contentsOf: rawPets.map { PetDetailViewModel(model: $0)})
         self?.pagination = petResponse.pagination
         print("✅ \(#function) - Got Page. Current Page: \(String(describing: self?.pagination.currentPage))")
       }
