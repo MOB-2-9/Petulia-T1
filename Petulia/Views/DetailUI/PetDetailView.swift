@@ -20,6 +20,7 @@ struct PetDetailView: View{
   
   @State private var showAdoptionForm: Bool = false
   @State private var zoomingImage = false
+  @State private var isSharePresented: Bool = false
   
   @State var result: Result<MFMailComposeResult, Error>? = nil
   @State private var showingMailView = false
@@ -59,6 +60,7 @@ struct PetDetailView: View{
             } label: {
               Label("Contact", systemImage: "paperplane")
             }
+            shareResult()
           }
           .padding()
           
@@ -225,7 +227,17 @@ private extension PetDetailView {
     }
   }
   
-  
+  func shareResult() -> some View {
+    Button("Share \(viewModel.name)") {
+      self.isSharePresented = true
+    }
+    .sheet(isPresented: $isSharePresented, onDismiss: {
+      print("Dismiss")
+    }, content: {
+      let items: [Any] = ["\(viewModel.name) is a \(viewModel.breed) \(viewModel.species)\nPhone: \(viewModel.contact.phone!)\n", viewModel.url]
+      ActivityViewController(activityItems: items)
+    })
+  }
   
 }
 
