@@ -234,9 +234,17 @@ private extension PetDetailView {
     .sheet(isPresented: $isSharePresented, onDismiss: {
       print("Dismiss")
     }, content: {
-      let items: [Any] = ["\(viewModel.name) is a \(viewModel.breed) \(viewModel.species)\nPhone: \(viewModel.contact.phone!)\n", viewModel.url]
+      let items: [Any] = [petInfoToString(), viewModel.url]
       ActivityViewController(activityItems: items)
     })
+  }
+  
+  //MARK: Helper for share result
+  func petInfoToString() -> String {
+    var items: String = "Help them find a home 💚\n\(viewModel.name) is a \(viewModel.breed) \(viewModel.species)\n"
+    guard let phone = viewModel.contact.phone else { return items }
+    items.append("Phone: \(phone)\n")
+    return items
   }
   
 }
