@@ -11,6 +11,7 @@ import SwiftUI
 struct SnapCarousel: View {
   @EnvironmentObject var UIState: UIStateModel
   @EnvironmentObject var theme: ThemeManager
+  @EnvironmentObject var orgDataController: OrganizationDataController
 
   let items: [Card]
 
@@ -162,5 +163,54 @@ struct Item<Content: View>: View {
   var body: some View {
     content
       .frame(width: cardWidth, height: _id == UIState.activeCard ? cardHeight : cardHeight - 60, alignment: .center)
+  }
+}
+
+extension SnapCarousel {
+  private func paginationControl() -> some View {
+    HStack(spacing: 10) {
+      Spacer()
+
+      Button(action: {
+        orgDataController.requestPage(direction: PageDirection.previous)
+      }) {
+        HStack {
+          Image(systemName: "chevron.left.circle")
+          Text("Previous")
+        }
+        .frame(width: 100, height: 44)
+        .padding(.horizontal)
+        .foregroundColor(orgDataController.pagination.links?.previous != nil ? .accentColor : .gray)
+        .background(Color(UIColor.systemGray6))
+        .cornerRadius(10)
+      }
+      .disabled(orgDataController.pagination.links?.previous == nil)
+
+      Text("\(orgDataController.pagination.currentPage) / \(orgDataController.pagination.totalPages)")
+        .frame(width: 60, height: 44)
+        .foregroundColor(.white)
+        .lineLimit(1)
+        .minimumScaleFactor(0.6)
+        .padding(.horizontal, 5)
+        .background(Color.accentColor)
+        .cornerRadius(10)
+        .layoutPriority(1)
+      
+      Button(action: {
+        orgDataController.requestPage(direction: PageDirection.next)
+      }) {
+        HStack {
+          Text("Next")
+          Image(systemName: "chevron.right.circle")
+        }
+        .frame(width: 100, height: 44)
+        .padding(.horizontal)
+        .foregroundColor(orgDataController.pagination.links?.next != nil ? .accentColor : .gray)
+        .background(Color(UIColor.systemGray6))
+        .cornerRadius(10)
+      }
+      .disabled(orgDataController.pagination.links?.next == nil)
+      Spacer()
+    }
   }
 }

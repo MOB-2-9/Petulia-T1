@@ -12,12 +12,18 @@ struct OrganizationsView: View {
   @EnvironmentObject var organizationDataController: OrganizationDataController
   @EnvironmentObject var petDataController: PetDataController
   @EnvironmentObject var theme: ThemeManager
+  
   @ObservedObject var UIState: UIStateModel = UIStateModel()
+  
+  @AppStorage(Keys.savedPostcode) var postcode = ""
+  
+  @State private var typing = false
 
   private var filteredOrgs: [OrganizationDetailViewModel] {
     return organizationDataController.allOrganizations
   }
   
+  /// used to display organization images in SnapCarousel
   private var orgsAsCards: [Card] {
     var cards: [Card] = []
     for (i, org) in filteredOrgs.enumerated() {
@@ -30,6 +36,7 @@ struct OrganizationsView: View {
   var body: some View {
     NavigationView {
       VStack {
+        filterView()
         if filteredOrgs.count > 0 {
           SnapCarousel(items: orgsAsCards)
             .environmentObject(UIState)
@@ -44,10 +51,15 @@ struct OrganizationsView: View {
           organizationInfoLoadingView()
         }
         Spacer()
+        if typing {
+          KeyboardToolBarView() {
+            requestOrgs(around: postcode)
+          }
+        }
       }
       .navigationBarTitle("Organizations")
     }
-    .onAppear { requestWebData() }
+    .onAppear { requestWebData() } 
     .accentColor(theme.accentColor)
   }
 }
@@ -55,6 +67,13 @@ struct OrganizationsView: View {
 extension OrganizationsView {
   func requestWebData() {
     organizationDataController.fetchOrganizations()
+    requestNextOrgs()
+  }
+  
+  func filterView() -> some View {
+    FilterBarView(postcode: $postcode, typing: $typing) {
+      requestOrgs(around: postcode)
+    }
   }
   
   func organizationInfoView() -> some View {
@@ -69,10 +88,14 @@ extension OrganizationsView {
   func organizationInfoLoadingView() -> some View {
     return OrganizationInfoLoadingView()
   }
+  
+  func requestOrgs(around postcode: String? = nil) {
+    organizationDataController.requestOrgs(around: postcode)
+  }
+  
+  func requestNextOrgs() {
+    if UIState.activeCard == filteredOrgs.count - 1 {
+      organizationDataController.requestPage(direction: .next)
+    }
+  }
 }
-
-//struct OrganizationsView_Previews: PreviewProvider {
-//    static var previews: some View {
-////        OrganizationsView()
-//    }
-//}

@@ -28,8 +28,22 @@ final class OrganizationDataController: ObservableObject {
     self.orgPagination = pagination
   }
   
-  func fetchOrganizations() {
-    apiService.fetch(at: EndPoint.organizationsPath) { (result: Result<OrganizationList, Error>) in
+  func requestOrgs(around postcode: String? = nil) {
+    allOrganizations = []
+
+    let filters = ["location": postcode]
+    let filtered = filters.compactMapValues { $0 }
+    print("filtered: \(filtered)")
+
+    let queryItems = filtered.map { URLQueryItem(name: $0.key, value: $0.value) }
+    let endPoint2 = EndPoint.organizations(queryItems: queryItems)
+
+    print("url: \(String(describing: endPoint2.url))")
+    fetchOrganizations(at: endPoint2)
+  }
+  
+  func fetchOrganizations(at endpoint: EndPoint = EndPoint.organizationsPath) {
+    apiService.fetch(at: endpoint) { (result: Result<OrganizationList, Error>) in
       switch result {
       case .failure(let error):
         print(error.localizedDescription)
@@ -95,6 +109,8 @@ final class OrganizationDataController: ObservableObject {
       case .success(let petResponse):
         let rawPets = petResponse.animals ?? []
         self?.orgAllPets = rawPets.map { PetDetailViewModel(model: $0)}
+        /// testing appending instead of resetting
+//        self?.orgAllPets.append(contentsOf: rawPets.map { PetDetailViewModel(model: $0)})
         self?.pagination = petResponse.pagination
         print("✅ \(#function) - Got Page. Current Page: \(String(describing: self?.pagination.currentPage))")
       }
