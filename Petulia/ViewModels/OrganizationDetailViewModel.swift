@@ -17,7 +17,7 @@ class OrganizationDetailViewModel: Identifiable, Hashable, Codable {
   var phone: String
   var linkToAnimals: LinkToAnimals
   var url: String
-  var linkToSelf: LinkToSelf
+  var linkToSelf: LinkString
   var addressStreet: String
   var addressCity: String
   var addressState: String

@@ -39,7 +39,7 @@ struct SocialMedia: Codable {
 }
 
 struct OrganizationLinks: Codable {
-  let linkToSelf: LinkToSelf
+  let linkToSelf: LinkString
   let animals: LinkToAnimals
   
   enum CodingKeys: String, CodingKey {
@@ -48,15 +48,11 @@ struct OrganizationLinks: Codable {
   }
 }
 
-struct LinkToSelf: Codable {
-  let href: String
-}
-
 struct LinkToAnimals: Codable {
   let href: String
 }
 
-struct OrganizationList: Codable {
+struct AllOrganizations: Codable {
   let organizations: [Organization]
   let pagination: PaginationDTO
 }
