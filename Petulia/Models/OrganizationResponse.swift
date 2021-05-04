@@ -12,7 +12,7 @@ import Foundation
 struct Organization: Codable, Identifiable {
   let id: String
   let name: String
-  let email: String
+  let email: String?
   let phone: String?
   let url: String
   let links: OrganizationLinks
@@ -56,7 +56,7 @@ struct AllOrganizations: Codable {
   let organizations: [Organization]
   let pagination: PaginationDTO
 }
-
+ 
 // Each single organization response
 struct ResponseOrangization: Codable {
   let organization: Organization

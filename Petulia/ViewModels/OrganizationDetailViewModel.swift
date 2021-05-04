@@ -31,7 +31,7 @@ class OrganizationDetailViewModel: Identifiable, Hashable, Codable {
   init(model: Organization) {
     self.id = model.id
     self.name = model.name
-    self.email = model.email
+    self.email = model.email ?? "Does not exist"
     self.phone = model.phone ?? "Does not exist"
     self.linkToAnimals = model.links.animals
     self.url = model.url

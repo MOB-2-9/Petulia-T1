@@ -101,16 +101,16 @@ final class OrganizationDataController: ObservableObject {
   private func requestOrgsInPage(at endPoint: EndPoint) {
     print("url: \(String(describing: endPoint.url))")
     isLoading = true
-    apiService.fetch(at: endPoint) { [weak self] (result: Result<AllAnimals, Error>) in
+    apiService.fetch(at: endPoint) { [weak self] (result: Result<AllOrganizations, Error>) in
       switch result {
       case .failure(let error):
         print(error.localizedDescription)
-      case .success(let petResponse):
-        let rawPets = petResponse.animals ?? []
-        self?.orgAllPets = rawPets.map { PetDetailViewModel(model: $0)}
+      case .success(let organizationResponse):
+        let rawOrangizations = organizationResponse.organizations
+        self?.allOrganizations = rawOrangizations.map { OrganizationDetailViewModel(model: $0)}
         /// testing appending instead of resetting
-//        self?.orgAllPets.append(contentsOf: rawPets.map { PetDetailViewModel(model: $0)})
-        self?.pagination = petResponse.pagination
+//        self?.allOrganizations.append(contentsOf: rawOrangizations.map { OrganizationDetailViewModel(model: $0)})
+        self?.orgPagination = organizationResponse.pagination
         print("✅ \(#function) - Got Page. Current Page: \(String(describing: self?.pagination.currentPage))")
       }
       self?.isLoading = false
