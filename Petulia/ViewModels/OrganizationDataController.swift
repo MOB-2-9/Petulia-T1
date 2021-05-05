@@ -107,9 +107,9 @@ final class OrganizationDataController: ObservableObject {
         print(error.localizedDescription)
       case .success(let organizationResponse):
         let rawOrangizations = organizationResponse.organizations
-        self?.allOrganizations = rawOrangizations.map { OrganizationDetailViewModel(model: $0)}
+//        self?.allOrganizations = rawOrangizations.map { OrganizationDetailViewModel(model: $0)}
         /// testing appending instead of resetting
-//        self?.allOrganizations.append(contentsOf: rawOrangizations.map { OrganizationDetailViewModel(model: $0)})
+        self?.allOrganizations.append(contentsOf: rawOrangizations.map { OrganizationDetailViewModel(model: $0)})
         self?.orgPagination = organizationResponse.pagination
         print("✅ \(#function) - Got Page. Current Page: \(String(describing: self?.pagination.currentPage))")
       }
