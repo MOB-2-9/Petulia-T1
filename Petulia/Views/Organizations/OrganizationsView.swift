@@ -81,6 +81,8 @@ extension OrganizationsView {
       UIState.activeCard = 0
     } else if UIState.activeCard >= filteredOrgs.count {
       UIState.activeCard = filteredOrgs.count - 1
+    } else if UIState.activeCard == filteredOrgs.count - 1 {
+      organizationDataController.requestPage(direction: .next) /// ideally this line would append the new orgs to the current orgs so that filteredOrgs gets updated
     }
     return OrganizationInfoView(organization: filteredOrgs[UIState.activeCard])
   }
@@ -93,9 +95,10 @@ extension OrganizationsView {
     organizationDataController.requestOrgs(around: postcode)
   }
   
+  // not sure where to call this function
   func requestNextOrgs() {
     if UIState.activeCard == filteredOrgs.count - 1 {
-      organizationDataController.requestPage(direction: .next)
+      organizationDataController.requestPage(direction: .next) /// ideally this line would append the new orgs to the current orgs so that filteredOrgs gets updated
     }
   }
 }
