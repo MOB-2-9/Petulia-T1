@@ -43,20 +43,19 @@ final class OrganizationDataController: ObservableObject {
   }
   
   func fetchOrganizations(at endpoint: EndPoint = EndPoint.organizationsPath) {
-    apiService.fetch(at: endpoint) { (result: Result<OrganizationList, Error>) in
+    apiService.fetch(at: endpoint) { (result: Result<AllOrganizations, Error>) in
       switch result {
       case .failure(let error):
         print(error.localizedDescription)
       case .success(let organizations):
         let rawOrganizations = organizations.organizations
         self.orgPagination = organizations.pagination
-        self.allOrganizations = rawOrganizations.map { OrganizationDetailViewModel(model: $0)}    
-        
+        self.allOrganizations = rawOrganizations.map { OrganizationDetailViewModel(model: $0)}
       }
     }
   }
   
-  func fetchOrganization(link: LinkToSelf) {
+  func fetchOrganization(link: LinkString) {
     apiService.fetch(at: EndPoint.organization(from: link)) { (result: Result<ResponseOrangization, Error>) in
       switch result {
       case .failure(let error):
@@ -86,32 +85,32 @@ final class OrganizationDataController: ObservableObject {
     switch direction {
     case .previous:
       print("\n\(#function) - previous")
-      if let previousPage = pagination.links?.previous {
-        let endpoint = EndPoint.animals(from: previousPage)
-        requestPetsInPage(at: endpoint)
+      if let previousPage = orgPagination.links?.previous {
+        let endpoint = EndPoint.organization(from: previousPage)
+        requestOrgsInPage(at: endpoint)
       }
     case .next:
       print("\n\(#function) - next")
-      if let nextPage = pagination.links?.next {
-        let endpoint = EndPoint.animals(from: nextPage)
-        requestPetsInPage(at: endpoint)
+      if let nextPage = orgPagination.links?.next {
+        let endpoint = EndPoint.organization(from: nextPage)
+        requestOrgsInPage(at: endpoint)
       }
     }
   }
   
-  private func requestPetsInPage(at endPoint: EndPoint) {
+  private func requestOrgsInPage(at endPoint: EndPoint) {
     print("url: \(String(describing: endPoint.url))")
     isLoading = true
-    apiService.fetch(at: endPoint) { [weak self] (result: Result<AllAnimals, Error>) in
+    apiService.fetch(at: endPoint) { [weak self] (result: Result<AllOrganizations, Error>) in
       switch result {
       case .failure(let error):
         print(error.localizedDescription)
-      case .success(let petResponse):
-        let rawPets = petResponse.animals ?? []
-        self?.orgAllPets = rawPets.map { PetDetailViewModel(model: $0)}
+      case .success(let organizationResponse):
+        let rawOrangizations = organizationResponse.organizations
+        self?.allOrganizations = rawOrangizations.map { OrganizationDetailViewModel(model: $0)}
         /// testing appending instead of resetting
-//        self?.orgAllPets.append(contentsOf: rawPets.map { PetDetailViewModel(model: $0)})
-        self?.pagination = petResponse.pagination
+//        self?.allOrganizations.append(contentsOf: rawOrangizations.map { OrganizationDetailViewModel(model: $0)})
+        self?.orgPagination = organizationResponse.pagination
         print("✅ \(#function) - Got Page. Current Page: \(String(describing: self?.pagination.currentPage))")
       }
       self?.isLoading = false

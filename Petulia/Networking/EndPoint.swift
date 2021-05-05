@@ -54,12 +54,14 @@ extension EndPoint {
     EndPoint(path: Keys.organizations, queryItems: queryItems)
   }
   
-  static func organization(from link: LinkToSelf)  -> Self {
+  static func organization(from link: LinkString)  -> Self {
     EndPoint(path: link.href)
   }
   
   static func animalsFromOrg(from link: LinkToAnimals) -> Self {
     EndPoint(path: link.href)
   }
+  
+//  static func orgnaizationPagination(from link: )
   
 }
