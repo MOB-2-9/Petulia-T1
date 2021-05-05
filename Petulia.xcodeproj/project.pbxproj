@@ -13,6 +13,7 @@
 		2CE28716262EA5A0002D888A /* Petfinder-Info-Template.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE28715262EA5A0002D888A /* Petfinder-Info-Template.plist */; };
 		3F0A05F22638CCB1000A55A1 /* OrgSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0A05F12638CCB1000A55A1 /* OrgSectionView.swift */; };
 		3F0A05F62638CD20000A55A1 /* OrgPetListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0A05F52638CD20000A55A1 /* OrgPetListView.swift */; };
+		3F1F227C26420E170033B461 /* DetailedFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1F227B26420E170033B461 /* DetailedFilterView.swift */; };
 		3F91B3792629043E00DAD14B /* OrganizationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91B3782629043E00DAD14B /* OrganizationDetailView.swift */; };
 		3F96BA58263B6612008FC8C7 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F96BA57263B6612008FC8C7 /* MapView.swift */; };
 		69263DE424E58B8B00EABF0E /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69263DE324E58B8B00EABF0E /* RoundedCorner.swift */; };
@@ -89,6 +90,7 @@
 		2CE28715262EA5A0002D888A /* Petfinder-Info-Template.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Petfinder-Info-Template.plist"; path = "Petulia/Petfinder-Info-Template.plist"; sourceTree = "<group>"; };
 		3F0A05F12638CCB1000A55A1 /* OrgSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgSectionView.swift; sourceTree = "<group>"; };
 		3F0A05F52638CD20000A55A1 /* OrgPetListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgPetListView.swift; sourceTree = "<group>"; };
+		3F1F227B26420E170033B461 /* DetailedFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedFilterView.swift; sourceTree = "<group>"; };
 		3F91B3782629043E00DAD14B /* OrganizationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationDetailView.swift; sourceTree = "<group>"; };
 		3F96BA57263B6612008FC8C7 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		69263DE324E58B8B00EABF0E /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
@@ -186,6 +188,14 @@
 				3F96BA57263B6612008FC8C7 /* MapView.swift */,
 			);
 			path = Extras;
+			sourceTree = "<group>";
+		};
+		3F1F227A26420DF60033B461 /* Additional */ = {
+			isa = PBXGroup;
+			children = (
+				3F1F227B26420E170033B461 /* DetailedFilterView.swift */,
+			);
+			path = Additional;
 			sourceTree = "<group>";
 		};
 		69263DE224E58B5A00EABF0E /* Reusable Views */ = {
@@ -408,6 +418,7 @@
 		79FC94782584D48D001735C4 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				3F1F227A26420DF60033B461 /* Additional */,
 				6983153C24E853B600E1566A /* HomeView.swift */,
 				797A0EC825ACA2FB00E40F9E /* PetTypeScrollView.swift */,
 				797A0ECC25ACA8B900E40F9E /* FilterBarView.swift */,
@@ -535,6 +546,7 @@
 				79B037AB258380E600E2046D /* PetRow.swift in Sources */,
 				794945AB25825BCA00BF02DE /* Date+Extension.swift in Sources */,
 				79FF944C256A562D00149140 /* Collection+Extension.swift in Sources */,
+				3F1F227C26420E170033B461 /* DetailedFilterView.swift in Sources */,
 				7965DDC7257A33F700829328 /* AdoptionFeedbackView.swift in Sources */,
 				69E4432524E8820C00B8B3F1 /* PetDetailViewModel.swift in Sources */,
 				79CA6E182594808D001E2FCF /* ServerPetTypes.swift in Sources */,

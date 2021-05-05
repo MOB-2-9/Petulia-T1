@@ -35,6 +35,7 @@ struct HomeView: View {
         ScrollView(.vertical, showsIndicators: false) {
           VStack {
             filterView().padding(.top)
+            DetailFilterView()
             petTypeScrollView()
             recentPetSectionView()
             favoritesSectionView()
