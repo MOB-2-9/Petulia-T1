@@ -60,6 +60,7 @@ struct PetDetailView: View{
             } label: {
               Label("Contact", systemImage: "paperplane")
             }
+            .padding(.trailing, 10)
             shareResult()
           }
           .padding()
@@ -228,8 +229,10 @@ private extension PetDetailView {
   }
   
   func shareResult() -> some View {
-    Button("Share \(viewModel.name)") {
+    Button(action: {
       self.isSharePresented = true
+    }) {
+      Label("Share", systemImage: "arrow.up.square")
     }
     .sheet(isPresented: $isSharePresented, onDismiss: {
       print("Dismiss")
