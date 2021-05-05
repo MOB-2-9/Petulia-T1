@@ -49,7 +49,9 @@ struct FilterBarView: View {
       .background(Color(UIColor.systemGray6))
       .cornerRadius(10)
       .animation(.default)
-
+      Button(action: {print("Filters")}){
+        Text("filter")
+      }
       Spacer()
     }
   }

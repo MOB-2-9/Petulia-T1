@@ -8,21 +8,53 @@
 
 import SwiftUI
 
+//MARK: The Filter View
 struct DetailFilterView: View {
   var body: some View {
     ScrollView(.horizontal, showsIndicators: false) {
-      HStack {
-        DropDownMenu()
-        
+      VStack(alignment: .leading) {
+        FilterBreed()
+        FilterAge()
+        FilterSize()
+        FilterGender()
+        FilterLocation()
       }
-      .padding()
-//      .onAppear {
-//        proxy.scrollTo(max(currentPetType.id - 1, 0))
-//      }
     }
   }
 }
 
+//MARK: The Filters
+struct FilterBreed: View {
+  var body: some View {
+    Text("A ANimal Breed")
+  }
+}
+
+struct FilterAge: View {
+  var body: some View {
+    Text("Some Number")
+  }
+}
+
+struct FilterSize: View {
+  var body: some View {
+    Text("Some Size")
+  }
+}
+
+struct FilterGender: View {
+  var body: some View {
+    Text("Gender")
+  }
+}
+
+struct FilterLocation: View {
+  var body: some View {
+    Text("Location")
+  }
+}
+
+//Below is potentiall deprecated content
 //https://anthonycodesofficial.medium.com/swiftui-tutorial-how-to-create-a-floating-drop-down-menu-cc1562dbd48f
 struct DropDownMenu: View{
   @State var expand = false

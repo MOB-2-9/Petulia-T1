@@ -27,28 +27,27 @@ struct HomeView: View {
     }
     return petDataController.allPets
   }
-
+  
   var body: some View {
     NavigationView {
       ZStack (alignment: .bottom) {
-      VStack {
-        ScrollView(.vertical, showsIndicators: false) {
-          VStack {
-            filterView().padding(.top)
-            DetailFilterView()
-            petTypeScrollView()
-            recentPetSectionView()
-            favoritesSectionView()
+        VStack {
+          ScrollView(.vertical, showsIndicators: false) {
+            VStack {
+              filterView().padding(.top)
+              petTypeScrollView()
+              recentPetSectionView()
+              favoritesSectionView()
+            }
+            .padding(.bottom)
           }
-          .padding(.bottom)
         }
-      }
         if typing {
           KeyboardToolBarView() {
             requestWebData()
           }
         }
-    }
+      }
       .navigationBarTitle("Petulia")
       .navigationBarItems(trailing:
                             HStack { settingsControlView() })
@@ -73,7 +72,7 @@ private extension HomeView {
   
   //MARK: - Components
   
-    func filterView() -> some View {
+  func filterView() -> some View {
     FilterBarView(postcode: $postcode, typing: $typing) {
       requestWebData()
     }
