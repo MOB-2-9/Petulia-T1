@@ -10,47 +10,77 @@ import SwiftUI
 
 //MARK: The Filter View
 struct DetailFilterView: View {
+//  var primaryAction: (() -> Void)?
+//  var settingsAction: (() -> Void)?
+  
+  @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
   var body: some View {
-    ScrollView(.horizontal, showsIndicators: false) {
+//    ScrollView(.horizontal, showsIndicators: false) {
       VStack(alignment: .leading) {
         FilterBreed()
         FilterAge()
         FilterSize()
         FilterGender()
         FilterLocation()
+        Button("Done",action: {self.presentationMode.wrappedValue.dismiss()})
       }
-    }
+      .lineSpacing(20)
+      .frame(maxWidth: .infinity)
+      .padding()
+//    }
   }
 }
 
 //MARK: The Filters
 struct FilterBreed: View {
   var body: some View {
-    Text("A ANimal Breed")
+    Text("Breed")
+      .font(.title2)
   }
 }
 
 struct FilterAge: View {
+  @State var sliderValue: Double = 0
   var body: some View {
-    Text("Some Number")
+    Text("Age")
+      .font(.title2)
+    Slider(value: $sliderValue, in: 0...30)
   }
 }
 
 struct FilterSize: View {
+  var sizes = ["small", "medium", "large"]
+  @State private var selectedSize = "small"
   var body: some View {
     Text("Some Size")
+      .font(.title2)
+    Picker("Select a Size", selection: $selectedSize) {
+      ForEach(sizes, id: \.self) {
+        Text($0)
+      }
+    }
+    Text("You selected: \(selectedSize)")
   }
 }
 
 struct FilterGender: View {
   var body: some View {
     Text("Gender")
+      .font(.title2)
   }
 }
 
 struct FilterLocation: View {
+  @State private var location: String = ""
   var body: some View {
     Text("Location")
+      .font(.title2)
+    TextField("Location",
+              text: $location)
+      .font(.headline)
+      .multilineTextAlignment(.center)
+      .frame(maxWidth: 100)
+      .padding(.vertical, 8)
   }
 }
 

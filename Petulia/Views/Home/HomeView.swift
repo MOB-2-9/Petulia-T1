@@ -73,9 +73,9 @@ private extension HomeView {
   //MARK: - Components
   
   func filterView() -> some View {
-    FilterBarView(postcode: $postcode, typing: $typing) {
+    FilterBarView(postcode: $postcode, typing: $typing,action:{
       requestWebData()
-    }
+    })
   }
   
     func petTypeScrollView() -> some View {
