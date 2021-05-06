@@ -66,8 +66,11 @@ struct OrganizationsView: View {
 
 extension OrganizationsView {
   func requestWebData() {
-    organizationDataController.fetchOrganizations()
-    requestNextOrgs()
+    if postcode != "" {
+      requestOrgs(around: postcode)
+    } else {
+      organizationDataController.fetchOrganizations()
+    }
   }
   
   func filterView() -> some View {
