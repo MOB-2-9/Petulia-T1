@@ -30,18 +30,19 @@
 		697E7D6B24E9528C0039EBF2 /* confetti-falling.json in Resources */ = {isa = PBXBuildFile; fileRef = 697E7D6824E9528C0039EBF2 /* confetti-falling.json */; };
 		697E7D6C24E9528C0039EBF2 /* confetti.json in Resources */ = {isa = PBXBuildFile; fileRef = 697E7D6924E9528C0039EBF2 /* confetti.json */; };
 		697E7D6D24E9528C0039EBF2 /* thanks.json in Resources */ = {isa = PBXBuildFile; fileRef = 697E7D6A24E9528C0039EBF2 /* thanks.json */; };
-		697E7D7024E9535F0039EBF2 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 697E7D6F24E9535F0039EBF2 /* SwiftPackageProductDependency */; };
+		697E7D7024E9535F0039EBF2 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 697E7D6F24E9535F0039EBF2 /* Lottie */; };
 		697E7D7224E954950039EBF2 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697E7D7124E954950039EBF2 /* LottieView.swift */; };
 		6983153D24E853B600E1566A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6983153C24E853B600E1566A /* HomeView.swift */; };
 		69E4432124E87AC300B8B3F1 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E4432024E87AC300B8B3F1 /* ListView.swift */; };
 		69E4432524E8820C00B8B3F1 /* PetDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E4432424E8820C00B8B3F1 /* PetDetailViewModel.swift */; };
 		770674952644B26B0073DBED /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 770674942644B26B0073DBED /* GoogleService-Info.plist */; };
+		770674A62644B7F70073DBED /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770674A52644B7F70073DBED /* Authentication.swift */; };
 		7905B2182577A27700A55F37 /* HTMLText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7905B2172577A27700A55F37 /* HTMLText.swift */; };
 		7905B21B2577AC1F00A55F37 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7905B21A2577AC1F00A55F37 /* String+Extension.swift */; };
 		791F4E432581F9A000C5F457 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791F4E422581F9A000C5F457 /* SettingsView.swift */; };
 		791F4E46258217CC00C5F457 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791F4E45258217CC00C5F457 /* Color+Extension.swift */; };
 		7923467725761564005E2644 /* ClearButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7923467625761564005E2644 /* ClearButtonStyle.swift */; };
-		7926ABDB256CE0AD00AD8D68 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 7926ABDA256CE0AD00AD8D68 /* SwiftPackageProductDependency */; };
+		7926ABDB256CE0AD00AD8D68 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 7926ABDA256CE0AD00AD8D68 /* SDWebImageSwiftUI */; };
 		7926ABDE256CE48800AD8D68 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7926ABDD256CE48800AD8D68 /* AsyncImageView.swift */; };
 		7926ABE1256D430900AD8D68 /* PetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7926ABE0256D430900AD8D68 /* PetType.swift */; };
 		7930A4B42567F67E00746ADE /* StreachingHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7930A4B32567F67E00746ADE /* StreachingHeader.swift */; };
@@ -114,6 +115,7 @@
 		69E4432024E87AC300B8B3F1 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		69E4432424E8820C00B8B3F1 /* PetDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailViewModel.swift; sourceTree = "<group>"; };
 		770674942644B26B0073DBED /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		770674A52644B7F70073DBED /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		7905B2172577A27700A55F37 /* HTMLText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLText.swift; sourceTree = "<group>"; };
 		7905B21A2577AC1F00A55F37 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		791F4E422581F9A000C5F457 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -168,8 +170,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7926ABDB256CE0AD00AD8D68 /* BuildFile in Frameworks */,
-				697E7D7024E9535F0039EBF2 /* BuildFile in Frameworks */,
+				7926ABDB256CE0AD00AD8D68 /* SDWebImageSwiftUI in Frameworks */,
+				697E7D7024E9535F0039EBF2 /* Lottie in Frameworks */,
 				28AB66A85B2DAFE092406E0E /* Pods_Petulia.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -306,6 +308,7 @@
 			children = (
 				695B350524D6CA5A00A15D26 /* APIManager.swift */,
 				796E0ABC25862E71002E0007 /* EndPoint.swift */,
+				770674A52644B7F70073DBED /* Authentication.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -450,7 +453,6 @@
 				8C8E4E0359E5E64D2B3A272D /* Pods-Petulia.debug.xcconfig */,
 				B4DEC55D983BBA76AA44D847 /* Pods-Petulia.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -492,8 +494,8 @@
 			);
 			name = Petulia;
 			packageProductDependencies = (
-				697E7D6F24E9535F0039EBF2 /* SwiftPackageProductDependency */,
-				7926ABDA256CE0AD00AD8D68 /* SwiftPackageProductDependency */,
+				697E7D6F24E9535F0039EBF2 /* Lottie */,
+				7926ABDA256CE0AD00AD8D68 /* SDWebImageSwiftUI */,
 			);
 			productName = Petulia;
 			productReference = 695B34EE24D6CA1500A15D26 /* Petulia.app */;
@@ -524,8 +526,8 @@
 			);
 			mainGroup = 695B34E524D6CA1500A15D26;
 			packageReferences = (
-				697E7D6E24E9535F0039EBF2 /* RemoteSwiftPackageReference */,
-				7926ABD9256CE0AD00AD8D68 /* RemoteSwiftPackageReference */,
+				697E7D6E24E9535F0039EBF2 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				7926ABD9256CE0AD00AD8D68 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = 695B34EF24D6CA1500A15D26 /* Products */;
 			projectDirPath = "";
@@ -645,6 +647,7 @@
 				695B350824D7022E00A15D26 /* PetResponse.swift in Sources */,
 				2C5862DE2628032600725D5E /* OrganizationResponse.swift in Sources */,
 				797A0EC925ACA2FB00E40F9E /* PetTypeScrollView.swift in Sources */,
+				770674A62644B7F70073DBED /* Authentication.swift in Sources */,
 				697E7D7224E954950039EBF2 /* LottieView.swift in Sources */,
 				CF929FCF2629009300AE886C /* MainView.swift in Sources */,
 				79B037A825837DE600E2046D /* Animal+Extension.swift in Sources */,
@@ -886,7 +889,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		697E7D6E24E9535F0039EBF2 /* RemoteSwiftPackageReference */ = {
+		697E7D6E24E9535F0039EBF2 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
 			requirement = {
@@ -894,7 +897,7 @@
 				minimumVersion = 3.1.8;
 			};
 		};
-		7926ABD9256CE0AD00AD8D68 /* RemoteSwiftPackageReference */ = {
+		7926ABD9256CE0AD00AD8D68 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
 			requirement = {
@@ -905,14 +908,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		697E7D6F24E9535F0039EBF2 /* SwiftPackageProductDependency */ = {
+		697E7D6F24E9535F0039EBF2 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 697E7D6E24E9535F0039EBF2 /* RemoteSwiftPackageReference */;
+			package = 697E7D6E24E9535F0039EBF2 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
 		};
-		7926ABDA256CE0AD00AD8D68 /* SwiftPackageProductDependency */ = {
+		7926ABDA256CE0AD00AD8D68 /* SDWebImageSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 7926ABD9256CE0AD00AD8D68 /* RemoteSwiftPackageReference */;
+			package = 7926ABD9256CE0AD00AD8D68 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
 			productName = SDWebImageSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
