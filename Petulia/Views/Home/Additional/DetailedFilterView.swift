@@ -33,9 +33,12 @@ struct DetailFilterView: View {
 
 //MARK: The Filters
 struct FilterBreed: View {
+  var breeds = ["Breed1", "Breed2", "Breed3"]
+  @State private var selectedBreed = 0
   var body: some View {
     Text("Breed")
       .font(.title2)
+    DropDownPicker(title: "Select Breed", selection: $selectedBreed, options: breeds)
   }
 }
 
@@ -44,29 +47,29 @@ struct FilterAge: View {
   var body: some View {
     Text("Age")
       .font(.title2)
-    Slider(value: $sliderValue, in: 0...30)
+    VStack{
+      Slider(value: $sliderValue, in: 0...30, step: 1)
+      Text("Age up to \(sliderValue, specifier: "%.1f")")
+    }.padding()
   }
 }
 
 struct FilterSize: View {
   var sizes = ["small", "medium", "large"]
-  @State private var selectedSize = "small"
+  @State private var selectedSize = 0
   var body: some View {
     Text("Some Size")
       .font(.title2)
-    Picker("Select a Size", selection: $selectedSize) {
-      ForEach(sizes, id: \.self) {
-        Text($0)
-      }
-    }
-    Text("You selected: \(selectedSize)")
+    DropDownPicker(title: "Pet Size", selection: $selectedSize, options: sizes)
   }
 }
 
 struct FilterGender: View {
+  @State private var selectedGender = 0
   var body: some View {
     Text("Gender")
       .font(.title2)
+    DropDownPicker(title: "Gender", selection: $selectedGender, options: ["Male","Female"])
   }
 }
 
@@ -86,39 +89,3 @@ struct FilterLocation: View {
 
 //Below is potentiall deprecated content
 //https://anthonycodesofficial.medium.com/swiftui-tutorial-how-to-create-a-floating-drop-down-menu-cc1562dbd48f
-struct DropDownMenu: View{
-  @State var expand = false
-  var body: some View{
-    VStack(){
-      Spacer()
-      VStack(spacing: 30){
-        HStack(){
-          Text("Breed")
-            .fontWeight(.bold)
-            .foregroundColor(.white)
-          Image(systemName: expand ? "chevron.up":"chevron.down")
-            .resizable()
-            .frame(width: 13, height: 6)
-            .foregroundColor(.white)
-        }.onTapGesture {
-          self.expand.toggle()
-        }
-        if expand{
-          Button(action: {
-            print("Hello")
-            self.expand.toggle()
-          }) {
-            Text("Dog")
-              .padding()
-          }.foregroundColor(.white)
-        }
-      }
-      .padding()
-      .background(Color.blue)
-      .cornerRadius(20)
-//      .accentColor(.blue)
-      .shadow(color:.gray,radius: 5)
-      .animation(.spring())
-    }
-  }
-}

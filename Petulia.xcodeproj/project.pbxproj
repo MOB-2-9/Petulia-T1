@@ -16,6 +16,7 @@
 		3F1F227C26420E170033B461 /* DetailedFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1F227B26420E170033B461 /* DetailedFilterView.swift */; };
 		3F91B3792629043E00DAD14B /* OrganizationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91B3782629043E00DAD14B /* OrganizationDetailView.swift */; };
 		3F96BA58263B6612008FC8C7 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F96BA57263B6612008FC8C7 /* MapView.swift */; };
+		3FA19E712644BA9C00F96024 /* DropDownPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA19E702644BA9C00F96024 /* DropDownPicker.swift */; };
 		69263DE424E58B8B00EABF0E /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69263DE324E58B8B00EABF0E /* RoundedCorner.swift */; };
 		69263DE724E58BF300EABF0E /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69263DE624E58BF300EABF0E /* View+Extension.swift */; };
 		695B34F224D6CA1500A15D26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695B34F124D6CA1500A15D26 /* AppDelegate.swift */; };
@@ -93,6 +94,7 @@
 		3F1F227B26420E170033B461 /* DetailedFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedFilterView.swift; sourceTree = "<group>"; };
 		3F91B3782629043E00DAD14B /* OrganizationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationDetailView.swift; sourceTree = "<group>"; };
 		3F96BA57263B6612008FC8C7 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		3FA19E702644BA9C00F96024 /* DropDownPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownPicker.swift; sourceTree = "<group>"; };
 		69263DE324E58B8B00EABF0E /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		69263DE624E58BF300EABF0E /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		695B34EE24D6CA1500A15D26 /* Petulia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Petulia.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -194,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				3F1F227B26420E170033B461 /* DetailedFilterView.swift */,
+				3FA19E702644BA9C00F96024 /* DropDownPicker.swift */,
 			);
 			path = Additional;
 			sourceTree = "<group>";
@@ -583,6 +586,7 @@
 				7982A4942570FF28005334DD /* PetTypeController.swift in Sources */,
 				695B34F424D6CA1500A15D26 /* SceneDelegate.swift in Sources */,
 				69263DE424E58B8B00EABF0E /* RoundedCorner.swift in Sources */,
+				3FA19E712644BA9C00F96024 /* DropDownPicker.swift in Sources */,
 				3F0A05F22638CCB1000A55A1 /* OrgSectionView.swift in Sources */,
 				CF929FE2262E3EA100AE886C /* SnapCarousel.swift in Sources */,
 				69263DE724E58BF300EABF0E /* View+Extension.swift in Sources */,
