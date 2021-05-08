@@ -49,11 +49,6 @@ struct FilterBarView: View {
       .background(Color(UIColor.systemGray6))
       .cornerRadius(10)
       .animation(.default)
-//      Button(action: {settingsAction?()}){
-//        Text("filter")
-//      }
-      NavigationLink(destination: DetailFilterView())
-                  { Text("+ filters") }
       Spacer()
     }
   }

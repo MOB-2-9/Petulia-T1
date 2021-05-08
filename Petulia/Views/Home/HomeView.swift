@@ -35,6 +35,7 @@ struct HomeView: View {
           ScrollView(.vertical, showsIndicators: false) {
             VStack {
               filterView().padding(.top)
+              NavigationLink(destination: filterDetailView()){ Text("+ filters") }
               petTypeScrollView()
               recentPetSectionView()
               favoritesSectionView()
@@ -75,6 +76,12 @@ private extension HomeView {
   func filterView() -> some View {
     FilterBarView(postcode: $postcode, typing: $typing,action:{
       requestWebData()
+    })
+  }
+  
+  func filterDetailView() -> some View{
+    DetailFilterView(action: { 
+      print("Me")
     })
   }
   

@@ -10,8 +10,9 @@ import SwiftUI
 
 //MARK: The Filter View
 struct DetailFilterView: View {
-  //  var primaryAction: (() -> Void)?
-  //  var settingsAction: (() -> Void)?
+//  var breeds: [PetBreed]
+//  var currentPetType: PetType
+  var action: (() -> Void)?
   
   @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
   var body: some View {
@@ -30,128 +31,133 @@ struct DetailFilterView: View {
   }
 }
 
-//MARK: The Filters
-struct FilterBreed: View {
-  var breeds = ["Breed1", "Breed2", "Breed3"]
-  @State private var selectedBreed = 0
-  @State private var toggleAdd = false
-  var body: some View {
-    VStack{
-      HStack{
-        Text("Breed")
-          .font(.title2)
-        Button(action: {
-          toggleAdd.toggle()
-        }){
-          if toggleAdd{
-            Image(systemName: "minus")
-          }else{
-            Image(systemName: "plus")
+private extension DetailFilterView{
+  //MARK: The Filters
+  struct FilterBreed: View {
+    var breeds = ["Breed1", "Breed2", "Breed3"]
+    @State private var selectedBreed = 0
+    @State private var toggleAdd = false
+    var body: some View {
+      VStack(alignment: .leading){
+        HStack{
+          Text("Breed")
+            .font(.title2)
+          Button(action: {
+            toggleAdd.toggle()
+          }){
+            if toggleAdd{
+              Image(systemName: "minus")
+            }else{
+              Image(systemName: "plus")
+                .foregroundColor(.green)
+            }
           }
         }
+        DropDownPicker(title: "Select Breed", selection: $selectedBreed, options: breeds)
       }
-      DropDownPicker(title: "Select Breed", selection: $selectedBreed, options: breeds)
     }
   }
-}
-
-struct FilterAge: View {
-  @State var sliderValue: Double = 0
-  @State private var toggleAdd = false
-  var body: some View {
-    VStack{
-      HStack{
-        Text("Age")
-          .font(.title2)
-        Button(action: {
-          toggleAdd.toggle()
-        }){
-          if toggleAdd{
-            Image(systemName: "minus")
-          }else{
-            Image(systemName: "plus")
+  
+  struct FilterAge: View {
+    var ages = ["Baby","Young","Adult","Senior"]
+    @State private var selectedAge = 0
+    @State private var toggleAdd = false
+    var body: some View {
+      VStack(alignment: .leading){
+        HStack{
+          Text("Age")
+            .font(.title2)
+          Button(action: {
+            toggleAdd.toggle()
+          }){
+            if toggleAdd{
+              Image(systemName: "minus")
+            }else{
+              Image(systemName: "plus")
+                .foregroundColor(.green)
+            }
           }
         }
+        DropDownPicker(title: "Pet Ages", selection: $selectedAge, options: ages)
       }
-      VStack{
-        Slider(value: $sliderValue, in: 0...30, step: 1)
-        Text("Age up to \(sliderValue, specifier: "%.1f")")
-      }.padding()
-      
     }
   }
-}
-
-struct FilterSize: View {
-  var sizes = ["small", "medium", "large"]
-  @State private var selectedSize = 0
-  @State private var toggleAdd = false
-  var body: some View {
-    VStack{
-      HStack{
-        Text("Animal Size")
-          .font(.title2)
-        Button(action: {
-          toggleAdd.toggle()
-        }){
-          if toggleAdd{
-            Image(systemName: "minus")
-          }else{
-            Image(systemName: "plus")
+  
+  struct FilterSize: View {
+    var sizes = ["small", "medium", "large","xlarge"]
+    @State private var selectedSize = 0
+    @State private var toggleAdd = false
+    var body: some View {
+      VStack(alignment: .leading){
+        HStack{
+          Text("Animal Size")
+            .font(.title2)
+          Button(action: {
+            toggleAdd.toggle()
+          }){
+            if toggleAdd{
+              Image(systemName: "minus")
+            }else{
+              Image(systemName: "plus")
+                .foregroundColor(.green)
+            }
           }
         }
+        DropDownPicker(title: "Pet Size", selection: $selectedSize, options: sizes)
       }
-      DropDownPicker(title: "Pet Size", selection: $selectedSize, options: sizes)
     }
   }
-}
-
-struct FilterGender: View {
-  @State private var selectedGender = 0
-  @State private var toggleAdd = false
-  var body: some View {
-    VStack{
-      HStack{
-        Text("Gender")
-          .font(.title2)
-        Button(action: {
-          toggleAdd.toggle()
-        }){
-          if toggleAdd{
-            Image(systemName: "minus")
-          }else{
-            Image(systemName: "plus")
+  
+  struct FilterGender: View {
+    @State private var selectedGender = 0
+    @State private var toggleAdd = false
+    var body: some View {
+      VStack(alignment: .leading){
+        HStack{
+          Text("Gender")
+            .font(.title2)
+          Button(action: {
+            toggleAdd.toggle()
+          }){
+            if toggleAdd{
+              Image(systemName: "minus")
+            }else{
+              Image(systemName: "plus")
+                .foregroundColor(.green)
+            }
           }
         }
+        DropDownPicker(title: "Gender", selection: $selectedGender, options: ["Male","Female","Unknown"])
       }
-      DropDownPicker(title: "Gender", selection: $selectedGender, options: ["Male","Female"])
     }
   }
-}
-
-struct FilterLocation: View {
-  @State private var location: String = ""
-  @State private var toggleAdd = false
-  var body: some View {
-    VStack{
-      HStack(){
-        Text("Location")
-          .font(.title2)
-        Button(action: {
-          toggleAdd.toggle()
-        }){
-          if toggleAdd{
-            Image(systemName: "minus")
-          }else{
-            Image(systemName: "plus")
+  
+  struct FilterLocation: View {
+    @State private var location: String = ""
+    @State private var toggleAdd = false
+    var body: some View {
+      VStack(alignment: .leading){
+        HStack(){
+          Text("Location")
+            .font(.title2)
+          Button(action: {
+            toggleAdd.toggle()
+          }){
+            if toggleAdd{
+              Image(systemName: "minus")
+            }else{
+              Image(systemName: "plus")
+                .foregroundColor(.green)
+            }
           }
         }
+        TextField("Location",
+                  text: $location)
+          .multilineTextAlignment(.center)
+          .frame(maxWidth: 100)
+          .padding(.vertical, 8)
       }
-      TextField("Location",
-                text: $location)
-        .multilineTextAlignment(.center)
-        .frame(maxWidth: 100)
-        .padding(.vertical, 8)
     }
   }
+  
 }
