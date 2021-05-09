@@ -18,14 +18,22 @@ struct HomeView: View {
   
   @AppStorage(Keys.photoOnly) var photoOnly = false
   
+  @AppStorage(Keys.age) public var age = ""
+  
   @State private var typing = false
   @State private var showSettingsSheet = false
+  
+//  @Binding var filters:[String:String]
   
   private var filteredPets: [PetDetailViewModel] {
     if photoOnly == true {
       return petDataController.allPets.filter { $0.photos.count != 0 }
     }
+    if age != ""{
+      return petDataController.allPets.filter{$0.age == age}
+    }
     return petDataController.allPets
+//    print(filters)
   }
   
   var body: some View {
@@ -81,7 +89,7 @@ private extension HomeView {
   
   func filterDetailView() -> some View{
     DetailFilterView(action: { 
-      print("Me")
+      requestWebData()
     })
   }
   

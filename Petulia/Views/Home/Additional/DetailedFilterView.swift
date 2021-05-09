@@ -8,10 +8,11 @@
 
 import SwiftUI
 
-//MARK: The Filter View
+//MARK: - The Filter View
 struct DetailFilterView: View {
+//  @AppStorage(Keys.age) public var age = ""
+//  @State public var filters:[String:String] = [:]
 //  var breeds: [PetBreed]
-//  var currentPetType: PetType
   var action: (() -> Void)?
   
   @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
@@ -22,7 +23,10 @@ struct DetailFilterView: View {
       FilterSize()
       FilterGender()
       FilterLocation()
-      Button("Done",action: {self.presentationMode.wrappedValue.dismiss()})
+      Button("Apply",action: {
+              action?()
+              self.presentationMode.wrappedValue.dismiss()
+      })
     }
     .navigationBarTitle("Filters")
     .lineSpacing(20)
@@ -31,8 +35,9 @@ struct DetailFilterView: View {
   }
 }
 
+//MARK: - The Filters
 private extension DetailFilterView{
-  //MARK: The Filters
+  
   struct FilterBreed: View {
     var breeds = ["Breed1", "Breed2", "Breed3"]
     @State private var selectedBreed = 0
@@ -58,9 +63,11 @@ private extension DetailFilterView{
     }
   }
   
+  //MARK: Age
   struct FilterAge: View {
+    @AppStorage(Keys.age) public var age = ""
+    @AppStorage(Keys.ageNum) public var ageNum = 0
     var ages = ["Baby","Young","Adult","Senior"]
-    @State private var selectedAge = 0
     @State private var toggleAdd = false
     var body: some View {
       VStack(alignment: .leading){
@@ -69,6 +76,11 @@ private extension DetailFilterView{
             .font(.title2)
           Button(action: {
             toggleAdd.toggle()
+            if toggleAdd == true{
+              age = ages[ageNum]
+            }else{
+              age = ""
+            }
           }){
             if toggleAdd{
               Image(systemName: "minus")
@@ -78,14 +90,24 @@ private extension DetailFilterView{
             }
           }
         }
-        DropDownPicker(title: "Pet Ages", selection: $selectedAge, options: ages)
+        DropDownPicker(title: "Pet Ages", selection: $ageNum, options: ages)
+          .onChange(of: ageNum, perform: {_ in
+            age = ages[ageNum]
+          })
       }
+      .onAppear(perform: {
+        if age != ""{
+          toggleAdd = true
+        }
+      })
     }
   }
   
+  //MARK: Size
   struct FilterSize: View {
     var sizes = ["small", "medium", "large","xlarge"]
-    @State private var selectedSize = 0
+    @AppStorage(Keys.age) public var age = ""
+    @AppStorage(Keys.sizeNum) public var sizeNum = 0
     @State private var toggleAdd = false
     var body: some View {
       VStack(alignment: .leading){
@@ -108,6 +130,7 @@ private extension DetailFilterView{
     }
   }
   
+  //MARK: Gender
   struct FilterGender: View {
     @State private var selectedGender = 0
     @State private var toggleAdd = false
@@ -132,6 +155,7 @@ private extension DetailFilterView{
     }
   }
   
+  //MARK: Location
   struct FilterLocation: View {
     @State private var location: String = ""
     @State private var toggleAdd = false

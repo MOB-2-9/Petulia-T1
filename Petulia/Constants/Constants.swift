@@ -35,5 +35,11 @@ enum Keys {
   static var author = "Johandre Delgado"
   static var authorWebsite = "https://www.seadeveloper.com"
   static var authorQuote = "Because caring is loving"
+  
+  //Filters
+  static var age = "age"
+  static var ageNum = "ageNum"
+  static var size = "size"
+  static var sizeNum = "sizeNum"
 }
 
