@@ -145,7 +145,9 @@ private extension DetailFilterView{
   
   //MARK: Gender
   struct FilterGender: View {
-    @State private var selectedGender = 0
+    let genders = ["Male","Female","Unknown"]
+    @AppStorage(Keys.gender) public var gender = ""
+    @AppStorage(Keys.genNum) public var genNum = 0
     @State private var toggleAdd = false
     var body: some View {
       VStack(alignment: .leading){
@@ -154,6 +156,11 @@ private extension DetailFilterView{
             .font(.title2)
           Button(action: {
             toggleAdd.toggle()
+            if toggleAdd == true{
+              gender = genders[genNum]
+            }else{
+              gender = ""
+            }
           }){
             if toggleAdd{
               Image(systemName: "minus")
@@ -163,8 +170,16 @@ private extension DetailFilterView{
             }
           }
         }
-        DropDownPicker(title: "Gender", selection: $selectedGender, options: ["Male","Female","Unknown"])
+        DropDownPicker(title: "Gender", selection: $genNum, options: genders)
+          .onChange(of: genNum, perform: {_ in
+            gender = genders[genNum]
+          })
       }
+      .onAppear(perform: {
+        if gender != ""{
+          toggleAdd = true
+        }
+      })
     }
   }
   

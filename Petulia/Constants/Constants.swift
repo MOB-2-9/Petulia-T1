@@ -41,5 +41,7 @@ enum Keys {
   static var ageNum = "ageNum"
   static var size = "size"
   static var sizeNum = "sizeNum"
+  static var gender = "gender"
+  static var genNum = "genNum"
 }
 
