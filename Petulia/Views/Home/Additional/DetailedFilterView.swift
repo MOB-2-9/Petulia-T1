@@ -105,8 +105,8 @@ private extension DetailFilterView{
   
   //MARK: Size
   struct FilterSize: View {
-    var sizes = ["small", "medium", "large","xlarge"]
-    @AppStorage(Keys.age) public var age = ""
+    var sizes = ["Small", "Medium", "Large","Xlarge"]
+    @AppStorage(Keys.size) public var size = ""
     @AppStorage(Keys.sizeNum) public var sizeNum = 0
     @State private var toggleAdd = false
     var body: some View {
@@ -116,6 +116,11 @@ private extension DetailFilterView{
             .font(.title2)
           Button(action: {
             toggleAdd.toggle()
+            if toggleAdd == true{
+              size = sizes[sizeNum]
+            }else{
+              size = ""
+            }
           }){
             if toggleAdd{
               Image(systemName: "minus")
@@ -125,8 +130,16 @@ private extension DetailFilterView{
             }
           }
         }
-        DropDownPicker(title: "Pet Size", selection: $selectedSize, options: sizes)
+        DropDownPicker(title: "Pet Size", selection: $sizeNum, options: sizes)
+          .onChange(of: sizeNum, perform: {_ in
+            size = sizes[sizeNum]
+          })
       }
+      .onAppear(perform: {
+        if size != ""{
+          toggleAdd = true
+        }
+      })
     }
   }
   

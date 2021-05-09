@@ -19,6 +19,7 @@ struct HomeView: View {
   @AppStorage(Keys.photoOnly) var photoOnly = false
   
   @AppStorage(Keys.age) public var age = ""
+  @AppStorage(Keys.size) public var size = ""
   
   @State private var typing = false
   @State private var showSettingsSheet = false
@@ -32,8 +33,10 @@ struct HomeView: View {
     if age != ""{
       return petDataController.allPets.filter{$0.age == age}
     }
+    if size != ""{
+      return petDataController.allPets.filter{$0.size == size}
+    }
     return petDataController.allPets
-//    print(filters)
   }
   
   var body: some View {
