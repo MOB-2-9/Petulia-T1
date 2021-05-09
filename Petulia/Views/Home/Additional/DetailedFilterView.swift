@@ -159,5 +159,4 @@ private extension DetailFilterView{
       }
     }
   }
-  
 }

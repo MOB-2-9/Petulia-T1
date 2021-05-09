@@ -41,6 +41,14 @@ extension EndPoint {
   static func animals(from link: LinkString)  -> Self {
     EndPoint(path: link.href)
   }
+  
+//  static var breedsPath(queryItems : [URLQueryItem])  -> Self {
+//    EndPoint(path: Keys.allTypesPath, queryItems: queryItems)
+//  }
+//  
+//  static var breedsPath(from link: LinkString)  -> Self {
+//    EndPoint(path: link.href)
+//  }
 
   static var typesPath: Self {
     EndPoint(path: Keys.allTypesPath)

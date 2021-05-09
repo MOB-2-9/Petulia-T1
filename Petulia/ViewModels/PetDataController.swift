@@ -65,6 +65,18 @@ final class PetDataController: ObservableObject {
     }
   }
   
+//  func fetchPetBreeds() {
+//    apiService.fetch(at: EndPoint.breedsPath()) { (result: Result<ResponseOrangization, Error>) in
+//      switch result {
+//      case .failure(let error):
+//        print(error.localizedDescription)
+//      case .success(let organization):
+//        let rawOrganization = organization.organization
+//        self.singleOrganization = OrganizationDetailViewModel(model: rawOrganization)
+//      }
+//    }
+//  }
+  
   //MARK: - Private Methods
 
   func fetchResult(at endPoint: EndPoint) {
