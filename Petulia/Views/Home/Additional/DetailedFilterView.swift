@@ -12,12 +12,8 @@ import SwiftUI
 struct DetailFilterView: View {
   @EnvironmentObject var petDataController: PetDataController
   private var breeds: [String] {
-    print("Filters Loaded \(petDataController.allBreeds)")
     return petDataController.allBreeds
   }
-//  @AppStorage(Keys.age) public var age = ""
-//  @State public var filters:[String:String] = [:]
-//  var breeds: [PetBreed]
   var action: (() -> Void)?
   
   @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
@@ -53,7 +49,7 @@ extension DetailFilterView{
   
   //MARK: Age
   struct FilterAge: View {
-    @AppStorage(Keys.age) public var age = ""
+    @EnvironmentObject var petDataController: PetDataController
     @AppStorage(Keys.ageNum) public var ageNum = 0
     var ages = ["Baby","Young","Adult","Senior"]
     @State private var toggleAdd = false
@@ -65,9 +61,9 @@ extension DetailFilterView{
           Button(action: {
             toggleAdd.toggle()
             if toggleAdd == true{
-              age = ages[ageNum]
+              petDataController.AgeFilter = ages[ageNum]
             }else{
-              age = ""
+              petDataController.AgeFilter = nil
             }
           }){
             if toggleAdd{
@@ -80,11 +76,13 @@ extension DetailFilterView{
         }
         DropDownPicker(title: "Pet Ages", selection: $ageNum, options: ages)
           .onChange(of: ageNum, perform: {_ in
-            age = ages[ageNum]
+            if toggleAdd == true{
+              petDataController.AgeFilter = ages[ageNum]
+            }
           })
       }
       .onAppear(perform: {
-        if age != ""{
+        if petDataController.AgeFilter != nil{
           toggleAdd = true
         }
       })
@@ -94,7 +92,7 @@ extension DetailFilterView{
   //MARK: Size
   struct FilterSize: View {
     var sizes = ["Small", "Medium", "Large","Xlarge"]
-    @AppStorage(Keys.size) public var size = ""
+    @EnvironmentObject var petDataController: PetDataController
     @AppStorage(Keys.sizeNum) public var sizeNum = 0
     @State private var toggleAdd = false
     var body: some View {
@@ -105,9 +103,9 @@ extension DetailFilterView{
           Button(action: {
             toggleAdd.toggle()
             if toggleAdd == true{
-              size = sizes[sizeNum]
+              petDataController.SizeFilter = sizes[sizeNum]
             }else{
-              size = ""
+              petDataController.SizeFilter = nil
             }
           }){
             if toggleAdd{
@@ -120,11 +118,13 @@ extension DetailFilterView{
         }
         DropDownPicker(title: "Pet Size", selection: $sizeNum, options: sizes)
           .onChange(of: sizeNum, perform: {_ in
-            size = sizes[sizeNum]
+            if toggleAdd == true{
+              petDataController.SizeFilter = sizes[sizeNum]
+            }
           })
       }
       .onAppear(perform: {
-        if size != ""{
+        if petDataController.SizeFilter != nil{
           toggleAdd = true
         }
       })
@@ -133,8 +133,8 @@ extension DetailFilterView{
   
   //MARK: Gender
   struct FilterGender: View {
+    @EnvironmentObject var petDataController: PetDataController
     let genders = ["Male","Female","Unknown"]
-    @AppStorage(Keys.gender) public var gender = ""
     @AppStorage(Keys.genNum) public var genNum = 0
     @State private var toggleAdd = false
     var body: some View {
@@ -145,9 +145,9 @@ extension DetailFilterView{
           Button(action: {
             toggleAdd.toggle()
             if toggleAdd == true{
-              gender = genders[genNum]
+              petDataController.GenderFilter = genders[genNum]
             }else{
-              gender = ""
+              petDataController.GenderFilter = nil
             }
           }){
             if toggleAdd{
@@ -160,11 +160,13 @@ extension DetailFilterView{
         }
         DropDownPicker(title: "Gender", selection: $genNum, options: genders)
           .onChange(of: genNum, perform: {_ in
-            gender = genders[genNum]
+            if toggleAdd == true{
+              petDataController.GenderFilter = genders[genNum]
+            }
           })
       }
       .onAppear(perform: {
-        if gender != ""{
+        if petDataController.GenderFilter != nil{
           toggleAdd = true
         }
       })

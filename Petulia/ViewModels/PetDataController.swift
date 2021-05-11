@@ -17,6 +17,9 @@ enum PageDirection {
 final class PetDataController: ObservableObject {
   
   @Published var BreedType: String? = nil
+  @Published var GenderFilter: String? = nil
+  @Published var SizeFilter: String? = nil
+  @Published var AgeFilter: String? = nil
   @Published private(set) var allPets: [PetDetailViewModel] = []
   @Published private(set) var allBreeds: [String] = []
   @Published private(set) var petType: PetTypeController
@@ -39,7 +42,7 @@ final class PetDataController: ObservableObject {
     allPets = []
 
     let type = petType.currentPetType.endPoint
-    let filters = ["type": type, "location": postcode, "breed":BreedType]
+    let filters = ["type": type, "location": postcode, "breed":BreedType, "gender":GenderFilter, "age":AgeFilter,"size":SizeFilter]
     let filtered = filters.compactMapValues { $0 }
     print("filtered: \(filtered)")
 
