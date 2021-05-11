@@ -18,22 +18,30 @@ struct DetailFilterView: View {
   
   @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
   var body: some View {
-    VStack(alignment: .leading) {
-      filterBreedView()
-      FilterAge()
-      FilterSize()
-      FilterGender()
-//      FilterLocation()
-      Button("Apply",action: {
-              action?()
-              self.presentationMode.wrappedValue.dismiss()
-      })
+    ScrollView(.vertical, showsIndicators: false) {
+      VStack(alignment: .leading) {
+        filterBreedView()
+        FilterAge()
+        FilterSize()
+        FilterGender()
+        Button("Apply",action: {
+                action?()
+                self.presentationMode.wrappedValue.dismiss()
+        })
+        .frame(maxWidth: .infinity, maxHeight: 20)
+        .foregroundColor(.white)
+        .background(Color.green)
+        .cornerRadius(15)
+      }
+      .lineSpacing(20)
+      
     }
     .onAppear{ requestBreeds() }
     .navigationBarTitle("Filters")
-    .lineSpacing(20)
+//    .navigationBarHidden(true)
     .frame(maxWidth: .infinity)
     .padding()
+    
   }
 }
 
@@ -172,42 +180,13 @@ extension DetailFilterView{
       })
     }
   }
-  
-  //MARK: Location
-  struct FilterLocation: View {
-    @State private var location: String = ""
-    @State private var toggleAdd = false
-    var body: some View {
-      VStack(alignment: .leading){
-        HStack(){
-          Text("Location")
-            .font(.title2)
-          Button(action: {
-            toggleAdd.toggle()
-          }){
-            if toggleAdd{
-              Image(systemName: "minus")
-            }else{
-              Image(systemName: "plus")
-                .foregroundColor(.green)
-            }
-          }
-        }
-        TextField("Location",
-                  text: $location)
-          .multilineTextAlignment(.center)
-          .frame(maxWidth: 100)
-          .padding(.vertical, 8)
-      }
-    }
-  }
 }
 
 //MARK: Breeds
 struct FilterBreed: View {
   @EnvironmentObject var petDataController: PetDataController
+  @AppStorage(Keys.breedNum) public var breedNum = 0
   var breeds: [String] = []
-  @State private var selectedBreed = 0
   @State private var toggleAdd = false
   var action: (() -> Void)?
   var body: some View {
@@ -218,7 +197,7 @@ struct FilterBreed: View {
         Button(action: {
           toggleAdd.toggle()
           if toggleAdd{
-            petDataController.BreedType = breeds[selectedBreed]
+            petDataController.BreedType = breeds[breedNum]
           }else{
             petDataController.BreedType = nil
           }
@@ -232,12 +211,15 @@ struct FilterBreed: View {
         }
       }
       if !breeds.isEmpty{
-        DropDownPicker(title: "Select Breed", selection: $selectedBreed, options: breeds)
+        DropDownPicker(title: "Select Breed", selection: $breedNum, options: breeds)
       }
     }
     .onAppear(perform: {
       if petDataController.BreedType != nil{
         toggleAdd = true
+      }
+      if petDataController.BreedType == nil{
+        breedNum = 0
       }
     })
   }

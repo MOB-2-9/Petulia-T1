@@ -18,10 +18,6 @@ struct HomeView: View {
   
   @AppStorage(Keys.photoOnly) var photoOnly = false
   
-  @AppStorage(Keys.age) public var age = ""
-  @AppStorage(Keys.size) public var size = ""
-  @AppStorage(Keys.gender) public var gender = ""
-  
   @State private var typing = false
   @State private var showSettingsSheet = false
   
@@ -31,18 +27,6 @@ struct HomeView: View {
     if photoOnly == true {
       return petDataController.allPets.filter { $0.photos.count != 0 }
     }
-    //As it is, you can only filter one aspect at a time
-    if age != ""{
-      return petDataController.allPets.filter{$0.age == age}
-    }
-    if size != ""{
-      return petDataController.allPets.filter{$0.size == size}
-    }
-    if gender != ""{
-      return petDataController.allPets.filter{$0.gender == gender}
-    }
-    
-//    cars.filter { $0.model == currModel || colors.contains($0.color) } -- How to multifilter
     return petDataController.allPets
   }
   

@@ -37,11 +37,9 @@ enum Keys {
   static var authorQuote = "Because caring is loving"
   
   //Filters
-  static var age = "age"
   static var ageNum = "ageNum"
-  static var size = "size"
   static var sizeNum = "sizeNum"
-  static var gender = "gender"
   static var genNum = "genNum"
+  static var breedNum = "breedNum"
 }
 
