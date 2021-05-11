@@ -7,5 +7,6 @@ target 'Petulia' do
 
   # Pods for Petulia
 pod 'FirebaseUI/Auth'
+pod 'Firebase/Storage'
 
 end

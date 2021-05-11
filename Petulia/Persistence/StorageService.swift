@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import FirebaseStorage
 
 /// Provides type save names for files in the disk or bundle
 enum FileName: String {
@@ -17,7 +18,7 @@ enum FileName: String {
 
 class StorageService {
   
-//  MARK:  - FROM APP BUNDLE
+  //  MARK:  - FROM APP BUNDLE
   func loadFromBundle<T: Decodable>(_ filename: FileName) -> T {
     let data: Data
     
@@ -62,6 +63,9 @@ class StorageService {
   
   // MARK:  - SAVING TO FILE SYSTEM
   func saveToDevice<T: Encodable>(_ swiftObject: T, to fileName: FileName) {
+    let storage = Storage.storage()
+    let storageRef = storage.reference()
+    
     print("\n\(#function) -  Saving - \(fileName.rawValue) - to device.")
     
     do {
@@ -70,8 +74,30 @@ class StorageService {
       print("Saving in path: \(fileURL.path)")
       try JSONEncoder().encode(swiftObject)
         .write(to: fileURL)
+      sleep(2)
+      let localFile = try URL(resolvingAliasFileAt: fileURL)
+      print("File Address \(localFile)")
+        let file_to_be_uploaded = storageRef.child(fileURL.path)
+        let uploadTask = file_to_be_uploaded.putFile(from: localFile, metadata: nil) { metadata, error in
+          guard let metadata = metadata else {
+            // Uh-oh, an error occurred!
+            return
+          }
+          // Metadata contains file metadata such as size, content-type.
+          let size = metadata.size
+          // You can also access to download URL after upload.
+          file_to_be_uploaded.downloadURL { (url, error) in
+            guard let downloadURL = url else {
+              // Uh-oh, an error occurred!
+              return
+            }
+          
+        }
+      }
+      
+      
     } catch {
-        print("❌ \(#function) - Saving error: \(error)")
+      print("❌ \(#function) - Saving error: \(error)")
     }
   }
   

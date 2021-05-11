@@ -14,7 +14,6 @@ struct HomeView: View {
   @EnvironmentObject var petDataController: PetDataController
   @EnvironmentObject var favorites: FavoriteController
   @EnvironmentObject var theme: ThemeManager
-  
   @AppStorage(Keys.savedPostcode) var postcode = ""
   @AppStorage(Keys.isDark) var isDark = false
   
