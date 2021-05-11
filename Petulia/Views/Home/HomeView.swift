@@ -113,6 +113,7 @@ private extension HomeView {
       types: petDataController.petType.types,
       currentPetType: petDataController.petType.currentPetType) { (petType) in
       petDataController.petType.set(to: petType)
+      petDataController.BreedType = nil
       requestWebData()
     }
   }
