@@ -16,7 +16,9 @@ enum PageDirection {
 
 final class PetDataController: ObservableObject {
   
+  @Published var BreedType: String? = nil
   @Published private(set) var allPets: [PetDetailViewModel] = []
+  @Published private(set) var allBreeds: [String] = []
   @Published private(set) var petType: PetTypeController
   @Published private(set) var isLoading: Bool = false
   
@@ -37,7 +39,7 @@ final class PetDataController: ObservableObject {
     allPets = []
 
     let type = petType.currentPetType.endPoint
-    let filters = ["type": type, "location": postcode]
+    let filters = ["type": type, "location": postcode, "breed":BreedType]
     let filtered = filters.compactMapValues { $0 }
     print("filtered: \(filtered)")
 
@@ -65,17 +67,20 @@ final class PetDataController: ObservableObject {
     }
   }
   
-//  func fetchPetBreeds() {
-//    apiService.fetch(at: EndPoint.breedsPath()) { (result: Result<ResponseOrangization, Error>) in
-//      switch result {
-//      case .failure(let error):
-//        print(error.localizedDescription)
-//      case .success(let organization):
-//        let rawOrganization = organization.organization
-//        self.singleOrganization = OrganizationDetailViewModel(model: rawOrganization)
-//      }
-//    }
-//  }
+  func fetchPetBreeds() {
+    allBreeds = []
+    apiService.fetch(at: EndPoint.breedsPath(type: petType.currentPetType.endPoint.capitalized)) { (result: Result<AllBreeds, Error>) in
+      switch result {
+      case .failure(let error):
+        print(self.petType.currentPetType.name.capitalized)
+        print(error.localizedDescription)
+      case .success(let breeds):
+        let rawBreeds = breeds.breeds
+        self.allBreeds = rawBreeds.map{$0.name}
+//        print("The Breeds: \(self.allBreeds)")
+      }
+    }
+  }
   
   //MARK: - Private Methods
 

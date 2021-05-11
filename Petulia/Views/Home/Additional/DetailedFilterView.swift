@@ -10,6 +10,11 @@ import SwiftUI
 
 //MARK: - The Filter View
 struct DetailFilterView: View {
+  @EnvironmentObject var petDataController: PetDataController
+  private var breeds: [String] {
+    print("Filters Loaded \(petDataController.allBreeds)")
+    return petDataController.allBreeds
+  }
 //  @AppStorage(Keys.age) public var age = ""
 //  @State public var filters:[String:String] = [:]
 //  var breeds: [PetBreed]
@@ -18,16 +23,17 @@ struct DetailFilterView: View {
   @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
   var body: some View {
     VStack(alignment: .leading) {
-      FilterBreed()
+      filterBreedView()
       FilterAge()
       FilterSize()
       FilterGender()
-      FilterLocation()
+//      FilterLocation()
       Button("Apply",action: {
               action?()
               self.presentationMode.wrappedValue.dismiss()
       })
     }
+    .onAppear{ requestBreeds() }
     .navigationBarTitle("Filters")
     .lineSpacing(20)
     .frame(maxWidth: .infinity)
@@ -36,31 +42,13 @@ struct DetailFilterView: View {
 }
 
 //MARK: - The Filters
-private extension DetailFilterView{
+extension DetailFilterView{
+  func requestBreeds(){
+    self.petDataController.fetchPetBreeds()
+  }
   
-  struct FilterBreed: View {
-    var breeds = ["Breed1", "Breed2", "Breed3"]
-    @State private var selectedBreed = 0
-    @State private var toggleAdd = false
-    var body: some View {
-      VStack(alignment: .leading){
-        HStack{
-          Text("Breed")
-            .font(.title2)
-          Button(action: {
-            toggleAdd.toggle()
-          }){
-            if toggleAdd{
-              Image(systemName: "minus")
-            }else{
-              Image(systemName: "plus")
-                .foregroundColor(.green)
-            }
-          }
-        }
-        DropDownPicker(title: "Select Breed", selection: $selectedBreed, options: breeds)
-      }
-    }
+  func filterBreedView() -> some View {
+    FilterBreed(breeds: breeds, action: { requestBreeds() })
   }
   
   //MARK: Age
@@ -210,5 +198,45 @@ private extension DetailFilterView{
           .padding(.vertical, 8)
       }
     }
+  }
+}
+
+//MARK: Breeds
+struct FilterBreed: View {
+  @EnvironmentObject var petDataController: PetDataController
+  var breeds: [String] = []
+  @State private var selectedBreed = 0
+  @State private var toggleAdd = false
+  var action: (() -> Void)?
+  var body: some View {
+    VStack(alignment: .leading){
+      HStack{
+        Text("Breed")
+          .font(.title2)
+        Button(action: {
+          toggleAdd.toggle()
+          if toggleAdd{
+            petDataController.BreedType = breeds[selectedBreed]
+          }else{
+            petDataController.BreedType = nil
+          }
+        }){
+          if toggleAdd{
+            Image(systemName: "minus")
+          }else{
+            Image(systemName: "plus")
+              .foregroundColor(.green)
+          }
+        }
+      }
+      if !breeds.isEmpty{
+        DropDownPicker(title: "Select Breed", selection: $selectedBreed, options: breeds)
+      }
+    }
+    .onAppear(perform: {
+      if petDataController.BreedType != nil{
+        toggleAdd = true
+      }
+    })
   }
 }

@@ -89,11 +89,16 @@ private extension HomeView {
 
   }
   
+  func requestBreeds(){
+    self.petDataController.fetchPetBreeds()
+  }
+  
   //MARK: - Components
   
   func filterView() -> some View {
     FilterBarView(postcode: $postcode, typing: $typing,action:{
       requestWebData()
+      requestBreeds()
     })
   }
   
