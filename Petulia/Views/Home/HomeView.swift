@@ -5,6 +5,8 @@
 //  Created by Johandre Delgado  on 15.08.2020.
 //  Copyright © 2020 Johandre Delgado . All rights reserved.
 //
+// user: test@gmail.com ‼️
+// password: 123456 ‼️
 
 import SwiftUI
 
@@ -12,7 +14,6 @@ struct HomeView: View {
   @EnvironmentObject var petDataController: PetDataController
   @EnvironmentObject var favorites: FavoriteController
   @EnvironmentObject var theme: ThemeManager
-  
   @AppStorage(Keys.savedPostcode) var postcode = ""
   @AppStorage(Keys.isDark) var isDark = false
   

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		28AB66A85B2DAFE092406E0E /* Pods_Petulia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA7C678B83D8948D651C7F86 /* Pods_Petulia.framework */; };
 		2C02EE0E262906E600614B4F /* OrganizationDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C02EE0D262906E600614B4F /* OrganizationDataController.swift */; };
 		2C02EE12262907F600614B4F /* OrganizationDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C02EE11262907F600614B4F /* OrganizationDetailViewModel.swift */; };
 		2C5862DE2628032600725D5E /* OrganizationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5862DD2628032600725D5E /* OrganizationResponse.swift */; };
@@ -34,6 +35,8 @@
 		6983153D24E853B600E1566A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6983153C24E853B600E1566A /* HomeView.swift */; };
 		69E4432124E87AC300B8B3F1 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E4432024E87AC300B8B3F1 /* ListView.swift */; };
 		69E4432524E8820C00B8B3F1 /* PetDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E4432424E8820C00B8B3F1 /* PetDetailViewModel.swift */; };
+		770674952644B26B0073DBED /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 770674942644B26B0073DBED /* GoogleService-Info.plist */; };
+		770674A62644B7F70073DBED /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770674A52644B7F70073DBED /* Authentication.swift */; };
 		7905B2182577A27700A55F37 /* HTMLText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7905B2172577A27700A55F37 /* HTMLText.swift */; };
 		7905B21B2577AC1F00A55F37 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7905B21A2577AC1F00A55F37 /* String+Extension.swift */; };
 		791F4E432581F9A000C5F457 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791F4E422581F9A000C5F457 /* SettingsView.swift */; };
@@ -111,6 +114,8 @@
 		6983153C24E853B600E1566A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		69E4432024E87AC300B8B3F1 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		69E4432424E8820C00B8B3F1 /* PetDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailViewModel.swift; sourceTree = "<group>"; };
+		770674942644B26B0073DBED /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		770674A52644B7F70073DBED /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		7905B2172577A27700A55F37 /* HTMLText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLText.swift; sourceTree = "<group>"; };
 		7905B21A2577AC1F00A55F37 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		791F4E422581F9A000C5F457 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -147,6 +152,9 @@
 		79F93580258B75BF00C9CDCD /* ColoredLabeStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColoredLabeStyle.swift; sourceTree = "<group>"; };
 		79FC94752584D2ED001735C4 /* TileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileView.swift; sourceTree = "<group>"; };
 		79FF944B256A562D00149140 /* Collection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extension.swift"; sourceTree = "<group>"; };
+		8C8E4E0359E5E64D2B3A272D /* Pods-Petulia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Petulia.debug.xcconfig"; path = "Target Support Files/Pods-Petulia/Pods-Petulia.debug.xcconfig"; sourceTree = "<group>"; };
+		AA7C678B83D8948D651C7F86 /* Pods_Petulia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Petulia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4DEC55D983BBA76AA44D847 /* Pods-Petulia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Petulia.release.xcconfig"; path = "Target Support Files/Pods-Petulia/Pods-Petulia.release.xcconfig"; sourceTree = "<group>"; };
 		CF249AE9264074F60029E678 /* ActivityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityController.swift; sourceTree = "<group>"; };
 		CF929FCE2629009200AE886C /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		CF929FD3262900D400AE886C /* OrganizationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationsView.swift; sourceTree = "<group>"; };
@@ -164,12 +172,21 @@
 			files = (
 				7926ABDB256CE0AD00AD8D68 /* SDWebImageSwiftUI in Frameworks */,
 				697E7D7024E9535F0039EBF2 /* Lottie in Frameworks */,
+				28AB66A85B2DAFE092406E0E /* Pods_Petulia.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		24A294624A9F8CC727AAE20B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AA7C678B83D8948D651C7F86 /* Pods_Petulia.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		2CE28712262EA576002D888A /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -242,7 +259,10 @@
 			children = (
 				695B34F024D6CA1500A15D26 /* Petulia */,
 				695B34EF24D6CA1500A15D26 /* Products */,
+				770674942644B26B0073DBED /* GoogleService-Info.plist */,
 				2CE28712262EA576002D888A /* Recovered References */,
+				88637A927AA76E9FB6E6D859 /* Pods */,
+				24A294624A9F8CC727AAE20B /* Frameworks */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -288,6 +308,7 @@
 			children = (
 				695B350524D6CA5A00A15D26 /* APIManager.swift */,
 				796E0ABC25862E71002E0007 /* EndPoint.swift */,
+				770674A52644B7F70073DBED /* Authentication.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -426,6 +447,15 @@
 			path = List;
 			sourceTree = "<group>";
 		};
+		88637A927AA76E9FB6E6D859 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8C8E4E0359E5E64D2B3A272D /* Pods-Petulia.debug.xcconfig */,
+				B4DEC55D983BBA76AA44D847 /* Pods-Petulia.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		CF929FCD2629007B00AE886C /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -451,9 +481,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 695B350224D6CA2000A15D26 /* Build configuration list for PBXNativeTarget "Petulia" */;
 			buildPhases = (
+				31CBAE7768560DB03E9CB6F6 /* [CP] Check Pods Manifest.lock */,
 				695B34EA24D6CA1500A15D26 /* Sources */,
 				695B34EB24D6CA1500A15D26 /* Frameworks */,
 				695B34EC24D6CA1500A15D26 /* Resources */,
+				45C0FE86BBAA2382D8211C73 /* [CP] Embed Pods Frameworks */,
+				05620DD87A365F19DAF02A7C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -515,6 +548,7 @@
 				695B34FE24D6CA2000A15D26 /* LaunchScreen.storyboard in Resources */,
 				697E7D6D24E9528C0039EBF2 /* thanks.json in Resources */,
 				794E2CCA25AAF8CB00234FDA /* paws-preloader.json in Resources */,
+				770674952644B26B0073DBED /* GoogleService-Info.plist in Resources */,
 				695B34FB24D6CA2000A15D26 /* Preview Assets.xcassets in Resources */,
 				CF929FF026360C6100AE886C /* Petfinder-Info.plist in Resources */,
 				794E2CCB25AAF8CB00234FDA /* cat-preloader.json in Resources */,
@@ -525,6 +559,65 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		05620DD87A365F19DAF02A7C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Petulia/Pods-Petulia-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Petulia/Pods-Petulia-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Petulia/Pods-Petulia-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		31CBAE7768560DB03E9CB6F6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Petulia-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		45C0FE86BBAA2382D8211C73 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Petulia/Pods-Petulia-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Petulia/Pods-Petulia-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Petulia/Pods-Petulia-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		695B34EA24D6CA1500A15D26 /* Sources */ = {
@@ -554,6 +647,7 @@
 				695B350824D7022E00A15D26 /* PetResponse.swift in Sources */,
 				2C5862DE2628032600725D5E /* OrganizationResponse.swift in Sources */,
 				797A0EC925ACA2FB00E40F9E /* PetTypeScrollView.swift in Sources */,
+				770674A62644B7F70073DBED /* Authentication.swift in Sources */,
 				697E7D7224E954950039EBF2 /* LottieView.swift in Sources */,
 				CF929FCF2629009300AE886C /* MainView.swift in Sources */,
 				79B037A825837DE600E2046D /* Animal+Extension.swift in Sources */,
@@ -725,6 +819,7 @@
 		};
 		695B350324D6CA2000A15D26 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C8E4E0359E5E64D2B3A272D /* Pods-Petulia.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -748,6 +843,7 @@
 		};
 		695B350424D6CA2000A15D26 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B4DEC55D983BBA76AA44D847 /* Pods-Petulia.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
