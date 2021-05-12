@@ -28,14 +28,17 @@ struct OrganizationInfoView: View {
     VStack {
       Text("\(organization.name)")
         .font(.title)
+        .fontWeight(.light)
         .multilineTextAlignment(.center)
         .padding(.bottom, 2)
         .padding(.leading, 4)
         .padding(.trailing, 4)
       if organization.addressStreet != "Does not exist" {
         Text("\(organization.addressStreet)")
+          .fontWeight(.light)
       }
       Text("\(organization.addressCity), \(organization.addressState)")
+        .fontWeight(.light)
 //        .font(.title2)
 //      Spacer()
       VStack {
