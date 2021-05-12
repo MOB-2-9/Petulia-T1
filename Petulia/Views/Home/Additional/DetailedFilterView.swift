@@ -28,7 +28,8 @@ struct DetailFilterView: View {
                 action?()
                 self.presentationMode.wrappedValue.dismiss()
         })
-        .frame(maxWidth: .infinity, maxHeight: 20)
+        .frame(height: 50)
+        .frame(maxWidth: .infinity)
         .foregroundColor(.white)
         .background(Color.green)
         .cornerRadius(15)
@@ -66,6 +67,7 @@ extension DetailFilterView{
         HStack{
           Text("Age")
             .font(.title2)
+            .fontWeight(.bold)
           Button(action: {
             toggleAdd.toggle()
             if toggleAdd == true{
@@ -82,6 +84,9 @@ extension DetailFilterView{
             }
           }
         }
+        .padding(7)
+        .background(Color("lightGray"))
+        .cornerRadius(5)
         DropDownPicker(title: "Pet Ages", selection: $ageNum, options: ages)
           .onChange(of: ageNum, perform: {_ in
             if toggleAdd == true{
@@ -108,6 +113,7 @@ extension DetailFilterView{
         HStack{
           Text("Animal Size")
             .font(.title2)
+            .fontWeight(.bold)
           Button(action: {
             toggleAdd.toggle()
             if toggleAdd == true{
@@ -124,6 +130,9 @@ extension DetailFilterView{
             }
           }
         }
+        .padding(7)
+        .background(Color("lightGray"))
+        .cornerRadius(5)
         DropDownPicker(title: "Pet Size", selection: $sizeNum, options: sizes)
           .onChange(of: sizeNum, perform: {_ in
             if toggleAdd == true{
@@ -150,6 +159,7 @@ extension DetailFilterView{
         HStack{
           Text("Gender")
             .font(.title2)
+            .fontWeight(.bold)
           Button(action: {
             toggleAdd.toggle()
             if toggleAdd == true{
@@ -166,6 +176,9 @@ extension DetailFilterView{
             }
           }
         }
+        .padding(7)
+        .background(Color("lightGray"))
+        .cornerRadius(5)
         DropDownPicker(title: "Gender", selection: $genNum, options: genders)
           .onChange(of: genNum, perform: {_ in
             if toggleAdd == true{
@@ -194,6 +207,7 @@ struct FilterBreed: View {
       HStack{
         Text("Breed")
           .font(.title2)
+          .fontWeight(.bold)
         Button(action: {
           toggleAdd.toggle()
           if toggleAdd{
@@ -209,7 +223,12 @@ struct FilterBreed: View {
               .foregroundColor(.green)
           }
         }
+        
       }
+      .padding(7)
+      .background(Color("lightGray"))
+      .cornerRadius(5)
+      
       if !breeds.isEmpty{
         DropDownPicker(title: "Select Breed", selection: $breedNum, options: breeds)
       }
