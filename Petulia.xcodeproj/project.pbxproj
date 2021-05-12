@@ -13,6 +13,9 @@
 		2CE28716262EA5A0002D888A /* Petfinder-Info-Template.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE28715262EA5A0002D888A /* Petfinder-Info-Template.plist */; };
 		3F0A05F22638CCB1000A55A1 /* OrgSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0A05F12638CCB1000A55A1 /* OrgSectionView.swift */; };
 		3F0A05F62638CD20000A55A1 /* OrgPetListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0A05F52638CD20000A55A1 /* OrgPetListView.swift */; };
+		3F18664D264B481800071625 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F18664C264B481800071625 /* LoginView.swift */; };
+		3F18664F264B4AC600071625 /* AuthLanding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F18664E264B4AC600071625 /* AuthLanding.swift */; };
+		3F186651264B4B9400071625 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F186650264B4B9400071625 /* SignUpView.swift */; };
 		3F91B3792629043E00DAD14B /* OrganizationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91B3782629043E00DAD14B /* OrganizationDetailView.swift */; };
 		3F96BA58263B6612008FC8C7 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F96BA57263B6612008FC8C7 /* MapView.swift */; };
 		69263DE424E58B8B00EABF0E /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69263DE324E58B8B00EABF0E /* RoundedCorner.swift */; };
@@ -89,6 +92,9 @@
 		2CE28715262EA5A0002D888A /* Petfinder-Info-Template.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Petfinder-Info-Template.plist"; path = "Petulia/Petfinder-Info-Template.plist"; sourceTree = "<group>"; };
 		3F0A05F12638CCB1000A55A1 /* OrgSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgSectionView.swift; sourceTree = "<group>"; };
 		3F0A05F52638CD20000A55A1 /* OrgPetListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgPetListView.swift; sourceTree = "<group>"; };
+		3F18664C264B481800071625 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		3F18664E264B4AC600071625 /* AuthLanding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthLanding.swift; sourceTree = "<group>"; };
+		3F186650264B4B9400071625 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		3F91B3782629043E00DAD14B /* OrganizationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationDetailView.swift; sourceTree = "<group>"; };
 		3F96BA57263B6612008FC8C7 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		69263DE324E58B8B00EABF0E /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
@@ -186,6 +192,16 @@
 				3F96BA57263B6612008FC8C7 /* MapView.swift */,
 			);
 			path = Extras;
+			sourceTree = "<group>";
+		};
+		3F18664B264B47D200071625 /* AuthorizationViews */ = {
+			isa = PBXGroup;
+			children = (
+				3F18664C264B481800071625 /* LoginView.swift */,
+				3F18664E264B4AC600071625 /* AuthLanding.swift */,
+				3F186650264B4B9400071625 /* SignUpView.swift */,
+			);
+			path = AuthorizationViews;
 			sourceTree = "<group>";
 		};
 		69263DE224E58B5A00EABF0E /* Reusable Views */ = {
@@ -319,6 +335,7 @@
 		69E4432224E87DAE00B8B3F1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3F18664B264B47D200071625 /* AuthorizationViews */,
 				CF929FD2262900BE00AE886C /* Organizations */,
 				CF929FCD2629007B00AE886C /* TabBar */,
 				79FC94782584D48D001735C4 /* Home */,
@@ -547,8 +564,10 @@
 				79F93581258B75BF00C9CDCD /* ColoredLabeStyle.swift in Sources */,
 				791F4E46258217CC00C5F457 /* Color+Extension.swift in Sources */,
 				7930A4B92567F7A200746ADE /* PetDetailView.swift in Sources */,
+				3F186651264B4B9400071625 /* SignUpView.swift in Sources */,
 				69E4432124E87AC300B8B3F1 /* ListView.swift in Sources */,
 				7926ABE1256D430900AD8D68 /* PetType.swift in Sources */,
+				3F18664D264B481800071625 /* LoginView.swift in Sources */,
 				695B350624D6CA5A00A15D26 /* APIManager.swift in Sources */,
 				2C02EE12262907F600614B4F /* OrganizationDetailViewModel.swift in Sources */,
 				695B350824D7022E00A15D26 /* PetResponse.swift in Sources */,
@@ -563,6 +582,7 @@
 				6962D2A024E2CB3B00772A61 /* ActivityIndicator.swift in Sources */,
 				79F9357D258B3D2E00C9CDCD /* AsyncGalleryView.swift in Sources */,
 				794FEAD3259C87F60010B381 /* KeyboardToolBarView.swift in Sources */,
+				3F18664F264B4AC600071625 /* AuthLanding.swift in Sources */,
 				794E2CDA25AB444600234FDA /* RetryCard.swift in Sources */,
 				695B34F224D6CA1500A15D26 /* AppDelegate.swift in Sources */,
 				796E0ABD25862E72002E0007 /* EndPoint.swift in Sources */,

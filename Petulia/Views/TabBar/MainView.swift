@@ -27,6 +27,13 @@ struct MainView: View {
                 icon: { Image(systemName: "person.3.fill") }
               )
             }
+          AuthLandingView()
+            .tabItem{
+              Label(
+                title: {Text("Profile")},
+                icon: { Image(systemName: "person.circle") }
+              )
+            }
         }
       .accentColor(theme.accentColor)
     }
