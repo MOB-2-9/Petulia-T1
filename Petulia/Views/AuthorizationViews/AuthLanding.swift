@@ -15,10 +15,13 @@ struct AuthLandingView: View {
     NavigationView {
       VStack(spacing: 50){
         VStack{
-//          Image("paw")
-//            .frame(maxWidth: .infinity)
-//            .scaledToFit()
-//            .clipShape(Circle())
+          Image("paw")
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(maxWidth: .infinity)
+            .scaledToFit()
+            .clipShape(Circle())
+            .shadow(radius: 5)
           Text("Welcome!")
             .font(.title)
         }
