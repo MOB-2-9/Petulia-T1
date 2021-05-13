@@ -11,13 +11,12 @@ import SwiftUI
 struct OnboardingView: View {
     
     var subviews = [
-        UIHostingController(rootView: ImageSubview(imageString: "ordering")),
-            UIHostingController(rootView: ImageSubview(imageString: "cooking")),
-            UIHostingController(rootView: ImageSubview(imageString: "breakfast"))
-        ]
+        UIHostingController(rootView: ImageSubview(imageString: "cat2")),
+        UIHostingController(rootView: ImageSubview(imageString: "duck")),
+        UIHostingController(rootView: ImageSubview(imageString: "dog2"))
+    ]
         
     var captions:[String] = ["Search lovable pets", "Find someone near you", "Adopt a lifelong friend!"]
-    var captios:[String] = []
     
     @State var currentPageIndex = 0
     var body: some View {
@@ -26,8 +25,6 @@ struct OnboardingView: View {
                 PageViewController(currentPageIndex: $currentPageIndex, viewControllers: subviews)
                     .frame(height: 500)
                 Group {
-    //                Text(titles[currentPageIndex])
-    //                    .font(.title)
                     Text(captions[currentPageIndex])
                         .font(.system(.largeTitle, design: .rounded))
         //                .foregroundColor(.gray)
@@ -39,7 +36,7 @@ struct OnboardingView: View {
                     PageControl(numPages: subviews.count, currentPageIndex: $currentPageIndex)
                     Spacer()
                     if self.currentPageIndex+1 == self.subviews.count {
-                        NavigationLink(destination: LoginView()) {
+                        NavigationLink(destination: MainView()) {
                             ButtonContent()
                         }
                     } else {
@@ -53,21 +50,21 @@ struct OnboardingView: View {
                 }
                     .padding()
             }
-            .navigationBarTitle("Breakfast Box")
+            .navigationBarTitle("Petulia")
         }
     }
 }
 
 struct ButtonContent: View {
-    var body: some View {
-        Image(systemName: "arrow.right")
-            .resizable()
-            .foregroundColor(.white)
-            .frame(width: 30, height: 30)
-            .padding()
-            .background(Color.orange)
-            .cornerRadius(30)
-    }
+  var body: some View {
+    Image(systemName: "arrow.right")
+      .resizable()
+      .foregroundColor(.white)
+      .frame(width: 30, height: 30)
+      .padding()
+      .background(Color.orange)
+      .cornerRadius(30)
+  }
 }
 
 struct OnboardingView_Previews: PreviewProvider {

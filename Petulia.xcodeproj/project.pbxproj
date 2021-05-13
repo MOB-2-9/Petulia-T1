@@ -75,6 +75,9 @@
 		CF249AF1264D8B670029E678 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF249AF0264D8B660029E678 /* OnboardingView.swift */; };
 		CF249AF4264D8BF40029E678 /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF249AF3264D8BF40029E678 /* PageControl.swift */; };
 		CF249AF7264D8C290029E678 /* ImageSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF249AF6264D8C290029E678 /* ImageSubview.swift */; };
+		CF249AFA264DA5080029E678 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF249AF9264DA5070029E678 /* PageViewController.swift */; };
+		CF249B01264DA6B30029E678 /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF249B00264DA6B30029E678 /* ViewRouter.swift */; };
+		CF249B04264DA7230029E678 /* MotherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF249B03264DA7230029E678 /* MotherView.swift */; };
 		CF929FCF2629009300AE886C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF929FCE2629009200AE886C /* MainView.swift */; };
 		CF929FD4262900D400AE886C /* OrganizationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF929FD3262900D400AE886C /* OrganizationsView.swift */; };
 		CF929FD9262E2D4D00AE886C /* OrganizationScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF929FD8262E2D4D00AE886C /* OrganizationScrollView.swift */; };
@@ -154,6 +157,9 @@
 		CF249AF0264D8B660029E678 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		CF249AF3264D8BF40029E678 /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
 		CF249AF6264D8C290029E678 /* ImageSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSubview.swift; sourceTree = "<group>"; };
+		CF249AF9264DA5070029E678 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		CF249B00264DA6B30029E678 /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
+		CF249B03264DA7230029E678 /* MotherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotherView.swift; sourceTree = "<group>"; };
 		CF929FCE2629009200AE886C /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		CF929FD3262900D400AE886C /* OrganizationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationsView.swift; sourceTree = "<group>"; };
 		CF929FD8262E2D4D00AE886C /* OrganizationScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationScrollView.swift; sourceTree = "<group>"; };
@@ -266,6 +272,7 @@
 		695B34F024D6CA1500A15D26 /* Petulia */ = {
 			isa = PBXGroup;
 			children = (
+				CF249AEF264D8AE20029E678 /* Onboarding */,
 				69263DE824E591C300EABF0E /* Models */,
 				69E4432224E87DAE00B8B3F1 /* Views */,
 				6983153924E84D0900E1566A /* ViewModels */,
@@ -318,6 +325,7 @@
 				69E4432424E8820C00B8B3F1 /* PetDetailViewModel.swift */,
 				2C02EE0D262906E600614B4F /* OrganizationDataController.swift */,
 				2C02EE11262907F600614B4F /* OrganizationDetailViewModel.swift */,
+				CF249B00264DA6B30029E678 /* ViewRouter.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -325,7 +333,6 @@
 		69E4432224E87DAE00B8B3F1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CF249AEF264D8AE20029E678 /* Onboarding */,
 				CF929FD2262900BE00AE886C /* Organizations */,
 				CF929FCD2629007B00AE886C /* TabBar */,
 				79FC94782584D48D001735C4 /* Home */,
@@ -334,6 +341,7 @@
 				7930A4B72567F76100746ADE /* DetailUI */,
 				69263DE224E58B5A00EABF0E /* Reusable Views */,
 				792346752576154B005E2644 /* Styles */,
+				CF249B03264DA7230029E678 /* MotherView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -439,6 +447,7 @@
 				CF249AF0264D8B660029E678 /* OnboardingView.swift */,
 				CF249AF3264D8BF40029E678 /* PageControl.swift */,
 				CF249AF6264D8C290029E678 /* ImageSubview.swift */,
+				CF249AF9264DA5070029E678 /* PageViewController.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -552,9 +561,11 @@
 				CF249AF7264D8C290029E678 /* ImageSubview.swift in Sources */,
 				79B037AB258380E600E2046D /* PetRow.swift in Sources */,
 				794945AB25825BCA00BF02DE /* Date+Extension.swift in Sources */,
+				CF249B04264DA7230029E678 /* MotherView.swift in Sources */,
 				79FF944C256A562D00149140 /* Collection+Extension.swift in Sources */,
 				7965DDC7257A33F700829328 /* AdoptionFeedbackView.swift in Sources */,
 				69E4432524E8820C00B8B3F1 /* PetDetailViewModel.swift in Sources */,
+				CF249B01264DA6B30029E678 /* ViewRouter.swift in Sources */,
 				79CA6E182594808D001E2FCF /* ServerPetTypes.swift in Sources */,
 				791F4E432581F9A000C5F457 /* SettingsView.swift in Sources */,
 				CF929FDC262E2D5E00AE886C /* OrganizationInfoView.swift in Sources */,
@@ -563,6 +574,7 @@
 				7962EBFF258C97F400322283 /* ThemeManager.swift in Sources */,
 				3F91B3792629043E00DAD14B /* OrganizationDetailView.swift in Sources */,
 				79F93581258B75BF00C9CDCD /* ColoredLabeStyle.swift in Sources */,
+				CF249AFA264DA5080029E678 /* PageViewController.swift in Sources */,
 				791F4E46258217CC00C5F457 /* Color+Extension.swift in Sources */,
 				7930A4B92567F7A200746ADE /* PetDetailView.swift in Sources */,
 				69E4432124E87AC300B8B3F1 /* ListView.swift in Sources */,
