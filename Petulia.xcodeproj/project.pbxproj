@@ -72,6 +72,9 @@
 		79FC94762584D2ED001735C4 /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FC94752584D2ED001735C4 /* TileView.swift */; };
 		79FF944C256A562D00149140 /* Collection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FF944B256A562D00149140 /* Collection+Extension.swift */; };
 		CF249AEA264074F60029E678 /* ActivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF249AE9264074F60029E678 /* ActivityController.swift */; };
+		CF249AF1264D8B670029E678 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF249AF0264D8B660029E678 /* OnboardingView.swift */; };
+		CF249AF4264D8BF40029E678 /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF249AF3264D8BF40029E678 /* PageControl.swift */; };
+		CF249AF7264D8C290029E678 /* ImageSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF249AF6264D8C290029E678 /* ImageSubview.swift */; };
 		CF929FCF2629009300AE886C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF929FCE2629009200AE886C /* MainView.swift */; };
 		CF929FD4262900D400AE886C /* OrganizationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF929FD3262900D400AE886C /* OrganizationsView.swift */; };
 		CF929FD9262E2D4D00AE886C /* OrganizationScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF929FD8262E2D4D00AE886C /* OrganizationScrollView.swift */; };
@@ -148,6 +151,9 @@
 		79FC94752584D2ED001735C4 /* TileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileView.swift; sourceTree = "<group>"; };
 		79FF944B256A562D00149140 /* Collection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extension.swift"; sourceTree = "<group>"; };
 		CF249AE9264074F60029E678 /* ActivityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityController.swift; sourceTree = "<group>"; };
+		CF249AF0264D8B660029E678 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		CF249AF3264D8BF40029E678 /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
+		CF249AF6264D8C290029E678 /* ImageSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSubview.swift; sourceTree = "<group>"; };
 		CF929FCE2629009200AE886C /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		CF929FD3262900D400AE886C /* OrganizationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationsView.swift; sourceTree = "<group>"; };
 		CF929FD8262E2D4D00AE886C /* OrganizationScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationScrollView.swift; sourceTree = "<group>"; };
@@ -319,6 +325,7 @@
 		69E4432224E87DAE00B8B3F1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CF249AEF264D8AE20029E678 /* Onboarding */,
 				CF929FD2262900BE00AE886C /* Organizations */,
 				CF929FCD2629007B00AE886C /* TabBar */,
 				79FC94782584D48D001735C4 /* Home */,
@@ -424,6 +431,16 @@
 				79B037AA258380E600E2046D /* PetRow.swift */,
 			);
 			path = List;
+			sourceTree = "<group>";
+		};
+		CF249AEF264D8AE20029E678 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				CF249AF0264D8B660029E678 /* OnboardingView.swift */,
+				CF249AF3264D8BF40029E678 /* PageControl.swift */,
+				CF249AF6264D8C290029E678 /* ImageSubview.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		CF929FCD2629007B00AE886C /* TabBar */ = {
@@ -532,6 +549,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				695B350A24D70A0100A15D26 /* PetDataController.swift in Sources */,
+				CF249AF7264D8C290029E678 /* ImageSubview.swift in Sources */,
 				79B037AB258380E600E2046D /* PetRow.swift in Sources */,
 				794945AB25825BCA00BF02DE /* Date+Extension.swift in Sources */,
 				79FF944C256A562D00149140 /* Collection+Extension.swift in Sources */,
@@ -552,6 +570,7 @@
 				695B350624D6CA5A00A15D26 /* APIManager.swift in Sources */,
 				2C02EE12262907F600614B4F /* OrganizationDetailViewModel.swift in Sources */,
 				695B350824D7022E00A15D26 /* PetResponse.swift in Sources */,
+				CF249AF4264D8BF40029E678 /* PageControl.swift in Sources */,
 				2C5862DE2628032600725D5E /* OrganizationResponse.swift in Sources */,
 				797A0EC925ACA2FB00E40F9E /* PetTypeScrollView.swift in Sources */,
 				697E7D7224E954950039EBF2 /* LottieView.swift in Sources */,
@@ -564,6 +583,7 @@
 				79F9357D258B3D2E00C9CDCD /* AsyncGalleryView.swift in Sources */,
 				794FEAD3259C87F60010B381 /* KeyboardToolBarView.swift in Sources */,
 				794E2CDA25AB444600234FDA /* RetryCard.swift in Sources */,
+				CF249AF1264D8B670029E678 /* OnboardingView.swift in Sources */,
 				695B34F224D6CA1500A15D26 /* AppDelegate.swift in Sources */,
 				796E0ABD25862E72002E0007 /* EndPoint.swift in Sources */,
 				7930A4B42567F67E00746ADE /* StreachingHeader.swift in Sources */,
