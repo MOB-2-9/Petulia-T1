@@ -27,27 +27,28 @@ struct HomeView: View {
     }
     return petDataController.allPets
   }
-
+  
   var body: some View {
     NavigationView {
       ZStack (alignment: .bottom) {
-      VStack {
-        ScrollView(.vertical, showsIndicators: false) {
-          VStack {
-            filterView().padding(.top)
-            petTypeScrollView()
-            recentPetSectionView()
-            favoritesSectionView()
+        VStack {
+          ScrollView(.vertical, showsIndicators: false) {
+            VStack {
+              filterView().padding(.top)
+              NavigationLink(destination: filterDetailView()){ Text("+ filters") }
+              petTypeScrollView()
+              recentPetSectionView()
+              favoritesSectionView()
+            }
+            .padding(.bottom)
           }
-          .padding(.bottom)
         }
-      }
         if typing {
           KeyboardToolBarView() {
             requestWebData()
           }
         }
-    }
+      }
       .navigationBarTitle("Petulia")
       .navigationBarItems(trailing:
                             HStack { settingsControlView() })
@@ -66,12 +67,23 @@ private extension HomeView {
     self.petDataController.requestPets(around: postcode.isEmpty ? nil : postcode)
   }
   
+  func requestBreeds(){
+    self.petDataController.fetchPetBreeds()
+  }
+  
   //MARK: - Components
   
-    func filterView() -> some View {
-    FilterBarView(postcode: $postcode, typing: $typing) {
+  func filterView() -> some View {
+    FilterBarView(postcode: $postcode, typing: $typing,action:{
       requestWebData()
-    }
+      requestBreeds()
+    })
+  }
+  
+  func filterDetailView() -> some View{
+    DetailFilterView(action: { 
+      requestWebData()
+    })
   }
   
     func petTypeScrollView() -> some View {
@@ -79,6 +91,7 @@ private extension HomeView {
       types: petDataController.petType.types,
       currentPetType: petDataController.petType.currentPetType) { (petType) in
       petDataController.petType.set(to: petType)
+      petDataController.BreedType = nil
       requestWebData()
     }
   }

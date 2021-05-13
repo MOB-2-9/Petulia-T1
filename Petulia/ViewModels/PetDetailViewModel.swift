@@ -16,6 +16,8 @@ struct PetDetailViewModel: Identifiable, Hashable, Codable {
   var name: String
   var species: String
   var breed: String
+  var isMixed: Bool
+  var breedSecond: String
   var size: String
   var age: String
   var tags: [String]
@@ -35,7 +37,9 @@ struct PetDetailViewModel: Identifiable, Hashable, Codable {
     self.name = model.name ?? "Pet Name"
     self.urlString = model.url
     self.species = model.species ?? "N/A"
-    self.breed = model.breeds?.primary ?? "Unreported" 
+    self.breed = model.breeds?.primary ?? "Unreported"
+    self.isMixed = model.breeds?.mixed ?? false
+    self.breedSecond = model.breeds?.secondary ?? "Unreported"
     self.size = model.size ?? "N/A"
     self.age = model.age ?? "N/A"
     self.tags = model.tags ?? []

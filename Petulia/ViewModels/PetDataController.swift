@@ -16,7 +16,12 @@ enum PageDirection {
 
 final class PetDataController: ObservableObject {
   
+  @Published var BreedType: String? = nil
+  @Published var GenderFilter: String? = nil
+  @Published var SizeFilter: String? = nil
+  @Published var AgeFilter: String? = nil
   @Published private(set) var allPets: [PetDetailViewModel] = []
+  @Published private(set) var allBreeds: [String] = []
   @Published private(set) var petType: PetTypeController
   @Published private(set) var isLoading: Bool = false
   
@@ -37,7 +42,7 @@ final class PetDataController: ObservableObject {
     allPets = []
 
     let type = petType.currentPetType.endPoint
-    let filters = ["type": type, "location": postcode]
+    let filters = ["type": type, "location": postcode, "breed":BreedType, "gender":GenderFilter, "age":AgeFilter,"size":SizeFilter]
     let filtered = filters.compactMapValues { $0 }
     print("filtered: \(filtered)")
 
@@ -61,6 +66,21 @@ final class PetDataController: ObservableObject {
       if let nextPage = pagination.links?.next {
         let endpoint = EndPoint.animals(from: nextPage)
         requestPetsInPage(at: endpoint)
+      }
+    }
+  }
+  
+  func fetchPetBreeds() {
+    allBreeds = []
+    apiService.fetch(at: EndPoint.breedsPath(type: petType.currentPetType.endPoint.capitalized)) { (result: Result<AllBreeds, Error>) in
+      switch result {
+      case .failure(let error):
+        print(self.petType.currentPetType.name.capitalized)
+        print(error.localizedDescription)
+      case .success(let breeds):
+        let rawBreeds = breeds.breeds
+        self.allBreeds = rawBreeds.map{$0.name}
+//        print("The Breeds: \(self.allBreeds)")
       }
     }
   }

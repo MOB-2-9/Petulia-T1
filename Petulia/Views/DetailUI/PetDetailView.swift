@@ -201,6 +201,15 @@ private extension PetDetailView {
           Text("\(viewModel.breed)")
           .font(.body)
           .fontWeight(.bold)
+        if viewModel.isMixed == true{
+          Text("Secondary breed: ")
+            .font(.body)
+            .fontWeight(.light)
+            +
+            Text("\(viewModel.breedSecond)")
+            .font(.body)
+            .fontWeight(.bold)
+        }
       }
       .padding(.top)
       

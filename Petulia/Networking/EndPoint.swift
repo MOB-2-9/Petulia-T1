@@ -41,6 +41,11 @@ extension EndPoint {
   static func animals(from link: LinkString)  -> Self {
     EndPoint(path: link.href)
   }
+  
+  static func breedsPath(type : String)  -> Self {
+//    //api.petfinder.com/v2/types/{type}/breeds
+    EndPoint(path: Keys.allTypesPath + "/" + type + "/breeds")
+  }
 
   static var typesPath: Self {
     EndPoint(path: Keys.allTypesPath)
