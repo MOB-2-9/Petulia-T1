@@ -18,7 +18,7 @@ struct DropDownPicker: View {
   
   var body: some View {
     ZStack {
-      // Static row which shows user's current selection
+      // Static row which shows user's current selection - source
       HStack {
         Text(title)
         Spacer()
@@ -34,13 +34,13 @@ struct DropDownPicker: View {
       .padding(.vertical, 8)
       .background(Color.white)
       .onTapGesture {
-        // show the dropdown options
+        // show the dropdown options - - source
         withAnimation(Animation.spring().speed(2)) {
           showOptions = true
         }
       }
       
-      // Drop down options
+      // Drop down options - - source
       if showOptions {
         VStack(alignment: .leading, spacing: 4) {
           Text(title)
@@ -59,7 +59,7 @@ struct DropDownPicker: View {
                       .background(Color.gray.opacity(0.2))
                       .cornerRadius(4)
                       .onTapGesture {
-                        // hide dropdown options - user selection didn't change
+                        // hide dropdown options - user selection didn't change - source
                         withAnimation(Animation.spring().speed(2)) {
                           showOptions = false
                         }
@@ -68,7 +68,7 @@ struct DropDownPicker: View {
                     Text(options[i])
                       .font(.system(size: 12))
                       .onTapGesture {
-                        // update user selection and close options dropdown
+                        // update user selection and close options dropdown - source
                         withAnimation(Animation.spring().speed(2)) {
                           selection = i
                           showOptions = false
@@ -93,7 +93,7 @@ struct DropDownPicker: View {
                     .background(Color.gray.opacity(0.2))
                     .cornerRadius(4)
                     .onTapGesture {
-                      // hide dropdown options - user selection didn't change
+                      // hide dropdown options - user selection didn't change - source
                       withAnimation(Animation.spring().speed(2)) {
                         showOptions = false
                       }
@@ -102,7 +102,7 @@ struct DropDownPicker: View {
                   Text(options[i])
                     .font(.system(size: 12))
                     .onTapGesture {
-                      // update user selection and close options dropdown
+                      // update user selection and close options dropdown - source
                       withAnimation(Animation.spring().speed(2)) {
                         selection = i
                         showOptions = false

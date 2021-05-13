@@ -21,8 +21,6 @@ struct HomeView: View {
   @State private var typing = false
   @State private var showSettingsSheet = false
   
-//  @Binding var filters:[String:String]
-  
   private var filteredPets: [PetDetailViewModel] {
     if photoOnly == true {
       return petDataController.allPets.filter { $0.photos.count != 0 }

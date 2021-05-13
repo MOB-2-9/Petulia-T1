@@ -39,7 +39,6 @@ struct DetailFilterView: View {
     }
     .onAppear{ requestBreeds() }
     .navigationBarTitle("Filters")
-//    .navigationBarHidden(true)
     .frame(maxWidth: .infinity)
     .padding()
     
