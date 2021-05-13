@@ -59,6 +59,7 @@ struct OrganizationsView: View {
       }
       .navigationBarTitle("Organizations")
     }
+    .navigationBarBackButtonHidden(true)
     .onAppear { requestWebData() } 
     .accentColor(theme.accentColor)
   }
