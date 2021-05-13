@@ -30,7 +30,7 @@ struct FilterBarView: View {
                   })
           .font(.headline)
           .multilineTextAlignment(.center)
-          .keyboardType(.numbersAndPunctuation)
+          .keyboardType(.numberPad)
           .disableAutocorrection(true)
           .frame(maxWidth: 100)
           .padding(.vertical, 8)
