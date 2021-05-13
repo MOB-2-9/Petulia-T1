@@ -51,6 +51,7 @@ struct HomeView: View {
       .navigationBarTitle("Petulia")
       .navigationBarItems(trailing:
                             HStack { settingsControlView() })
+      .navigationBarBackButtonHidden(true)
     }
     .onAppear { requestWebData() } // Assures data at startup
     .navigationViewStyle(StackNavigationViewStyle()) // Solves the double column bug

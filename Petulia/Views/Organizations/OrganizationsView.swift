@@ -59,6 +59,7 @@ struct OrganizationsView: View {
       }
       .navigationBarTitle("Organizations")
     }
+    .navigationBarBackButtonHidden(true)
     .onAppear { requestWebData() } 
     .accentColor(theme.accentColor)
   }
@@ -79,8 +80,9 @@ extension OrganizationsView {
   func organizationInfoView() -> some View {
     if UIState.activeCard < 0 {
       UIState.activeCard = 0
-    } else if UIState.activeCard >= filteredOrgs.count {
-      UIState.activeCard = filteredOrgs.count - 1
+    } else if UIState.activeCard == filteredOrgs.count {
+      organizationDataController.requestPage(direction: .next) /// ideally this line would append the new orgs to the current orgs so that filteredOrgs gets updated
+      UIState.activeCard = UIState.activeCard - 1
     }
     return OrganizationInfoView(organization: filteredOrgs[UIState.activeCard])
   }
@@ -93,9 +95,10 @@ extension OrganizationsView {
     organizationDataController.requestOrgs(around: postcode)
   }
   
+  // not sure where to call this function
   func requestNextOrgs() {
     if UIState.activeCard == filteredOrgs.count - 1 {
-      organizationDataController.requestPage(direction: .next)
+      organizationDataController.requestPage(direction: .next) /// ideally this line would append the new orgs to the current orgs so that filteredOrgs gets updated
     }
   }
 }
