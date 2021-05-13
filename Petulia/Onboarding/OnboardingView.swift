@@ -17,12 +17,12 @@ struct OnboardingView: View {
   @EnvironmentObject var organizationDataController: OrganizationDataController
     
 var subviews = [
-  UIHostingController(rootView: ImageSubview(imageString: "cat2")),
-  UIHostingController(rootView: ImageSubview(imageString: "duck")),
-  UIHostingController(rootView: ImageSubview(imageString: "dog2"))
+  UIHostingController(rootView: ImageSubview(imageString: "playful-cat")),
+  UIHostingController(rootView: ImageSubview(imageString: "adopt-pet")),
+  UIHostingController(rootView: ImageSubview(imageString: "pet-friends"))
 ]
       
-  var captions:[String] = ["Search lovable pets", "Find someone near you", "Adopt a lifelong friend!"]
+  var captions:[String] = ["Search lovable pets", "Adopt a lifelong friend", "Get started now!"]
   
   @State var currentPageIndex = 0
   var body: some View {
@@ -33,7 +33,7 @@ var subviews = [
         Group {
           Text(captions[currentPageIndex])
             .font(.system(.largeTitle, design: .rounded))
-//                .foregroundColor(.gray)
+            .fontWeight(.light)
             .frame(width: 300, height: 100, alignment: .leading)
             .lineLimit(nil)
         }
@@ -69,7 +69,7 @@ struct ButtonContent: View {
       .foregroundColor(.white)
       .frame(width: 30, height: 30)
       .padding()
-      .background(Color.orange)
+      .background(Color.pink)
       .cornerRadius(30)
   }
 }
